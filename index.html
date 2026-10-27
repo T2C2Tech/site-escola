@@ -1,0 +1,1673 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Escola Reino Feliz | Juiz de Fora - MG (V4)</title>
+  <meta name="description"
+    content="Escola Reino Feliz no Bairro Mariano Procópio em Juiz de Fora. Berçário, Educação Infantil e Fundamental I. Onde o aprendizado ganha asas e o afeto guia cada descoberta." />
+
+  <!-- Fontes do DESIGN.md: Quicksand e Nunito Sans + Google Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,600;0,6..12,700;1,6..12,400&family=Quicksand:wght@500;600;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
+    rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN configurado estritamente com os tokens do DESIGN.md -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            // Surface & Canvas (Luminous Childhood Palette)
+            "surface": "#f7f9ff",
+            "surface-dim": "#c9dcf3",
+            "surface-bright": "#f7f9ff",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#edf4ff",
+            "surface-container": "#e3efff",
+            "surface-container-high": "#d9eaff",
+            "surface-container-highest": "#d1e4fb",
+            "surface-variant": "#d1e4fb",
+            "on-surface": "#091d2e",
+            "on-surface-variant": "#5b403f",
+            "inverse-surface": "#203243",
+            "inverse-on-surface": "#e8f2ff",
+            "outline": "#8f6f6e",
+            "outline-variant": "#e4bebc",
+            "surface-tint": "#bb152c",
+
+            // Primary & Acentos Quentes (Terracota Acolhedor / Argila Lúdica - suave e orgânico)
+            "primary": "#9C4A3E", // Terracotba nobre e equilibrado
+            "on-primary": "#ffffff",
+            "primary-container": "#B85D4F", // Terracota médio
+            "on-primary-container": "#fffbff",
+            "inverse-primary": "#ffb4a8",
+            "primary-fixed": "#ffdad4",
+            "primary-fixed-dim": "#ffb4a8",
+            "on-primary-fixed": "#410002",
+            "on-primary-fixed-variant": "#7d2e24",
+
+            // Secondary (Azul Céu Turquesa)
+            "secondary": "#00639c",
+            "on-secondary": "#ffffff",
+            "secondary-container": "#5cb4ff",
+            "on-secondary-container": "#00456e",
+            "secondary-fixed": "#cee5ff",
+            "secondary-fixed-dim": "#98cbff",
+            "on-secondary-fixed": "#001d33",
+            "on-secondary-fixed-variant": "#004a77",
+
+            // Tertiary (Amarelo Sol Dourado)
+            "tertiary": "#755700",
+            "on-tertiary": "#ffffff",
+            "tertiary-container": "#936f00",
+            "on-tertiary-container": "#fffbff",
+            "tertiary-fixed": "#ffdf9b",
+            "tertiary-fixed-dim": "#f2bf40",
+            "on-tertiary-fixed": "#251a00",
+            "on-tertiary-fixed-variant": "#5b4300",
+
+            // Error
+            "error": "#ba1a1a",
+            "on-error": "#ffffff",
+            "error-container": "#ffdad6",
+            "on-error-container": "#93000a",
+
+            // Semantic Accents
+            "brand-coral": "#C35A4A", // Terracota aveludado e acolhedor (menos saturado)
+            "brand-sky": "#2B90D9",
+            "brand-sun": "#F6C343",
+            "brand-green": "#2E9A68",
+            "brand-purple": "#5E50A1",
+            "brand-slate": "#2C3E50",
+            "brand-subdued": "#6C7A89",
+
+            // Chip Backgrounds
+            "chip-green-bg": "#EAF6EE",
+            "chip-purple-bg": "#EFEBFA",
+            "chip-sky-bg": "#E8F4FD",
+            "chip-sun-bg": "#FEF8E7",
+            "chip-coral-bg": "#F9ECE8", // Fundo terracota pálido suave
+
+            "background": "#f7f9ff",
+            "on-background": "#091d2e"
+          },
+          fontFamily: {
+            sans: ['"Nunito Sans"', 'sans-serif'],
+            quicksand: ['"Quicksand"', 'sans-serif'],
+            display: ['"Quicksand"', 'sans-serif']
+          },
+          fontSize: {
+            'headline-xl': ['40px', { lineHeight: '48px', fontWeight: '700' }],
+            'headline-xl-mobile': ['30px', { lineHeight: '38px', fontWeight: '700' }],
+            'headline-lg': ['32px', { lineHeight: '40px', fontWeight: '700' }],
+            'headline-lg-mobile': ['24px', { lineHeight: '32px', fontWeight: '700' }],
+            'headline-md': ['24px', { lineHeight: '32px', fontWeight: '600' }],
+            'headline-sm': ['20px', { lineHeight: '28px', fontWeight: '600' }],
+            'body-lg': ['18px', { lineHeight: '28px', fontWeight: '400' }],
+            'body-md': ['16px', { lineHeight: '24px', fontWeight: '400' }],
+            'body-sm': ['14px', { lineHeight: '20px', fontWeight: '400' }],
+            'label-lg': ['16px', { lineHeight: '22px', fontWeight: '700' }],
+            'label-md': ['14px', { lineHeight: '20px', fontWeight: '600' }],
+            'label-sm': ['12px', { lineHeight: '16px', fontWeight: '600' }]
+          },
+          borderRadius: {
+            'sm': '0.25rem',
+            'DEFAULT': '0.5rem',
+            'md': '0.75rem',
+            'lg': '1rem',
+            'xl': '1.5rem',
+            '2xl': '1.5rem',
+            '3xl': '1.75rem',
+            'full': '9999px'
+          },
+          spacing: {
+            'gutter': '1.25rem',
+            'gutter-mobile': '0.75rem',
+            'margin': '2rem',
+            'margin-mobile': '1rem',
+            'space-xs': '0.25rem',
+            'space-sm': '0.5rem',
+            'space-md': '1rem',
+            'space-lg': '1.5rem',
+            'space-xl': '2.5rem'
+          },
+          boxShadow: {
+            'level-1': '0 4px 16px -2px rgba(43, 144, 217, 0.08)',
+            'level-2': '0 8px 24px -4px rgba(44, 62, 80, 0.08)',
+            'level-3': '0 16px 36px -6px rgba(44, 62, 80, 0.14)',
+            'coral-glow': '0 4px 14px rgba(195, 90, 74, 0.28)',
+            'sky-glow': '0 4px 14px rgba(43, 144, 217, 0.25)'
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    @layer base {
+      html {
+        scroll-behavior: smooth;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #FAFCFE;
+        color: #2C3E50;
+        font-family: 'Nunito Sans', sans-serif;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: 'Quicksand', sans-serif;
+        letter-spacing: 0.01em;
+      }
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #FAFCFE;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #d1e4fb;
+      border-radius: 9999px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #5cb4ff;
+    }
+
+    /* Barra de progresso com gradiente Terracota, Turquesa e Ouro */
+    #v4-progress-line {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, #C35A4A, #2B90D9, #F6C343);
+      box-shadow: 0 0 10px rgba(195, 90, 74, 0.45);
+      z-index: 99999;
+      transition: width 0.1s ease-out;
+      pointer-events: none;
+    }
+
+    /* Iluminação Luminous Childhood (tinted ambient orbs) */
+    .luminous-ambient-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .ambient-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.35;
+      will-change: transform;
+      pointer-events: none;
+      transition: transform 0.15s ease-out;
+    }
+
+    .orb-sky {
+      width: 520px;
+      height: 520px;
+      background: radial-gradient(circle, rgba(43, 144, 217, 0.35), transparent 70%);
+      top: -80px;
+      right: -120px;
+    }
+
+    .orb-sun {
+      width: 560px;
+      height: 560px;
+      background: radial-gradient(circle, rgba(246, 195, 67, 0.28), transparent 70%);
+      top: 40%;
+      left: -160px;
+    }
+
+    .orb-coral {
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, rgba(195, 90, 74, 0.22), transparent 70%);
+      bottom: -80px;
+      right: 5%;
+    }
+
+    /* Navbar em Glassmorphism suave */
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(43, 144, 217, 0.12);
+      box-shadow: 0 2px 14px rgba(44, 62, 80, 0.05);
+    }
+
+    /* Revelação suave ao scroll */
+    .v4-section-reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .v4-section-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Parallax entre seções */
+    .v4-parallax-section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .v4-parallax-layer {
+      position: relative;
+      will-change: transform;
+      transition: transform 0.1s cubic-bezier(0.2, 0, 0, 1);
+    }
+
+    .v4-floating-decor {
+      position: absolute;
+      pointer-events: none;
+      z-index: 0;
+      border-radius: 50%;
+      filter: blur(65px);
+      opacity: 0.32;
+      will-change: transform;
+      transition: transform 0.15s ease-out;
+    }
+
+    /* Linha divisora sutil */
+    .v4-section-divider {
+      width: 80%;
+      max-width: 1100px;
+      margin: 0 auto;
+      height: 1px;
+      background: radial-gradient(ellipse at center, rgba(43, 144, 217, 0.25) 0%, rgba(43, 144, 217, 0) 75%);
+      pointer-events: none;
+    }
+
+    /* Card Hover com elevação suave descrita no DESIGN.md */
+
+    .design-card-without-border,
+    .design-card {
+      border: none;
+      background: #FFFFFF;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+      will-change: transform, box-shadow;
+      padding: 1.5em 2em;
+    }
+
+    .design-card {
+      border-radius: 1.5rem;
+      border: 1px solid rgba(43, 144, 217, 0.12);
+    }
+
+    .design-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px -4px rgba(44, 62, 80, 0.12);
+      border-color: rgba(43, 144, 217, 0.28);
+    }
+
+    /* Accordion FAQ */
+    details summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details[open] summary .faq-icon {
+      transform: rotate(180deg);
+      color: #E63946;
+    }
+
+    /* Timeline lúdica conectada */
+    .timeline-track {
+      position: relative;
+    }
+
+    .timeline-track::before {
+      content: '';
+      position: absolute;
+      top: 24px;
+      bottom: 24px;
+      left: 20px;
+      width: 2px;
+      background: repeating-linear-gradient(to bottom, #2B90D9 0px, #2B90D9 6px, transparent 6px, transparent 12px);
+    }
+
+    @media (min-width: 768px) {
+      .timeline-track::before {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  </style>
+</head>
+
+<body
+  class="bg-[#FAFCFE] font-sans text-body-md text-brand-slate antialiased selection:bg-secondary-fixed selection:text-secondary">
+
+  <!-- BARRA DE PROGRESSO DE ROLAGEM -->
+  <div id="v4-progress-line"></div>
+
+  <!-- ILUMINAÇÃO LÚDICA AMBIENTAL -->
+  <div class="luminous-ambient-container" aria-hidden="true">
+    <div id="orbSky" class="ambient-orb orb-sky"></div>
+    <div id="orbSun" class="ambient-orb orb-sun"></div>
+    <div id="orbCoral" class="ambient-orb orb-coral"></div>
+  </div>
+
+  <!-- ================= HEADER COM LOGO E MENU FLUIDO ================= -->
+  <header class="sticky top-0 z-40 w-full glass-nav transition-all duration-300" id="main-header">
+    <div class="h-20 w-full px-4 sm:px-8 max-w-7xl mx-auto flex items-center justify-between">
+
+      <!-- LOGO OFICIAL DA ESCOLA -->
+      <a href="#inicio" class="flex items-center gap-3 group focus:outline-none">
+        <div
+          class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#FFF4DE] via-[#FEF8ED] to-[#FFF0D4] shadow-level-1 p-2 flex items-center justify-center border border-[rgba(212,147,0,0.25)] group-hover:scale-105 group-hover:shadow-md transition-all duration-200 shrink-0">
+          <svg class="w-7 h-7 text-[#D49300] drop-shadow-sm transition-transform duration-300 group-hover:rotate-6" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 19H19C19.5523 19 20 18.5523 20 18C20 17.4477 19.5523 17 19 17H5C4.44772 17 4 17.4477 4 18C4 18.5523 4.44772 19 5 19Z" fill="#D49300"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.24505 8.16335C3.00392 7.37894 3.82421 6.70275 4.54226 7.08639L8.21251 9.04751L11.0873 4.25624C11.4727 3.61386 12.4116 3.61386 12.797 4.25624L15.6717 9.04751L19.342 7.08639C20.06 6.70275 20.8803 7.37894 20.6392 8.16335L18.4239 15.375H5.46033L3.24505 8.16335ZM12 13.5C12.8284 13.5 13.5 12.8284 13.5 12C13.5 11.1716 12.8284 10.5 12 10.5C11.1716 10.5 10.5 11.1716 10.5 12C10.5 12.8284 11.1716 13.5 12 13.5Z" fill="url(#crown-grad-header)"/>
+            <defs>
+              <linearGradient id="crown-grad-header" x1="3" y1="4" x2="21" y2="17" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#E66718"/>
+                <stop offset="0.5" stop-color="#D49300"/>
+                <stop offset="1" stop-color="#F2A619"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="flex flex-col">
+          <span
+            class="font-quicksand font-bold text-lg sm:text-xl text-secondary tracking-tight leading-tight group-hover:text-secondary transition-colors">
+            Escola Reino Feliz
+          </span>
+          <span class="font-quicksand font-semibold text-secondary tracking-widest uppercase text-[11px]">
+            Educação Infantil & Fundamental I
+          </span>
+        </div>
+      </a>
+
+      <!-- NAVEGAÇÃO DESKTOP COM CORES INDIVIDUAIS NO HOVER -->
+      <nav class="hidden md:flex items-center gap-6 lg:gap-8" id="desktop-nav">
+        <!-- 1. Início: Laranja / Coral Amigável -->
+        <a href="#inicio" data-color-text="text-[#E66718]" data-color-border="border-[#E66718]"
+          class="nav-anchor font-quicksand font-bold text-sm text-[#E66718] pb-1 border-b-2 border-[#E66718] hover:text-[#E66718] hover:border-[#E66718] transition-all">
+          Início
+        </a>
+        <!-- 2. Quem Somos: Azul Turquesa Confiante -->
+        <a href="#quem-somos" data-color-text="text-[#2B90D9]" data-color-border="border-[#2B90D9]"
+          class="nav-anchor font-quicksand font-bold text-sm text-brand-subdued pb-1 border-b-2 border-transparent hover:text-[#2B90D9] hover:border-[#2B90D9] transition-all">
+          Quem Somos
+        </a>
+        <!-- 3. Segmentos: Verde Esperança & Vida -->
+        <a href="#segmentos" data-color-text="text-[#2E9A68]" data-color-border="border-[#2E9A68]"
+          class="nav-anchor font-quicksand font-bold text-sm text-brand-subdued pb-1 border-b-2 border-transparent hover:text-[#2E9A68] hover:border-[#2E9A68] transition-all">
+          Segmentos
+        </a>
+        <!-- 4. Metodologia: Amarelo Sol Dourado -->
+        <a href="#metodologia" data-color-text="text-[#D49300]" data-color-border="border-[#D49300]"
+          class="nav-anchor font-quicksand font-bold text-sm text-brand-subdued pb-1 border-b-2 border-transparent hover:text-[#D49300] hover:border-[#D49300] transition-all">
+          Metodologia
+        </a>
+        <!-- 5. Rotina: Roxo Violeta Lúdico -->
+        <a href="#rotina" data-color-text="text-[#5E50A1]" data-color-border="border-[#5E50A1]"
+          class="nav-anchor font-quicksand font-bold text-sm text-brand-subdued pb-1 border-b-2 border-transparent hover:text-[#5E50A1] hover:border-[#5E50A1] transition-all">
+          Rotina
+        </a>
+        <!-- 6. Famílias: Rosa Aveludado / Afeto -->
+        <a href="#depoimentos" data-color-text="text-[#E04B76]" data-color-border="border-[#E04B76]"
+          class="nav-anchor font-quicksand font-bold text-sm text-brand-subdued pb-1 border-b-2 border-transparent hover:text-[#E04B76] hover:border-[#E04B76] transition-all">
+          Famílias
+        </a>
+        <!-- 7. Dúvidas: Azul Marinho Índigo -->
+        <a href="#faq" data-color-text="text-[#00639C]" data-color-border="border-[#00639C]"
+          class="nav-anchor font-quicksand font-bold text-sm text-brand-subdued pb-1 border-b-2 border-transparent hover:text-[#00639C] hover:border-[#00639C] transition-all">
+          Dúvidas
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="relative z-10">
+
+    <!-- ================= 1. HERO SECTION (LUMINOUS CHILDHOOD) ================= -->
+    <section id="inicio" class="relative w-full px-4 sm:px-8 pt-10 pb-16 lg:py-20 overflow-hidden">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+
+          <!-- COLUNA ESQUERDA: APRESENTAÇÃO E CTAs -->
+          <div class="lg:col-span-7 flex flex-col gap-6" data-parallax-speed="0.02">
+
+            <!-- Chips Lúdicos -->
+            <div class="flex flex-wrap items-center gap-2.5">
+              <span
+                class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-chip-sky-bg text-secondary font-quicksand font-bold text-xs uppercase tracking-wider shadow-sm">
+                <span class="material-symbols-outlined text-sm text-brand-sky">home_pin</span>
+                Bairro Mariano Procópio • Juiz de Fora
+              </span>
+              <span
+                class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-chip-sun-bg text-tertiary font-quicksand font-bold text-xs uppercase tracking-wider shadow-sm">
+                <span class="material-symbols-outlined text-sm text-brand-sun">stars</span>
+                Matrículas Abertas 2025/2026
+              </span>
+            </div>
+
+            <!-- Título Principal -->
+            <h1
+              class="font-quicksand font-bold text-3xl sm:text-4xl lg:text-5xl text-on-surface leading-[1.18] tracking-tight">
+              Onde o aprendizado ganha asas e o <span
+                class="text-primary underline decoration-tertiary-fixed decoration-wavy decoration-2">afeto</span> guia
+              cada descoberta.
+            </h1>
+
+            <!-- Parágrafo de Apoio -->
+            <p class="font-sans text-body-lg text-brand-subdued leading-relaxed max-w-2xl">
+              Mais que uma escola, um ninho acolhedor no coração do bairro Mariano Procópio. Cuidamos com carinho e rigor do
+              Berçário
+              ao 5º ano do Ensino Fundamental I, respeitando o tempo sagrado de cada criança através da metodologia
+              sociointeracionista.
+            </p>
+
+            <!-- Ações Principais -->
+            <div class="flex flex-wrap items-center gap-4 pt-2">
+              <a href="#agendamento"
+                class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-brand-coral text-white font-quicksand font-bold text-base shadow-coral-glow hover:bg-primary hover:-translate-y-0.5 transition-all duration-200">
+                <span class="material-symbols-outlined text-xl">event_available</span>
+                <span>Agendar Visita Guiada</span>
+              </a>
+              <a href="#segmentos"
+                class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-chip-sky-bg hover:bg-surface-container-high text-secondary font-quicksand font-bold text-base hover:-translate-y-0.5 transition-all duration-200 shadow-sm">
+                <span class="material-symbols-outlined text-xl text-brand-sky">explore</span>
+                <span>Conhecer Segmentos</span>
+              </a>
+            </div>
+
+            <!-- Destaques em Cartões com Paleta Luminous (Cards com borda) -->
+            <div class="grid grid-cols-3 gap-3 pt-4">
+              <div class="p-3.5 rounded-2xl bg-white border border-[rgba(43,144,217,0.12)] shadow-level-1">
+                <span class="font-quicksand text-headline-md text-primary font-bold block">+15 anos</span>
+                <span class="font-sans text-xs text-brand-subdued font-medium">Tradição em JF</span>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-white border border-[rgba(43,144,217,0.12)] shadow-level-1">
+                <span class="font-quicksand text-headline-md text-secondary font-bold block">07h às 18h30</span>
+                <span class="font-sans text-xs text-brand-subdued font-medium">Turno Integral</span>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-white border border-[rgba(43,144,217,0.12)] shadow-level-1">
+                <span class="font-quicksand text-headline-md text-brand-green font-bold block">100%</span>
+                <span class="font-sans text-xs text-brand-subdued font-medium">Afeto & Rigor</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- COLUNA DIREITA: CARD BENTO COM IMAGEM E SELOS -->
+          <div class="lg:col-span-5 relative" data-parallax-speed="-0.03">
+            <div class="design-card p-6 flex flex-col gap-5 relative overflow-hidden">
+
+              <div class="relative h-64 sm:h-72 rounded-2xl overflow-hidden shadow-inner">
+                <img src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=1000&q=80"
+                  alt="Crianças aprendendo na Escola Reino Feliz" class="w-full h-full object-cover" />
+                <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent"></div>
+                <div class="absolute bottom-4 left-4 right-4 text-white">
+                  <span
+                    class="px-3 py-1 rounded-full bg-tertiary-fixed text-tertiary font-quicksand text-xs font-bold uppercase tracking-wider inline-block">
+                    Espaço Seguro & Lúdico
+                  </span>
+                  <h3 class="font-quicksand text-headline-sm text-white font-bold mt-1.5">
+                    Ambientes planejados para o encanto da infância
+                  </h3>
+                </div>
+              </div>
+
+              <!-- Blocos de Idade -->
+              <div class="grid grid-cols-2 gap-3">
+                <div class="p-3.5 rounded-xl flex flex-col">
+                  <span class="font-quicksand text-lg font-bold text-primary">Berçário</span>
+                  <span class="font-sans text-xs text-brand-subdued">4 meses aos primeiros passos</span>
+                </div>
+                <div class="p-3.5 rounded-xl flex flex-col">
+                  <span class="font-quicksand text-lg font-bold text-secondary">Fundamental I</span>
+                  <span class="font-sans text-xs text-brand-subdued">1º ao 5º ano completo</span>
+                </div>
+              </div>
+
+              <!-- Banner de Destaque -->
+              <div
+                class="px-4 py-3 rounded-2xl bg-gradient-to-r from-primary to-primary-container text-white flex items-center justify-between shadow-sm">
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-tertiary-fixed text-xl">verified</span>
+                  <span class="font-quicksand font-bold text-sm text-white">Reconhecimento Pedagógico</span>
+                </div>
+                <span class="font-quicksand text-xs text-white/90 font-semibold">Mariano Procópio • JF</span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 2. QUEM SOMOS ================= -->
+    <section id="quem-somos"
+      class="w-full px-4 sm:px-8 py-16 lg:py-20 bg-white border-y border-[rgba(43,144,217,0.12)] v4-section-reveal v4-parallax-section">
+      <!-- Decorações Flutuantes -->
+      <div class="v4-floating-decor w-72 h-72 bg-secondary-fixed/40 -top-12 -left-20" data-decor-speed="-0.15"></div>
+      <div class="v4-floating-decor w-60 h-60 bg-tertiary-fixed/30 -bottom-10 -right-16" data-decor-speed="0.18"></div>
+
+      <div class="max-w-6xl mx-auto v4-parallax-layer">
+
+        <div class="flex items-center gap-2 mb-4">
+          <span
+            class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-chip-sky-bg text-secondary font-quicksand font-bold text-xs uppercase tracking-wider">
+            <span class="material-symbols-outlined text-sm">home_pin</span>
+            Juiz de Fora • Bairro Mariano Procópio
+          </span>
+          <span
+            class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-chip-coral-bg text-primary font-quicksand font-bold text-xs uppercase tracking-wider">
+            Quem Somos
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+          <div class="lg:col-span-7 flex flex-col gap-5">
+            <h2 class="font-quicksand text-headline-lg lg:text-3xl font-bold text-on-surface leading-tight">
+              Nossa história de amor pela educação e pelas famílias do bairro Mariano Procópio.
+            </h2>
+            <p class="font-sans text-body-lg text-brand-subdued leading-relaxed">
+              A nossa escola nasceu do desejo de oferecer para as famílias da região um ensino que une excelência
+              pedagógica, acolhimento sincero e calor humano. Desde o primeiro dia, nosso compromisso foi muito além de
+              transmitir
+              conteúdos: construímos uma comunidade onde cada criança é ouvida, respeitada e encorajada a florescer.
+            </p>
+            <div class="p-5 rounded-2xl bg-surface-container-low flex items-start gap-3.5 shadow-sm">
+              <div
+                class="w-10 h-10 rounded-xl bg-chip-green-bg text-brand-green flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-2xl">sentiment_satisfied</span>
+              </div>
+              <p class="font-sans text-body-md text-brand-slate font-medium leading-relaxed">
+                Hoje, acolhemos desde os primeiros meses de vida no Berçário até a conclusão do Ensino Fundamental I (5º
+                ano), preservando com carinho o ambiente seguro e familiar de uma autêntica escola de bairro.
+              </p>
+            </div>
+          </div>
+
+          <!-- 3 Pilares em Cards Lúdicos (Cards com borda design-card) -->
+          <div class="lg:col-span-5 flex flex-col gap-3.5">
+            <div class="design-card-without-border p-4.5 flex items-start gap-4">
+              <div class="w-11 h-11 rounded-xl bg-chip-sky-bg flex items-center justify-center text-secondary shrink-0">
+                <span class="material-symbols-outlined text-2xl">diversity_1</span>
+              </div>
+              <div>
+                <h4 class="font-quicksand font-bold text-primary text-base">Comunidade Próxima & Transparente</h4>
+                <p class="font-sans text-body-sm text-brand-subdued mt-1">
+                  Convivência afetiva, portas abertas e diálogo contínuo com os pais e responsáveis.
+                </p>
+              </div>
+            </div>
+
+            <div class="design-card-without-border p-4.5 flex items-start gap-4">
+              <div class="w-11 h-11 rounded-xl bg-chip-sun-bg flex items-center justify-center text-tertiary shrink-0">
+                <span class="material-symbols-outlined text-2xl">toys</span>
+              </div>
+              <div>
+                <h4 class="font-quicksand font-bold text-primary text-base">Infância com Brincadeira Viva</h4>
+                <p class="font-sans text-body-sm text-brand-subdued mt-1">
+                  O lúdico como a principal ferramenta para compreender, criar e transformar o mundo.
+                </p>
+              </div>
+            </div>
+
+            <div class="design-card-without-border p-4.5 flex items-start gap-4">
+              <div
+                class="w-11 h-11 rounded-xl bg-chip-purple-bg flex items-center justify-center text-brand-purple shrink-0">
+                <span class="material-symbols-outlined text-2xl">volunteer_activism</span>
+              </div>
+              <div>
+                <h4 class="font-quicksand font-bold text-primary text-base">Cuidado Socioafetivo Contínuo</h4>
+                <p class="font-sans text-body-sm text-brand-subdued mt-1">
+                  Acolhimento empático que prioriza a saúde emocional, a empatia e a autoestima de cada aluno.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= 3. SEGMENTOS COM TABS ================= -->
+    <section id="segmentos"
+      class="w-full px-4 sm:px-8 py-16 lg:py-20 bg-[#FAFCFE] border-y border-[rgba(43,144,217,0.12)] v4-section-reveal v4-parallax-section">
+      <!-- Decoração de Profundidade -->
+      <div class="v4-floating-decor w-80 h-80 bg-secondary-container/20 -top-16 -right-24" data-decor-speed="0.2"></div>
+      <div class="v4-floating-decor w-64 h-64 bg-primary-fixed/20 -bottom-12 -left-20" data-decor-speed="-0.12"></div>
+
+      <div class="max-w-6xl mx-auto v4-parallax-layer">
+
+        <div class="flex flex-col items-center text-center max-w-3xl mx-auto mb-10">
+          <div
+            class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-chip-sky-bg text-secondary font-quicksand font-bold text-xs uppercase tracking-wider mb-3">
+            <span class="material-symbols-outlined text-base">flutter_dash</span>
+            <span>Do Ninho ao Voo</span>
+          </div>
+          <h2 class="font-quicksand text-headline-lg lg:text-4xl font-bold text-on-surface">
+            Nossos Segmentos de Ensino
+          </h2>
+          <p class="font-sans text-body-lg text-brand-subdued mt-2 max-w-xl">
+            Acompanhamos cada fase do desenvolvimento infantil com estímulos pedagógicos, segurança e muito afeto.
+          </p>
+
+          <!-- TABS DO DESIGN.md (Sem borda nos seletores) -->
+          <div
+            class="flex flex-wrap justify-center items-center gap-2 bg-surface-container-high/60 p-1.5 rounded-full mt-6">
+            <button onclick="switchSegmentV4('bercario')" id="tab-v4-bercario"
+              class="px-5 py-2.5 rounded-full font-quicksand font-bold text-sm transition-all border-0 cursor-pointer bg-brand-coral text-white shadow-coral-glow">
+              Berçário & Maternal
+            </button>
+            <button onclick="switchSegmentV4('infantil')" id="tab-v4-infantil"
+              class="px-5 py-2.5 rounded-full font-quicksand font-bold text-sm transition-all border-0 cursor-pointer bg-transparent text-brand-subdued hover:text-brand-slate">
+              Educação Infantil
+            </button>
+            <button onclick="switchSegmentV4('fundamental')" id="tab-v4-fundamental"
+              class="px-5 py-2.5 rounded-full font-quicksand font-bold text-sm transition-all border-0 cursor-pointer bg-transparent text-brand-subdued hover:text-brand-slate">
+              Ensino Fundamental I
+            </button>
+          </div>
+        </div>
+
+        <!-- PAINÉIS DOS SEGMENTOS (Cards com borda design-card) -->
+        <div class="max-w-5xl mx-auto">
+
+          <!-- TAB 1: BERÇÁRIO -->
+          <div id="v4-panel-bercario" class="segment-v4-panel">
+            <div
+              class="design-card p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border-t-4 border-t-brand-coral">
+              <div class="lg:col-span-7 flex flex-col gap-4">
+                <span class="font-quicksand text-xs uppercase tracking-widest text-primary font-bold">
+                  4 meses a 2 anos
+                </span>
+                <h3 class="font-quicksand text-headline-md font-bold text-on-surface">
+                  Berçário: O ninho das primeiras descobertas
+                </h3>
+                <p class="font-sans text-body-md text-brand-subdued leading-relaxed">
+                  Espaço sereno, rigorosamente higienizado e aconchegante, onde o bebê recebe estímulos psicomotores e
+                  sensoriais através do carinho, do toque, da música e da interação calma. Rotina 100% individualizada
+                  respeitando o
+                  ritmo do soninho e da alimentação.
+                </p>
+                <div class="flex flex-wrap gap-2.5 pt-2">
+                  <div
+                    class="flex items-center gap-2 text-brand-slate font-sans text-body-sm bg-chip-sky-bg px-3.5 py-1.5 rounded-full">
+                    <span class="material-symbols-outlined text-secondary text-base">nest_cam_wired_stand</span>
+                    <span>Monitoramento & lactário equipado</span>
+                  </div>
+                  <div
+                    class="flex items-center gap-2 text-brand-slate font-sans text-body-sm bg-chip-sun-bg px-3.5 py-1.5 rounded-full">
+                    <span class="material-symbols-outlined text-tertiary text-base">bed</span>
+                    <span>Solário e berços individuais</span>
+                  </div>
+                </div>
+                <div class="pt-3">
+                  <a href="#agendamento"
+                    class="inline-flex items-center gap-2 text-primary font-quicksand font-bold hover:text-brand-coral transition-colors">
+                    <span>Agendar visita ao Berçário</span>
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                  </a>
+                </div>
+              </div>
+              <div class="lg:col-span-5">
+                <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80"
+                  alt="Berçário da Escola Reino Feliz"
+                  class="w-full h-64 object-cover rounded-2xl shadow-sm" />
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 2: EDUCAÇÃO INFANTIL -->
+          <div id="v4-panel-infantil" class="segment-v4-panel hidden">
+            <div
+              class="design-card p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border-t-4 border-t-brand-sky">
+              <div class="lg:col-span-7 flex flex-col gap-4">
+                <span class="font-quicksand text-xs uppercase tracking-widest text-secondary font-bold">
+                  3 a 5 anos
+                </span>
+                <h3 class="font-quicksand text-headline-md font-bold text-on-surface">
+                  Educação Infantil: Brincar, criar e expressar
+                </h3>
+                <p class="font-sans text-body-md text-brand-subdued leading-relaxed">
+                  Vivências práticas que despertam a imaginação, o letramento inicial, a socialização respeitosa e o
+                  desenvolvimento motor através de brincadeiras direcionadas, projetos artísticos e experimentações na
+                  natureza.
+                </p>
+                <div class="flex flex-wrap gap-2.5 pt-2">
+                  <div
+                    class="flex items-center gap-2 text-brand-slate font-sans text-body-sm bg-chip-green-bg px-3.5 py-1.5 rounded-full">
+                    <span class="material-symbols-outlined text-brand-green text-base">toys</span>
+                    <span>Parque arborizado e brinquedoteca</span>
+                  </div>
+                  <div
+                    class="flex items-center gap-2 text-brand-slate font-sans text-body-sm bg-chip-sky-bg px-3.5 py-1.5 rounded-full">
+                    <span class="material-symbols-outlined text-secondary text-base">nature_people</span>
+                    <span>Horta e contato diário com a terra</span>
+                  </div>
+                </div>
+                <div class="pt-3">
+                  <a href="#agendamento"
+                    class="inline-flex items-center gap-2 text-secondary font-quicksand font-bold hover:text-brand-sky transition-colors">
+                    <span>Agendar visita à Educação Infantil</span>
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                  </a>
+                </div>
+              </div>
+              <div class="lg:col-span-5">
+                <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80"
+                  alt="Educação Infantil Escola Reino Feliz"
+                  class="w-full h-64 object-cover rounded-2xl shadow-sm" />
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 3: ENSINO FUNDAMENTAL I -->
+          <div id="v4-panel-fundamental" class="segment-v4-panel hidden">
+            <div
+              class="design-card p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border-t-4 border-t-brand-purple">
+              <div class="lg:col-span-7 flex flex-col gap-4">
+                <span class="font-quicksand text-xs uppercase tracking-widest text-brand-purple font-bold">
+                  1º ao 5º ano
+                </span>
+                <h3 class="font-quicksand text-headline-md font-bold text-on-surface">
+                  Fundamental I: Autonomia, leitura e raciocínio crítico
+                </h3>
+                <p class="font-sans text-body-md text-brand-subdued leading-relaxed">
+                  Consolidação da alfabetização, pensamento investigativo e raciocínio lógico-matemático. Estimulamos o
+                  gosto pelos estudos e a autonomia para uma transição segura e confiante aos ciclos seguintes.
+                </p>
+                <div class="flex flex-wrap gap-2.5 pt-2">
+                  <div
+                    class="flex items-center gap-2 text-brand-slate font-sans text-body-sm bg-chip-purple-bg px-3.5 py-1.5 rounded-full">
+                    <span class="material-symbols-outlined text-brand-purple text-base">menu_book</span>
+                    <span>Projetos literários e feira científica</span>
+                  </div>
+                  <div
+                    class="flex items-center gap-2 text-brand-slate font-sans text-body-sm bg-chip-sun-bg px-3.5 py-1.5 rounded-full">
+                    <span class="material-symbols-outlined text-tertiary text-base">psychology</span>
+                    <span>Apoio pedagógico individualizado</span>
+                  </div>
+                </div>
+                <div class="pt-3">
+                  <a href="#agendamento"
+                    class="inline-flex items-center gap-2 text-brand-purple font-quicksand font-bold hover:text-primary transition-colors">
+                    <span>Agendar visita ao Fundamental I</span>
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                  </a>
+                </div>
+              </div>
+              <div class="lg:col-span-5">
+                <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80"
+                  alt="Ensino Fundamental I Escola Reino Feliz"
+                  class="w-full h-64 object-cover rounded-2xl shadow-sm" />
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= 4. METODOLOGIA SECTION ================= -->
+    <section id="metodologia"
+      class="w-full px-4 sm:px-8 py-16 lg:py-20 bg-white border-y border-[rgba(43,144,217,0.12)] v4-section-reveal v4-parallax-section">
+      <!-- Decorações Flutuantes -->
+      <div class="v4-floating-decor w-72 h-72 bg-tertiary-fixed/25 -top-14 -left-16" data-decor-speed="-0.16"></div>
+      <div class="v4-floating-decor w-60 h-60 bg-secondary-fixed/35 -bottom-10 -right-20" data-decor-speed="0.14"></div>
+
+      <div class="max-w-6xl mx-auto v4-parallax-layer">
+
+        <div class="flex items-center gap-2 mb-4">
+          <span
+            class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-chip-purple-bg text-brand-purple font-quicksand font-bold text-xs uppercase tracking-wider">
+            <span class="material-symbols-outlined text-sm">psychology</span>
+            Proposta Pedagógica
+          </span>
+          <span
+            class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-chip-green-bg text-brand-green font-quicksand font-bold text-xs uppercase tracking-wider">
+            Sociointeracionista
+          </span>
+        </div>
+
+        <h2 class="font-quicksand text-headline-lg lg:text-3xl font-bold text-on-surface leading-tight max-w-3xl mb-4">
+          Aprender fazendo, convivendo e descobrindo com curiosidade e afeto.
+        </h2>
+        <p class="font-sans text-body-lg text-brand-subdued max-w-2xl mb-10">
+          Inspirada na teoria de Vygotsky, nossa proposta valoriza a mediação pedagógica carinhosa e o papel ativo da
+          criança na construção de seus próprios conhecimentos.
+        </p>
+
+        <!-- 4 Cards da Metodologia (Cards com borda design-card) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          <div class="design-card p-6 flex flex-col gap-3.5 border-t-4 border-t-brand-coral">
+            <div class="w-12 h-12 rounded-2xl bg-chip-coral-bg flex items-center justify-center text-brand-coral">
+              <span class="material-symbols-outlined text-2xl">toys</span>
+            </div>
+            <h3 class="font-quicksand text-headline-sm font-bold text-on-surface">Brincadeira & Investigação</h3>
+            <p class="font-sans text-body-sm text-brand-subdued leading-relaxed">
+              O brincar heurístico como ferramenta essencial de exploração e construção cognitiva natural.
+            </p>
+          </div>
+
+          <div class="design-card p-6 flex flex-col gap-3.5 border-t-4 border-t-brand-sky">
+            <div class="w-12 h-12 rounded-2xl bg-chip-sky-bg flex items-center justify-center text-secondary">
+              <span class="material-symbols-outlined text-2xl">menu_book</span>
+            </div>
+            <h3 class="font-quicksand text-headline-sm font-bold text-on-surface">Letramento Afetivo</h3>
+            <p class="font-sans text-body-sm text-brand-subdued leading-relaxed">
+              Alfabetização através de fábulas, contação de histórias, teatro e projetos autorais infantis.
+            </p>
+          </div>
+
+          <div class="design-card p-6 flex flex-col gap-3.5 border-t-4 border-t-brand-sun">
+            <div class="w-12 h-12 rounded-2xl bg-chip-sun-bg flex items-center justify-center text-tertiary">
+              <span class="material-symbols-outlined text-2xl">favorite</span>
+            </div>
+            <h3 class="font-quicksand text-headline-sm font-bold text-on-surface">Inteligência Socioemocional</h3>
+            <p class="font-sans text-body-sm text-brand-subdued leading-relaxed">
+              Roda de sentimentos, resolução pacífica de conflitos e desenvolvimento da empatia diária.
+            </p>
+          </div>
+
+          <div class="design-card p-6 flex flex-col gap-3.5 border-t-4 border-t-brand-green">
+            <div class="w-12 h-12 rounded-2xl bg-chip-green-bg flex items-center justify-center text-brand-green">
+              <span class="material-symbols-outlined text-2xl">nature_people</span>
+            </div>
+            <h3 class="font-quicksand text-headline-sm font-bold text-on-surface">Consciência Ecológica</h3>
+            <p class="font-sans text-body-sm text-brand-subdued leading-relaxed">
+              Horta pedagógica, compostagem lúdica e cultivo do amor pelas plantas e animais do nosso bairro.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= 5. ROTINA E TIMELINE LÚDICA (ESPECIAL DESIGN.MD) ================= -->
+    <section id="rotina"
+      class="w-full px-4 sm:px-8 py-16 lg:py-20 bg-[#FAFCFE] border-y border-[rgba(43,144,217,0.12)] v4-section-reveal v4-parallax-section">
+      <!-- Decorações -->
+      <div class="v4-floating-decor w-72 h-72 bg-secondary-fixed/20 -top-12 -left-16" data-decor-speed="-0.15"></div>
+
+      <div class="max-w-5xl mx-auto v4-parallax-layer">
+
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span
+            class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-chip-sun-bg text-tertiary font-quicksand font-bold text-xs uppercase tracking-wider mb-2">
+            <span class="material-symbols-outlined text-sm">schedule</span>
+            Rotina & Acolhimento
+          </span>
+          <h2 class="font-quicksand text-headline-lg lg:text-3xl font-bold text-on-surface">
+            Um dia cheio de luz, descobertas e segurança.
+          </h2>
+          <p class="font-sans text-body-md text-brand-subdued mt-2">
+            Nossa rotina equilibra atividades de concentração, recreação ao ar livre, sono restaurador e nutrição
+            completa.
+          </p>
+        </div>
+
+        <!-- Timeline Conectada com Marcos Coloridos do DESIGN.md -->
+        <div class="timeline-track space-y-8 pl-12 md:pl-0">
+
+          <!-- Marco 1: Manhã (Coral) -->
+          <div class="relative flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div class="md:w-5/12 text-left md:text-right">
+              <span
+                class="font-quicksand font-bold text-xs uppercase tracking-wider text-brand-coral bg-chip-coral-bg px-3 py-1 rounded-full">
+                07:00 - 08:30
+              </span>
+              <h4 class="font-quicksand font-bold text-lg text-on-surface mt-2">Acolhida Afetuosa & Desjejum</h4>
+              <p class="font-sans text-body-sm text-brand-subdued mt-1">
+                Recepção carinhosa com música suave, conversas matinais e café da manhã balanceado.
+              </p>
+            </div>
+            <div
+              class="absolute -left-12 md:relative md:left-0 md:mx-auto w-10 h-10 rounded-full bg-brand-coral text-white flex items-center justify-center font-bold text-sm shadow-coral-glow shrink-0 z-10">
+              <span class="material-symbols-outlined text-base">sunny</span>
+            </div>
+            <div class="md:w-5/12 hidden md:block">
+              <span class="text-xs text-brand-subdued italic">Início tranquilo para criar segurança no dia</span>
+            </div>
+          </div>
+
+          <!-- Marco 2: Aprendizagem e Horta (Sky Blue) -->
+          <div class="relative flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div class="md:w-5/12 hidden md:block text-right">
+              <span class="text-xs text-brand-subdued italic">Estímulo à cooperação e coordenação</span>
+            </div>
+            <div
+              class="absolute -left-12 md:relative md:left-0 md:mx-auto w-10 h-10 rounded-full bg-brand-sky text-white flex items-center justify-center font-bold text-sm shadow-sky-glow shrink-0 z-10">
+              <span class="material-symbols-outlined text-base">psychology</span>
+            </div>
+            <div class="md:w-5/12 text-left">
+              <span
+                class="font-quicksand font-bold text-xs uppercase tracking-wider text-secondary bg-chip-sky-bg px-3 py-1 rounded-full">
+                09:00 - 11:30
+              </span>
+              <h4 class="font-quicksand font-bold text-lg text-on-surface mt-2">Oficinas Pedagógicas & Horta</h4>
+              <p class="font-sans text-body-sm text-brand-subdued mt-1">
+                Letramento lúdico, contação de histórias, projetos matemáticos e cuidados na horta viva.
+              </p>
+            </div>
+          </div>
+
+          <!-- Marco 3: Almoço e Descanso (Sun Yellow) -->
+          <div class="relative flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div class="md:w-5/12 text-left md:text-right">
+              <span
+                class="font-quicksand font-bold text-xs uppercase tracking-wider text-tertiary bg-chip-sun-bg px-3 py-1 rounded-full">
+                11:45 - 13:30
+              </span>
+              <h4 class="font-quicksand font-bold text-lg text-on-surface mt-2">Almoço Nutritivo & Hora do Soninho</h4>
+              <p class="font-sans text-body-sm text-brand-subdued mt-1">
+                Cardápio balanceado supervisionado por nutricionista, seguido de descanso repousante.
+              </p>
+            </div>
+            <div
+              class="absolute -left-12 md:relative md:left-0 md:mx-auto w-10 h-10 rounded-full bg-brand-sun text-white flex items-center justify-center font-bold text-sm shadow-sm shrink-0 z-10">
+              <span class="material-symbols-outlined text-base">restaurant</span>
+            </div>
+            <div class="md:w-5/12 hidden md:block">
+              <span class="text-xs text-brand-subdued italic">Ambiente aromatizado e silencioso</span>
+            </div>
+          </div>
+
+          <!-- Marco 4: Artes e Fechamento (Purple) -->
+          <div class="relative flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div class="md:w-5/12 hidden md:block text-right">
+              <span class="text-xs text-brand-subdued italic">Despedida com síntese do dia</span>
+            </div>
+            <div
+              class="absolute -left-12 md:relative md:left-0 md:mx-auto w-10 h-10 rounded-full bg-brand-purple text-white flex items-center justify-center font-bold text-sm shadow-sm shrink-0 z-10">
+              <span class="material-symbols-outlined text-base">palette</span>
+            </div>
+            <div class="md:w-5/12 text-left">
+              <span
+                class="font-quicksand font-bold text-xs uppercase tracking-wider text-brand-purple bg-chip-purple-bg px-3 py-1 rounded-full">
+                14:00 - 18:30
+              </span>
+              <h4 class="font-quicksand font-bold text-lg text-on-surface mt-2">Artes, Parquinho & Despedida</h4>
+              <p class="font-sans text-body-sm text-brand-subdued mt-1">
+                Expressão corporal, brincadeiras livres no parque, lanche da tarde e entrega aos responsáveis.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= 6. DEPOIMENTOS DAS FAMÍLIAS ================= -->
+    <section id="depoimentos"
+      class="w-full px-4 sm:px-8 py-16 lg:py-20 bg-white border-y border-[rgba(43,144,217,0.12)] v4-section-reveal v4-parallax-section">
+      <!-- Decorações -->
+      <div class="v4-floating-decor w-72 h-72 bg-secondary-fixed/30 -top-12 -right-20" data-decor-speed="0.16"></div>
+      <div class="v4-floating-decor w-64 h-64 bg-tertiary-fixed/20 -bottom-16 -left-16" data-decor-speed="-0.15"></div>
+
+      <div class="max-w-6xl mx-auto v4-parallax-layer">
+
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span
+            class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-chip-coral-bg text-primary font-quicksand font-bold text-xs uppercase tracking-wider mb-2">
+            <span class="material-symbols-outlined text-sm">favorite</span>
+            Famílias Encantadas
+          </span>
+          <h2 class="font-quicksand text-headline-lg lg:text-3xl font-bold text-on-surface">
+            O carinho sincero de quem vive a nossa escola.
+          </h2>
+          <p class="font-sans text-body-md text-brand-subdued mt-2">
+            A parceria harmoniosa com os pais constrói a base emocional segura que as crianças levam para a vida
+            inteira.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+          <!-- Depoimento 1 (Card com borda design-card) -->
+          <div class="design-card p-6 flex flex-col justify-between" data-parallax-speed="0.02">
+            <div>
+              <div class="flex text-brand-sun mb-3">
+                <span class="material-symbols-outlined text-lg">star</span>
+                <span class="material-symbols-outlined text-lg">star</span>
+                <span class="material-symbols-outlined text-lg">star</span>
+                <span class="material-symbols-outlined text-lg">star</span>
+                <span class="material-symbols-outlined text-lg">star</span>
+              </div>
+              <p class="font-sans text-body-md text-brand-slate italic leading-relaxed">
+                "A Escola Reino Feliz acolheu meu filho no berçário com tanto carinho que hoje, no 2º ano, ele não vê a hora
+                das férias acabarem para voltar! Os professores são anjos que ensinam com amor."
+              </p>
+            </div>
+            <div class="flex items-center gap-3 pt-4 mt-6">
+              <div
+                class="w-11 h-11 rounded-full bg-chip-coral-bg flex items-center justify-center font-quicksand font-bold text-primary text-sm shrink-0">
+                MC
+              </div>
+              <div>
+                <span class="font-quicksand font-bold text-primary block text-sm">Mariana Castro</span>
+                <span class="font-sans text-xs text-brand-subdued">Mãe do Theo • Bairro Mariano Procópio</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Depoimento 2 (Card com borda design-card) -->
+          <div class="design-card p-6 flex flex-col justify-between" data-parallax-speed="-0.02">
+            <div>
+              <div class="flex text-brand-sun mb-3">
+                <span class="material-symbols-outlined text-lg">star</span>
+                <span class="material-symbols-outlined text-lg">star</span>
+                <span class="material-symbols-outlined text-lg">star</span>
+                <span class="material-symbols-outlined text-lg">star</span>
+                <span class="material-symbols-outlined text-lg">star</span>
+              </div>
+              <p class="font-sans text-body-md text-brand-slate italic leading-relaxed">
+                "O turno integral é impecável. A alimentação saudável, o cuidado rigoroso com a higiene e a
+                tranquilidade
+                de saber que minha filha está protegida enquanto trabalho não têm preço."
+              </p>
+            </div>
+            <div class="flex items-center gap-3 pt-4 mt-6">
+              <div
+                class="w-11 h-11 rounded-full bg-chip-sky-bg flex items-center justify-center font-quicksand font-bold text-secondary text-sm shrink-0">
+                RA
+              </div>
+              <div>
+                <span class="font-quicksand font-bold text-primary block text-sm">Rodrigo Almeida</span>
+                <span class="font-sans text-xs text-brand-subdued">Pai da Alice • Bairro Mariano Procópio</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Depoimento 3 (Card com borda design-card) -->
+          <div class="design-card p-6 flex flex-col justify-between" data-parallax-speed="0.03">
+            <div>
+              <div class="flex text-brand-sun mb-3">
+                <span class="material-symbols-outlined text-lg">star</span>
+                <span class="material-symbols-outlined text-lg">star</span>
+                <span class="material-symbols-outlined text-lg">star</span>
+                <span class="material-symbols-outlined text-lg">star</span>
+                <span class="material-symbols-outlined text-lg">star</span>
+              </div>
+              <p class="font-sans text-body-md text-brand-slate italic leading-relaxed">
+                "A transição da Educação Infantil para o Fundamental I aconteceu sem traumas. O estímulo à leitura e aos
+                valores de empatia e respeito é visível na conduta da minha filha."
+              </p>
+            </div>
+            <div class="flex items-center gap-3 pt-4 mt-6">
+              <div
+                class="w-11 h-11 rounded-full bg-chip-green-bg flex items-center justify-center font-quicksand font-bold text-brand-green text-sm shrink-0">
+                PN
+              </div>
+              <div>
+                <span class="font-quicksand font-bold text-primary block text-sm">Patrícia Nogueira</span>
+                <span class="font-sans text-xs text-brand-subdued">Mãe da Luísa • Juiz de Fora</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= 7. AGENDE UMA VISITA / FORMULÁRIO ================= -->
+    <section id="agendamento"
+      class="w-full px-4 sm:px-8 py-16 lg:py-20 bg-[#FAFCFE] border-y border-[rgba(43,144,217,0.12)] v4-section-reveal v4-parallax-section">
+      <!-- Decorações -->
+      <div class="v4-floating-decor w-80 h-80 bg-chip-coral-bg/50 -top-20 -left-20" data-decor-speed="-0.18"></div>
+      <div class="v4-floating-decor w-72 h-72 bg-chip-sky-bg/50 -bottom-16 -right-24" data-decor-speed="0.15"></div>
+
+      <div class="max-w-6xl mx-auto v4-parallax-layer">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+
+          <!-- Informações de Contato -->
+          <div class="lg:col-span-5 flex flex-col gap-5" data-parallax-speed="-0.02">
+            <span
+              class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-chip-coral-bg text-brand-coral font-quicksand font-bold text-xs uppercase tracking-wider w-fit">
+              <span class="material-symbols-outlined text-sm">event_available</span>
+              Visita Guiada Exclusiva
+            </span>
+            <h2 class="font-quicksand text-headline-lg lg:text-3xl font-bold text-on-surface leading-tight">
+              Venha tomar um café e conhecer o nosso cantinho encantado.
+            </h2>
+            <p class="font-sans text-body-lg text-brand-subdued leading-relaxed">
+              Estamos de braços abertos para receber a sua família. Tire dúvidas diretamente com nossa equipe
+              pedagógica,
+              conheça as salas, o parque, o lactário e sinta de perto a atmosfera acolhedora.
+            </p>
+
+            <div class="space-y-4 pt-2">
+              <div class="flex items-start gap-3">
+                <div class="w-9 h-9 rounded-xl bg-chip-sky-bg text-secondary flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined text-xl">location_on</span>
+                </div>
+                <div>
+                  <span class="font-quicksand text-body-sm text-brand-slate font-bold block">Localização Segura</span>
+                  <span class="font-sans text-body-sm text-brand-subdued">Rua das Papoulas, 240 - Bairro
+                    Mariano Procópio, Juiz de Fora - MG</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="w-9 h-9 rounded-xl bg-chip-sun-bg text-tertiary flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined text-xl">schedule</span>
+                </div>
+                <div>
+                  <span class="font-quicksand text-body-sm text-brand-slate font-bold block">Atendimento
+                    Pedagógico</span>
+                  <span class="font-sans text-body-sm text-brand-subdued">Segunda a Sexta: 07:30 às 18:00 (com horário
+                    marcado)</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div
+                  class="w-9 h-9 rounded-xl bg-chip-green-bg text-brand-green flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined text-xl">call</span>
+                </div>
+                <div>
+                  <span class="font-quicksand text-body-sm text-brand-slate font-bold block">Telefone e WhatsApp</span>
+                  <span class="font-sans text-body-sm text-brand-subdued">(32) 3215-0000 / (32) 99888-0000</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Formulário com Estilo do DESIGN.md (Card com borda design-card) -->
+          <div class="lg:col-span-7">
+            <div class="design-card p-6 sm:p-8 bg-white shadow-level-2">
+              <h3 class="font-quicksand text-headline-md font-bold text-on-surface mb-2">Solicitar Agendamento</h3>
+              <p class="font-sans text-body-sm text-brand-subdued mb-6">
+                Preencha o formulário e nossa secretaria entrará em contato para confirmar a data e o horário da sua
+                visita.
+              </p>
+
+              <form id="visitaFormV4" onsubmit="handleFormV4(event)" class="space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label
+                      class="block font-quicksand font-bold text-xs text-brand-slate mb-1.5 uppercase tracking-wide">
+                      Nome do Responsável *
+                    </label>
+                    <input type="text" id="v4Name" required placeholder="Ex: Paula Silva"
+                      class="w-full px-4 py-3 rounded-xl bg-[#FAFCFE] outline-none font-sans text-body-sm text-brand-slate transition-all placeholder:text-brand-subdued/60" />
+                  </div>
+                  <div>
+                    <label
+                      class="block font-quicksand font-bold text-xs text-brand-slate mb-1.5 uppercase tracking-wide">
+                      WhatsApp de Contato *
+                    </label>
+                    <input type="tel" id="v4Phone" required placeholder="(32) 99999-9999"
+                      class="w-full px-4 py-3 rounded-xl bg-[#FAFCFE] outline-none font-sans text-body-sm text-brand-slate transition-all placeholder:text-brand-subdued/60" />
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label
+                      class="block font-quicksand font-bold text-xs text-brand-slate mb-1.5 uppercase tracking-wide">
+                      Segmento de Interesse *
+                    </label>
+                    <select id="v4Segment"
+                      class="w-full px-4 py-3 rounded-xl bg-[#FAFCFE] outline-none font-sans text-body-sm text-brand-slate transition-all">
+                      <option value="Berçário (4 meses a 1 ano)">Berçário (4 meses a 1 ano)</option>
+                      <option value="Maternal (2 a 3 anos)">Maternal (2 a 3 anos)</option>
+                      <option value="Educação Infantil (4 a 5 anos)">Educação Infantil (4 a 5 anos)</option>
+                      <option value="Fundamental I (1º ao 5º ano)">Fundamental I (1º ao 5º ano)</option>
+                      <option value="Turno Integral">Turno Integral</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label
+                      class="block font-quicksand font-bold text-xs text-brand-slate mb-1.5 uppercase tracking-wide">
+                      Turno Preferencial *
+                    </label>
+                    <select id="v4Shift"
+                      class="w-full px-4 py-3 rounded-xl bg-[#FAFCFE] outline-none font-sans text-body-sm text-brand-slate transition-all">
+                      <option value="Manhã (07:30 às 11:45)">Manhã (07:30 às 11:45)</option>
+                      <option value="Tarde (13:00 às 17:15)">Tarde (13:00 às 17:15)</option>
+                      <option value="Integral (07:00 às 18:30)">Integral (07:00 às 18:30)</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block font-quicksand font-bold text-xs text-brand-slate mb-1.5 uppercase tracking-wide">
+                    Observações ou Dúvidas Especiais
+                  </label>
+                  <textarea id="v4Notes" rows="3"
+                    placeholder="Idade da criança, preferências de horário, necessidades alimentares..."
+                    class="w-full px-4 py-3 rounded-xl bg-[#FAFCFE] outline-none font-sans text-body-sm text-brand-slate transition-all placeholder:text-brand-subdued/60"></textarea>
+                </div>
+
+                <div class="pt-2">
+                  <button type="submit"
+                    class="w-full py-4 rounded-full bg-brand-coral hover:bg-primary text-white font-quicksand font-bold text-base shadow-coral-glow hover:shadow-lg transition-all duration-200 border-0 cursor-pointer flex items-center justify-center gap-2">
+                    <span class="material-symbols-outlined text-xl">event_available</span>
+                    <span>Confirmar Solicitação de Visita</span>
+                  </button>
+                  <p
+                    class="font-sans text-xs text-center text-brand-subdued mt-3 flex items-center justify-center gap-1.5">
+                    <span class="material-symbols-outlined text-brand-green text-sm">verified_user</span>
+                    <span>Seus dados são protegidos e tratados com respeito e privacidade total.</span>
+                  </p>
+                </div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="v4-section-divider"></div>
+
+    <!-- ================= 8. FAQ ================= -->
+    <section id="faq"
+      class="w-full px-4 sm:px-8 py-16 lg:py-20 bg-white border-y border-[rgba(43,144,217,0.12)] v4-section-reveal v4-parallax-section">
+      <!-- Decorações -->
+      <div class="v4-floating-decor w-72 h-72 bg-secondary-fixed/25 -top-14 -left-16" data-decor-speed="0.14"></div>
+      <div class="v4-floating-decor w-60 h-60 bg-tertiary-fixed/30 -bottom-10 -right-20" data-decor-speed="-0.16"></div>
+
+      <div class="max-w-4xl mx-auto v4-parallax-layer">
+
+        <div class="text-center mb-10">
+          <span
+            class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-chip-sky-bg text-secondary font-quicksand font-bold text-xs uppercase tracking-wider mb-2">
+            Perguntas Frequentes
+          </span>
+          <h2 class="font-quicksand text-headline-lg lg:text-3xl font-bold text-on-surface">
+            Dúvidas comuns sobre matrículas e rotina
+          </h2>
+        </div>
+
+        <div class="space-y-3.5">
+          <details class="design-card p-5 group">
+            <summary
+              class="flex items-center justify-between font-quicksand font-bold text-primary cursor-pointer list-none text-base sm:text-lg">
+              <span>Como funciona a adaptação das crianças no Berçário e na Educação Infantil?</span>
+              <span
+                class="material-symbols-outlined faq-icon text-secondary transition-transform duration-200">expand_more</span>
+            </summary>
+            <p
+              class="font-sans text-body-md text-brand-subdued mt-3 pt-3 border-t border-[rgba(43,144,217,0.12)] leading-relaxed">
+              A adaptação é gradual e individualizada. A presença de um responsável de referência é calorosamente
+              encorajada nos primeiros
+              dias até que a criança construa laços de afeto e segurança emocional com as educadoras e com o novo
+              ambiente.
+            </p>
+          </details>
+
+          <details class="design-card p-5 group">
+            <summary
+              class="flex items-center justify-between font-quicksand font-bold text-primary cursor-pointer list-none text-base sm:text-lg">
+              <span>A escola oferece alimentação para os alunos do Turno Integral?</span>
+              <span
+                class="material-symbols-outlined faq-icon text-secondary transition-transform duration-200">expand_more</span>
+            </summary>
+            <p
+              class="font-sans text-body-md text-brand-subdued mt-3 pt-3 border-t border-[rgba(43,144,217,0.12)] leading-relaxed">
+              Sim! Todas as refeições (colação matinal, almoço completo, lanche da tarde e jantar leve) são preparadas
+              diariamente
+              na escola sob supervisão nutricional com alimentos frescos e orgânicos, acolhendo qualquer restrição ou
+              alergia alimentar.
+            </p>
+          </details>
+
+          <details class="design-card p-5 group">
+            <summary
+              class="flex items-center justify-between font-quicksand font-bold text-primary cursor-pointer list-none text-base sm:text-lg">
+              <span>Quais são os horários e a flexibilidade dos turnos?</span>
+              <span
+                class="material-symbols-outlined faq-icon text-secondary transition-transform duration-200">expand_more</span>
+            </summary>
+            <p
+              class="font-sans text-body-md text-brand-subdued mt-3 pt-3 border-t border-[rgba(43,144,217,0.12)] leading-relaxed">
+              Turno da Manhã: 07:30 às 11:45 | Turno da Tarde: 13:00 às 17:15 | Turno Integral: flexibilidade total das
+              07:00 às 18:30,
+              com tolerância planejada para atender às necessidades reais da rotina familiar.
+            </p>
+          </details>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= 9. LOCALIZAÇÃO ================= -->
+    <section class="w-full px-4 sm:px-8 py-16 lg:py-20 bg-[#FAFCFE] border-t border-[rgba(43,144,217,0.12)]">
+      <div class="max-w-6xl mx-auto">
+        <div class="design-card p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+
+          <div class="lg:col-span-6 flex flex-col gap-4">
+            <div
+              class="inline-flex items-center gap-2 text-secondary font-quicksand font-bold text-xs uppercase tracking-wider">
+              <span class="material-symbols-outlined text-lg">location_on</span>
+              <span>Bairro Mariano Procópio • Juiz de Fora</span>
+            </div>
+            <h3 class="font-quicksand text-headline-md font-bold text-on-surface">
+              Fácil acesso, tranquilidade e embarque seguro
+            </h3>
+            <p class="font-sans text-body-md text-brand-subdued leading-relaxed">
+              Situada em rua calma e residencial no bairro Mariano Procópio, nossa sede dispõe de área segura para embarque e
+              desembarque,
+              proporcionando tranquilidade diária para os pais.
+            </p>
+            <div class="pt-2">
+              <a href="https://maps.google.com/?q=Bairro+Mariano+Procopio+Juiz+de+Fora" target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-brand-coral hover:bg-primary text-white font-quicksand font-bold text-sm shadow-coral-glow hover:-translate-y-0.5 transition-all">
+                <span class="material-symbols-outlined text-base">navigation</span>
+                <span>Traçar Rota no Google Maps</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6">
+            <div
+              class="p-8 rounded-2xl bg-surface-container-low border border-[rgba(43,144,217,0.15)] flex flex-col items-center justify-center text-center">
+              <div
+                class="w-14 h-14 rounded-full bg-chip-coral-bg flex items-center justify-center text-brand-coral mb-3">
+                <span class="material-symbols-outlined text-3xl">pin_drop</span>
+              </div>
+              <h4 class="font-quicksand font-bold text-primary text-lg">Escola Reino Feliz</h4>
+              <p class="font-sans text-body-sm text-brand-subdued mt-1">
+                Rua das Papoulas, 240 - Bairro Mariano Procópio<br />Juiz de Fora - MG, CEP 36035-000
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER IDENTITÁRIO ================= -->
+  <footer class="w-full bg-white text-brand-slate border-t border-[rgba(43,144,217,0.15)] pt-16 pb-12 relative z-10">
+    <div class="w-full px-4 sm:px-8 max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+
+        <!-- Coluna 1: Logo e Missão -->
+        <div class="flex flex-col gap-3">
+          <div class="flex items-center gap-3">
+            <div
+              class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-[#FFF4DE] via-[#FEF8ED] to-[#FFF0D4] shadow-level-1 p-2 flex items-center justify-center border border-[rgba(212,147,0,0.25)] shrink-0">
+              <svg class="w-6 h-6 text-[#D49300] drop-shadow-sm" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 19H19C19.5523 19 20 18.5523 20 18C20 17.4477 19.5523 17 19 17H5C4.44772 17 4 17.4477 4 18C4 18.5523 4.44772 19 5 19Z" fill="#D49300"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.24505 8.16335C3.00392 7.37894 3.82421 6.70275 4.54226 7.08639L8.21251 9.04751L11.0873 4.25624C11.4727 3.61386 12.4116 3.61386 12.797 4.25624L15.6717 9.04751L19.342 7.08639C20.06 6.70275 20.8803 7.37894 20.6392 8.16335L18.4239 15.375H5.46033L3.24505 8.16335ZM12 13.5C12.8284 13.5 13.5 12.8284 13.5 12C13.5 11.1716 12.8284 10.5 12 10.5C11.1716 10.5 10.5 11.1716 10.5 12C10.5 12.8284 11.1716 13.5 12 13.5Z" fill="url(#crown-grad-footer)"/>
+                <defs>
+                  <linearGradient id="crown-grad-footer" x1="3" y1="4" x2="21" y2="17" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#E66718"/>
+                    <stop offset="0.5" stop-color="#D49300"/>
+                    <stop offset="1" stop-color="#F2A619"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <span class="font-quicksand font-bold text-lg text-secondary">Escola Reino Feliz</span>
+          </div>
+          <p class="font-sans text-body-sm text-brand-subdued mt-1 leading-relaxed">
+            Espaço acolhedor dedicado ao florescer infantil com afeto genuíno, pedagogia humanizada e alegria do
+            Berçário ao 5º ano.
+          </p>
+        </div>
+
+        <!-- Coluna 2: Navegação -->
+        <div class="flex flex-col gap-2">
+          <span class="font-quicksand font-bold text-xs uppercase tracking-wider text-primary mb-2">Navegação</span>
+          <a href="#inicio"
+            class="font-sans text-body-sm text-brand-subdued hover:text-brand-coral transition-colors">Início</a>
+          <a href="#quem-somos"
+            class="font-sans text-body-sm text-brand-subdued hover:text-brand-coral transition-colors">Quem Somos</a>
+          <a href="#segmentos"
+            class="font-sans text-body-sm text-brand-subdued hover:text-brand-coral transition-colors">Segmentos de
+            Ensino</a>
+          <a href="#metodologia"
+            class="font-sans text-body-sm text-brand-subdued hover:text-brand-coral transition-colors">Proposta
+            Pedagógica</a>
+          <a href="#rotina"
+            class="font-sans text-body-sm text-brand-subdued hover:text-brand-coral transition-colors">Rotina
+            Escolar</a>
+          <a href="#agendamento"
+            class="font-sans text-body-sm text-brand-subdued hover:text-brand-coral transition-colors">Agendar
+            Visita</a>
+        </div>
+
+        <!-- Coluna 3: Atendimento -->
+        <div class="flex flex-col gap-2">
+          <span class="font-quicksand font-bold text-xs uppercase tracking-wider text-primary mb-2">Horários &
+            Contato</span>
+          <div class="flex items-start gap-2">
+            <span class="material-symbols-outlined text-secondary text-lg mt-0.5">schedule</span>
+            <div class="flex flex-col">
+              <span class="font-sans text-body-sm text-brand-slate font-semibold">Segunda a Sexta</span>
+              <span class="font-sans text-xs text-brand-subdued">07:00 às 18:30 (Integral & Parcial)</span>
+            </div>
+          </div>
+          <div class="flex items-start gap-2 mt-2">
+            <span class="material-symbols-outlined text-brand-coral text-lg mt-0.5">call</span>
+            <div class="flex flex-col">
+              <span class="font-sans text-body-sm text-brand-slate font-semibold">(32) 3215-0000 / (32)
+                99888-0000</span>
+              <span class="font-sans text-xs text-brand-subdued">Secretaria e Matrículas</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coluna 4: Endereço -->
+        <div class="flex flex-col gap-2">
+          <span class="font-quicksand font-bold text-xs uppercase tracking-wider text-primary mb-2">Localização</span>
+          <div class="flex items-start gap-2">
+            <span class="material-symbols-outlined text-brand-green text-lg mt-0.5">location_on</span>
+            <div class="flex flex-col">
+              <span class="font-sans text-body-sm text-brand-slate font-semibold">Bairro Mariano Procópio</span>
+              <span class="font-sans text-xs text-brand-subdued">Rua das Papoulas, 240</span>
+              <span class="font-sans text-xs text-brand-subdued">Juiz de Fora - MG, 36035-000</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div
+        class="pt-6 mt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-brand-subdued font-sans text-xs border-t border-[rgba(43,144,217,0.12)]">
+        <p>© 2025 Escola Reino Feliz. Todos os direitos reservados.</p>
+        <div class="flex items-center gap-6">
+          <a href="#" class="hover:text-brand-coral transition-colors">Termos e Privacidade</a>
+          <a href="#agendamento" class="hover:text-brand-coral transition-colors">Agendamento de Visitas</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= SCRIPTS ================= -->
+  <script>
+    // 1. Barra de progresso e Parallax nas orbes ambientais (DESIGN.md)
+    const orbSky = document.getElementById('orbSky');
+    const orbSun = document.getElementById('orbSun');
+    const orbCoral = document.getElementById('orbCoral');
+    const progressEl = document.getElementById('v4-progress-line');
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (scrollY / height) * 100;
+
+      if (progressEl) {
+        progressEl.style.width = scrolled + '%';
+      }
+
+      // Parallax nas esferas de iluminação lúdica
+      if (orbSky) orbSky.style.transform = `translate3d(0, ${scrollY * 0.10}px, 0)`;
+      if (orbSun) orbSun.style.transform = `translate3d(0, ${scrollY * -0.12}px, 0)`;
+      if (orbCoral) orbCoral.style.transform = `translate3d(0, ${scrollY * 0.14}px, 0)`;
+
+      // Parallax nos elementos com data-parallax-speed
+      document.querySelectorAll('[data-parallax-speed]').forEach((el) => {
+        const speed = parseFloat(el.getAttribute('data-parallax-speed')) || 0.04;
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          const moveY = (rect.top - window.innerHeight / 2) * speed;
+          el.style.transform = `translate3d(0, ${moveY.toFixed(1)}px, 0)`;
+        }
+      });
+
+      // Parallax nos orbes decorativos entre seções
+      document.querySelectorAll('.v4-floating-decor').forEach((decor) => {
+        const factor = parseFloat(decor.getAttribute('data-decor-speed')) || 0.1;
+        const rect = decor.parentElement.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          const moveY = (rect.top) * factor;
+          decor.style.transform = `translate3d(0, ${moveY.toFixed(1)}px, 0)`;
+        }
+      });
+
+      // Destaque ativo no menu de navegação
+      const sections = ['inicio', 'quem-somos', 'segmentos', 'metodologia', 'rotina', 'depoimentos', 'faq'];
+      let currentSection = 'inicio';
+      sections.forEach(id => {
+        const sec = document.getElementById(id);
+        if (sec) {
+          const top = sec.offsetTop - 120;
+          if (scrollY >= top) {
+            currentSection = id;
+          }
+        }
+      });
+
+      document.querySelectorAll('#desktop-nav .nav-anchor').forEach(link => {
+        const href = link.getAttribute('href').replace('#', '');
+        const activeTextClass = link.getAttribute('data-color-text') || 'text-primary';
+        const activeBorderClass = link.getAttribute('data-color-border') || 'border-primary';
+
+        if (href === currentSection) {
+          link.classList.remove('text-brand-subdued', 'border-transparent');
+          link.classList.add(activeTextClass, activeBorderClass);
+        } else {
+          link.classList.remove(activeTextClass, activeBorderClass);
+          link.classList.add('text-brand-subdued', 'border-transparent');
+        }
+      });
+    }, { passive: true });
+
+    // 2. Intersection Observer para Reveal Animado das Seções
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    document.querySelectorAll('.v4-section-reveal').forEach(el => {
+      revealObserver.observe(el);
+    });
+
+    // 3. Tab Switcher dos Segmentos com cores do DESIGN.md
+    function switchSegmentV4(segmentKey) {
+      document.querySelectorAll('.segment-v4-panel').forEach(panel => {
+        panel.classList.add('hidden');
+      });
+
+      document.querySelectorAll('[id^="tab-v4-"]').forEach(btn => {
+        btn.classList.remove('bg-brand-coral', 'bg-brand-sky', 'bg-brand-purple', 'text-white', 'shadow-coral-glow', 'shadow-sky-glow');
+        btn.classList.add('bg-transparent', 'text-brand-subdued');
+      });
+
+      const activePanel = document.getElementById(`v4-panel-${segmentKey}`);
+      if (activePanel) {
+        activePanel.classList.remove('hidden');
+        activePanel.style.opacity = '0';
+        activePanel.style.transform = 'translateY(10px)';
+        setTimeout(() => {
+          activePanel.style.transition = 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)';
+          activePanel.style.opacity = '1';
+          activePanel.style.transform = 'translateY(0)';
+        }, 15);
+      }
+
+      const activeBtn = document.getElementById(`tab-v4-${segmentKey}`);
+      if (activeBtn) {
+        let activeBg = 'bg-brand-coral';
+        let activeShadow = 'shadow-coral-glow';
+        if (segmentKey === 'infantil') {
+          activeBg = 'bg-brand-sky';
+          activeShadow = 'shadow-sky-glow';
+        } else if (segmentKey === 'fundamental') {
+          activeBg = 'bg-brand-purple';
+          activeShadow = 'shadow-sm';
+        }
+        activeBtn.classList.add(activeBg, 'text-white', activeShadow);
+        activeBtn.classList.remove('bg-transparent', 'text-brand-subdued');
+      }
+    }
+
+    // 4. Smooth Scrolling com Offset
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#' || targetId === '') return;
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          e.preventDefault();
+          const headerOffset = 80;
+          const elementPosition = targetElement.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // 5. Envio do Formulário
+    function handleFormV4(e) {
+      e.preventDefault();
+      const name = document.getElementById('v4Name').value;
+      const segment = document.getElementById('v4Segment').value;
+      alert(`Obrigado, ${name}! Solicitação de visita guiada para ${segment} recebida com sucesso. Nossa equipe entrará em contato via WhatsApp.`);
+      document.getElementById('visitaFormV4').reset();
+    }
+  </script>
+
+</body>
+
+</html>
