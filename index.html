@@ -266,17 +266,45 @@
       box-shadow: 0 2px 14px rgba(44, 62, 80, 0.05);
     }
 
-    /* Revelação suave ao scroll */
+    /* Seções estáveis e estáticas (sem animação ou pulo no container de seção) */
     .v4-section-reveal {
+      opacity: 1;
+      transform: none;
+    }
+
+    .v4-wave-divider {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+      pointer-events: none;
+      z-index: 10;
       opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(20px);
+      transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: opacity, transform;
     }
 
-    .v4-section-reveal.is-visible {
+    .v4-wave-divider.is-visible {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    .v4-wave-divider svg {
+      position: relative;
+      display: block;
+      width: calc(100% + 1.3px);
+      height: 52px;
+    }
+
+    @media (min-width: 768px) {
+      .v4-wave-divider svg {
+        height: 76px;
+      }
+    }
+
+    .v4-wave-divider.is-inverted svg {
+      transform: rotate(180deg);
     }
 
     /* Parallax entre seções */
@@ -318,7 +346,7 @@
     .design-card {
       border: none;
       background: #FFFFFF;
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
       will-change: transform, box-shadow;
       padding: 1.5em 2em;
     }
@@ -329,9 +357,53 @@
     }
 
     .design-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 24px -4px rgba(44, 62, 80, 0.12);
-      border-color: rgba(43, 144, 217, 0.28);
+      transform: translateY(-6px) scale(1.01);
+      box-shadow: 0 16px 32px -6px rgba(44, 62, 80, 0.12), 0 0 16px rgba(43, 144, 217, 0.08);
+      border-color: rgba(43, 144, 217, 0.32);
+    }
+
+    .design-card-without-border:hover {
+      transform: translateY(-4px) scale(1.015);
+      box-shadow: 0 12px 28px -4px rgba(44, 62, 80, 0.09);
+    }
+
+    /* Animação nos ícones e chips dentro dos cards */
+    .design-card .material-symbols-outlined,
+    .design-card-without-border .material-symbols-outlined {
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+    }
+
+    .design-card:hover .material-symbols-outlined,
+    .design-card-without-border:hover .material-symbols-outlined {
+      transform: scale(1.15) rotate(4deg);
+    }
+
+    /* Animação suave para as imagens internas ao passar o cursor */
+    img {
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+    }
+
+    .design-card:hover img {
+      transform: scale(1.025);
+    }
+
+    /* Micro-animação lúdica de flutuação suave para badges e chips */
+    @keyframes badgeGentlePulse {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-3px);
+      }
+    }
+
+    .v4-parallax-layer span[class*="rounded-full"],
+    .v4-parallax-layer div[class*="rounded-full"] {
+      transition: transform 0.25s ease;
+    }
+
+    .v4-parallax-layer span[class*="rounded-full"]:hover {
+      transform: scale(1.06) translateY(-2px);
     }
 
     /* Accordion FAQ */
@@ -344,7 +416,7 @@
       color: #E63946;
     }
 
-    /* Timeline lúdica conectada */
+    /* Timeline lúdica conectada com pulso ativo */
     .timeline-track {
       position: relative;
     }
@@ -364,6 +436,19 @@
         left: 50%;
         transform: translateX(-50%);
       }
+    }
+
+    /* Fade-in suave e refinado para todos os elementos internos da página */
+    .v4-element-fade {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .v4-element-fade.is-visible {
+      opacity: 1;
+      transform: translateY(0);
     }
   </style>
 </head>
@@ -579,14 +664,22 @@
       </div>
     </section>
 
+    <!-- Divisor de Onda Orgânico: Início ➜ Quem Somos (#FAFCFE ➜ #FFFFFF) -->
+    <div class="v4-wave-divider" aria-hidden="true">
+      <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,0 C150,90 350,-40 500,45 C650,130 900,10 1200,50 L1200,120 L0,120 Z" fill="#FFFFFF"></path>
+      </svg>
+    </div>
+
     <!-- ================= 2. QUEM SOMOS ================= -->
     <section id="quem-somos"
-      class="w-full px-4 sm:px-8 py-16 lg:py-20 bg-white border-y border-[rgba(43,144,217,0.12)] v4-section-reveal v4-parallax-section">
+      class="w-full px-4 sm:px-8 py-16 lg:py-20 bg-white v4-section-reveal v4-parallax-section">
       <!-- Decorações Flutuantes -->
       <div class="v4-floating-decor w-72 h-72 bg-secondary-fixed/40 -top-12 -left-20" data-decor-speed="-0.15"></div>
       <div class="v4-floating-decor w-60 h-60 bg-tertiary-fixed/30 -bottom-10 -right-16" data-decor-speed="0.18"></div>
 
       <div class="max-w-6xl mx-auto v4-parallax-layer">
+
 
         <div class="flex items-center gap-2 mb-4">
           <span
@@ -667,9 +760,16 @@
       </div>
     </section>
 
+    <!-- Divisor de Onda Orgânico: Quem Somos ➜ Segmentos (#FFFFFF ➜ #FAFCFE) -->
+    <div class="v4-wave-divider" aria-hidden="true">
+      <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,35 C200,105 420,-15 620,55 C820,135 1000,15 1200,45 L1200,120 L0,120 Z" fill="#FAFCFE"></path>
+      </svg>
+    </div>
+
     <!-- ================= 3. SEGMENTOS COM TABS ================= -->
     <section id="segmentos"
-      class="w-full px-4 sm:px-8 py-16 lg:py-20 bg-[#FAFCFE] border-y border-[rgba(43,144,217,0.12)] v4-section-reveal v4-parallax-section">
+      class="w-full px-4 sm:px-8 py-16 lg:py-20 bg-[#FAFCFE] v4-section-reveal v4-parallax-section">
       <!-- Decoração de Profundidade -->
       <div class="v4-floating-decor w-80 h-80 bg-secondary-container/20 -top-16 -right-24" data-decor-speed="0.2"></div>
       <div class="v4-floating-decor w-64 h-64 bg-primary-fixed/20 -bottom-12 -left-20" data-decor-speed="-0.12"></div>
@@ -845,9 +945,16 @@
       </div>
     </section>
 
+    <!-- Divisor de Onda Orgânico: Segmentos ➜ Metodologia (#FAFCFE ➜ #FFFFFF) -->
+    <div class="v4-wave-divider" aria-hidden="true">
+      <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,20 C180,80 320,0 520,70 C720,130 940,30 1200,75 L1200,120 L0,120 Z" fill="#FFFFFF"></path>
+      </svg>
+    </div>
+
     <!-- ================= 4. METODOLOGIA SECTION ================= -->
     <section id="metodologia"
-      class="w-full px-4 sm:px-8 py-16 lg:py-20 bg-white border-y border-[rgba(43,144,217,0.12)] v4-section-reveal v4-parallax-section">
+      class="w-full px-4 sm:px-8 py-16 lg:py-20 bg-white v4-section-reveal v4-parallax-section">
       <!-- Decorações Flutuantes -->
       <div class="v4-floating-decor w-72 h-72 bg-tertiary-fixed/25 -top-14 -left-16" data-decor-speed="-0.16"></div>
       <div class="v4-floating-decor w-60 h-60 bg-secondary-fixed/35 -bottom-10 -right-20" data-decor-speed="0.14"></div>
@@ -922,9 +1029,16 @@
       </div>
     </section>
 
+    <!-- Divisor de Onda Orgânico: Metodologia ➜ Rotina (#FFFFFF ➜ #FAFCFE) -->
+    <div class="v4-wave-divider is-inverted" aria-hidden="true">
+      <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,0 C150,90 350,-40 500,45 C650,130 900,10 1200,50 L1200,120 L0,120 Z" fill="#FAFCFE"></path>
+      </svg>
+    </div>
+
     <!-- ================= 5. ROTINA E TIMELINE LÚDICA (ESPECIAL DESIGN.MD) ================= -->
     <section id="rotina"
-      class="w-full px-4 sm:px-8 py-16 lg:py-20 bg-[#FAFCFE] border-y border-[rgba(43,144,217,0.12)] v4-section-reveal v4-parallax-section">
+      class="w-full px-4 sm:px-8 py-16 lg:py-20 bg-[#FAFCFE] v4-section-reveal v4-parallax-section">
       <!-- Decorações -->
       <div class="v4-floating-decor w-72 h-72 bg-secondary-fixed/20 -top-12 -left-16" data-decor-speed="-0.15"></div>
 
@@ -1037,9 +1151,16 @@
       </div>
     </section>
 
+    <!-- Divisor de Onda Orgânico: Rotina ➜ Depoimentos (#FAFCFE ➜ #FFFFFF) -->
+    <div class="v4-wave-divider" aria-hidden="true">
+      <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,40 C200,110 420,-20 620,60 C820,140 1000,10 1200,40 L1200,120 L0,120 Z" fill="#FFFFFF"></path>
+      </svg>
+    </div>
+
     <!-- ================= 6. DEPOIMENTOS DAS FAMÍLIAS ================= -->
     <section id="depoimentos"
-      class="w-full px-4 sm:px-8 py-16 lg:py-20 bg-white border-y border-[rgba(43,144,217,0.12)] v4-section-reveal v4-parallax-section">
+      class="w-full px-4 sm:px-8 py-16 lg:py-20 bg-white v4-section-reveal v4-parallax-section">
       <!-- Decorações -->
       <div class="v4-floating-decor w-72 h-72 bg-secondary-fixed/30 -top-12 -right-20" data-decor-speed="0.16"></div>
       <div class="v4-floating-decor w-64 h-64 bg-tertiary-fixed/20 -bottom-16 -left-16" data-decor-speed="-0.15"></div>
@@ -1151,9 +1272,16 @@
       </div>
     </section>
 
+    <!-- Divisor de Onda Orgânico: Depoimentos ➜ Agendamento (#FFFFFF ➜ #FAFCFE) -->
+    <div class="v4-wave-divider" aria-hidden="true">
+      <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,0 C150,90 350,-40 500,45 C650,130 900,10 1200,50 L1200,120 L0,120 Z" fill="#FAFCFE"></path>
+      </svg>
+    </div>
+
     <!-- ================= 7. AGENDE UMA VISITA / FORMULÁRIO ================= -->
     <section id="agendamento"
-      class="w-full px-4 sm:px-8 py-16 lg:py-20 bg-[#FAFCFE] border-y border-[rgba(43,144,217,0.12)] v4-section-reveal v4-parallax-section">
+      class="w-full px-4 sm:px-8 py-16 lg:py-20 bg-[#FAFCFE] v4-section-reveal v4-parallax-section">
       <!-- Decorações -->
       <div class="v4-floating-decor w-80 h-80 bg-chip-coral-bg/50 -top-20 -left-20" data-decor-speed="-0.18"></div>
       <div class="v4-floating-decor w-72 h-72 bg-chip-sky-bg/50 -bottom-16 -right-24" data-decor-speed="0.15"></div>
@@ -1301,11 +1429,16 @@
       </div>
     </section>
 
-    <div class="v4-section-divider"></div>
+    <!-- Transição Ondulada Flutuante: Agendamento -> FAQ (#FAFCFE -> #FFFFFF) -->
+    <div class="v4-wave-divider" aria-hidden="true">
+      <svg viewBox="0 0 1440 90" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0,32 C320,85 480,5 720,48 C960,90 1120,15 1440,55 L1440,90 L0,90 Z" fill="#FFFFFF"></path>
+      </svg>
+    </div>
 
     <!-- ================= 8. FAQ ================= -->
     <section id="faq"
-      class="w-full px-4 sm:px-8 py-16 lg:py-20 bg-white border-y border-[rgba(43,144,217,0.12)] v4-section-reveal v4-parallax-section">
+      class="w-full px-4 sm:px-8 py-16 lg:py-20 bg-white v4-section-reveal v4-parallax-section">
       <!-- Decorações -->
       <div class="v4-floating-decor w-72 h-72 bg-secondary-fixed/25 -top-14 -left-16" data-decor-speed="0.14"></div>
       <div class="v4-floating-decor w-60 h-60 bg-tertiary-fixed/30 -bottom-10 -right-20" data-decor-speed="-0.16"></div>
@@ -1374,8 +1507,15 @@
       </div>
     </section>
 
+    <!-- Transição Ondulada Flutuante: FAQ -> Localização (#FFFFFF -> #FAFCFE) -->
+    <div class="v4-wave-divider" aria-hidden="true">
+      <svg viewBox="0 0 1440 90" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0,45 C280,5 520,78 760,35 C1000,-8 1240,65 1440,25 L1440,90 L0,90 Z" fill="#FAFCFE"></path>
+      </svg>
+    </div>
+
     <!-- ================= 9. LOCALIZAÇÃO ================= -->
-    <section class="w-full px-4 sm:px-8 py-16 lg:py-20 bg-[#FAFCFE] border-t border-[rgba(43,144,217,0.12)]">
+    <section class="w-full px-4 sm:px-8 py-16 lg:py-20 bg-[#FAFCFE] v4-section-reveal">
       <div class="max-w-6xl mx-auto">
         <div class="design-card p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
 
@@ -1422,10 +1562,17 @@
       </div>
     </section>
 
+    <!-- Transição Ondulada Flutuante: Localização -> Footer (#FAFCFE -> #FFFFFF) -->
+    <div class="v4-wave-divider" aria-hidden="true">
+      <svg viewBox="0 0 1440 90" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0,35 C360,80 540,10 720,45 C900,80 1080,20 1440,60 L1440,90 L0,90 Z" fill="#FFFFFF"></path>
+      </svg>
+    </div>
+
   </main>
 
   <!-- ================= FOOTER IDENTITÁRIO ================= -->
-  <footer class="w-full bg-white text-brand-slate border-t border-[rgba(43,144,217,0.15)] pt-16 pb-12 relative z-10">
+  <footer class="w-full bg-white text-brand-slate pt-16 pb-12 relative z-10">
     <div class="w-full px-4 sm:px-8 max-w-7xl mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
 
@@ -1597,20 +1744,41 @@
       });
     }, { passive: true });
 
-    // 2. Intersection Observer para Reveal Animado das Seções
-    const revealObserver = new IntersectionObserver((entries) => {
+    // 2. Intersection Observer para Fade-in dos Elementos Internos (Excluindo as Seções)
+    const elementFadeObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
         }
       });
     }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -40px 0px'
+      threshold: 0.12,
+      rootMargin: '0px 0px -30px 0px'
     });
 
-    document.querySelectorAll('.v4-section-reveal').forEach(el => {
-      revealObserver.observe(el);
+    // Mapeia e observa todos os elementos internos de conteúdo (cards, títulos, parágrafos, imagens, blocos, botões)
+    const internalSelector = [
+      'section .design-card',
+      'section .design-card-without-border',
+      'section h1',
+      'section h2',
+      'section h3',
+      'section h4',
+      'section p',
+      'section img',
+      'section details',
+      'section form',
+      'section .timeline-track > div',
+      '.v4-wave-divider'
+    ].join(', ');
+
+    document.querySelectorAll(internalSelector).forEach((el, index) => {
+      // Ignora elementos vazios ou estruturais de container direto
+      if (!el.classList.contains('v4-element-fade')) {
+        el.classList.add('v4-element-fade');
+      }
+      elementFadeObserver.observe(el);
     });
 
     // 3. Tab Switcher dos Segmentos com cores do DESIGN.md
