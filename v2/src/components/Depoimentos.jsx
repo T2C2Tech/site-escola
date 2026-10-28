@@ -147,7 +147,7 @@ export default function Depoimentos() {
               className="mx-auto flex h-44 w-44 items-center justify-center rounded-full bg-white shadow-lg"
             >
               <img
-                src="/logo.png"
+                src="./logo.svg"
                 alt="Reinado da Criança Mascote"
                 className="h-28 w-auto object-contain"
               />

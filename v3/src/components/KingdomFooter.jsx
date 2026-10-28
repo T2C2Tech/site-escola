@@ -28,9 +28,9 @@ export default function KingdomFooter() {
               <motion.div
                 whileHover={{ rotate: 12, scale: 1.1 }}
                 onClick={triggerHearts}
-                className="w-12 h-12 rounded-2xl bg-kingdom-yellow flex items-center justify-center text-2xl shadow-md cursor-pointer select-none"
+                className="w-12 h-12 rounded-2xl bg-kingdom-yellow p-1.5 flex items-center justify-center text-2xl shadow-md cursor-pointer select-none"
               >
-                👑
+                <img src="./logo.svg" alt="Logo Reinado da Criança" className="w-full h-full object-contain" />
               </motion.div>
               <span className="font-fredoka font-bold text-2xl text-white">Reinado da Criança</span>
             </div>

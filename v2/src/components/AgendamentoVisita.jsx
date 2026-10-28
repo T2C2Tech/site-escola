@@ -232,7 +232,7 @@ export default function AgendamentoVisita() {
 
             <div className="border-t border-white/10 pt-6 text-center">
               <img
-                src="/logo.png"
+                src="./logo.svg"
                 alt="Logo Reinado da Criança"
                 className="h-16 w-auto mx-auto mb-2 object-contain"
               />

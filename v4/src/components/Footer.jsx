@@ -19,10 +19,7 @@ export default function Footer({ onOpenVisitModal }) {
             <div className="flex items-center gap-3.5">
               <div className="w-14 h-14 rounded-2xl bg-white p-1.5 flex items-center justify-center shadow-md">
                 <img
-                  src="./logo.png"
-                  onError={(e) => {
-                    e.currentTarget.src = './logo.svg';
-                  }}
+                  src="./logo.svg"
                   alt="Colégio Reinado da Criança"
                   className="w-full h-full object-contain"
                 />

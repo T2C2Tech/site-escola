@@ -28,7 +28,7 @@ export default function Footer() {
         <div className="order-1 mx-auto text-center md:order-2">
           <div className="relative inline-block mb-3">
             <img
-              src="/logo.png"
+              src="./logo.svg"
               alt="Logo Reinado da Criança"
               className="h-28 w-auto mx-auto object-contain drop-shadow-md hover:scale-105 transition-transform"
             />

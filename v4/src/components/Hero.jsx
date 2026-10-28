@@ -23,10 +23,7 @@ export default function Hero({ onOpenVisitModal, onOpenVideoModal }) {
             <div className="flex items-center gap-4 mb-4 lg:mb-6 pl-2">
               <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-3xl bg-white p-2.5 shadow-xl border-4 border-reinado-sol shrink-0">
                 <img
-                  src="./logo.png"
-                  onError={(e) => {
-                    e.currentTarget.src = './logo.svg';
-                  }}
+                  src="./logo.svg"
                   alt="Colégio Reinado da Criança"
                   className="w-full h-full object-contain"
                 />

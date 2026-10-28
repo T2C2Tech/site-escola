@@ -20,7 +20,7 @@ export default function Header() {
           <a href="#inicio" className="flex items-center gap-3.5 group" aria-label="Escola Reinado da Criança - Início">
             <div className="relative">
               <img
-                src="/logo.png"
+                src="./logo.svg"
                 alt="Logo Reinado da Criança"
                 className="h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
               />

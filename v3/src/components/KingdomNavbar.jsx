@@ -37,7 +37,7 @@ export default function KingdomNavbar() {
                 transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
                 className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-[#FFE082] via-[#FFCA28] to-[#FF8A80] p-2 flex items-center justify-center shadow-lg shadow-kingdom-yellow/30"
               >
-                <span className="text-3xl select-none">👑</span>
+                <img src="./logo.svg" alt="Logo Reinado da Criança" className="w-full h-full object-contain select-none" />
               </motion.div>
               <span className="absolute -top-2 -right-2 text-lg animate-spin">✨</span>
             </div>

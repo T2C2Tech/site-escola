@@ -54,10 +54,7 @@ export default function Navbar({ onOpenVisitModal }) {
           >
             <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-reinado-sol-light border border-amber-200/80 flex items-center justify-center p-1.5">
               <img
-                src="./logo.png"
-                onError={(e) => {
-                  e.currentTarget.src = './logo.svg';
-                }}
+                src="./logo.svg"
                 alt="Colégio Reinado da Criança"
                 className="w-full h-full object-contain"
               />
