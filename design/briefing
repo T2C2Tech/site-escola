@@ -1,0 +1,47 @@
+# Briefing & Escopo Oficial — Colégio Reinado da Criança (V4)
+
+## 1. Sobre o Colégio e Proposta Pedagógica
+- **Instituição:** Colégio Reinado da Criança
+- **Localização:** Bairro Mariano Procópio — Juiz de Fora, MG
+- **Diferencial Principal:** Ensino afetivo aliado ao tempo integral humanizado. Ambiente acolhedor onde cada criança é chamada pelo nome, aliado a uma estrutura moderna voltada para o desenvolvimento integral (emocional, social e cognitivo).
+- **Turmas, Idades e Turnos:**
+  - **Educação Infantil:** Do Berçário (a partir de 4 meses) ao Maternal III (4 anos). Turnos: Manhã, Tarde e Integral.
+  - **Ensino Fundamental I:** Do 1º ao 5º ano (6 a 10 anos). Turnos: Manhã e Tarde.
+- **Atividades Extracurriculares e Projetos:**
+  - **Iniciação Bilíngue:** Imersão lúdica na língua inglesa diariamente.
+  - **Oficina de Mini-Chef:** Cozinha pedagógica para explorar a alimentação saudável.
+  - **Projetos Especiais:** Horta Comunitária, Educação Socioemocional (Líder em Mim) e Psicomotricidade.
+
+## 2. Agendamento de Visitas (Foco no WhatsApp)
+- **WhatsApp Oficial:** (32) 99999-1234 (Secretaria de Matrículas)
+- **Mini-Formulário Pré-WhatsApp (Pop-up Modal & Seção):**
+  - Campos: Nome do Responsável, WhatsApp, Idade/Série da Criança, Turno de Interesse e Horário Preferencial.
+  - Ação: Ao clicar em "Iniciar Conversa", envia os dados estruturados diretamente para o WhatsApp da secretaria.
+- **Dias e Horários de Visita:**
+  - Segunda a sexta-feira, das 08h30 às 11h00 e das 14h00 às 16h30 (agendamentos exclusivos a cada 30 minutos).
+
+## 3. Identidade Visual e Referências
+- **Paleta Vibrante com Contraste Acessível:**
+  - Azul-Celeste (`#0096FF` / `#0284C7`)
+  - Amarelo-Sol (`#FFC700` / `#F59E0B`)
+  - Verde-Limão (`#65C11F` / `#16A34A`)
+  - Laranja-Tangerina (`#FF6B00` / `#EA580C`)
+  - Texto Escuro de Alto Contraste (`#0F2537`)
+- **Referências:**
+  - Colégio Visconde de Porto Seguro (interatividade e menus limpos)
+  - Escola Red Balloon (cores vivas, elementos lúdicos e botões de conversão destacados)
+
+## 4. Fotos, Vídeos e Copywriting
+- **Acervo:** Galeria interativa e vídeos do pátio, salas temáticas, refeitório, horta e brinquedoteca (com Termo de Autorização de Uso de Imagem assinado pelos responsáveis).
+- **Copywriting Comercial:** Foco nos gatilhos mentais de segurança, acolhimento ("cada criança chamada pelo nome"), tempo integral humanizado e urgência para matrículas (vagas limitadas por turma).
+
+## 5. Guia Passo a Passo: Registro de Domínio (.com.br) e Hospedagem com SSL
+1. **Registro do Domínio no Registro.br (Titularidade 100% da Escola):**
+   - Acesse `https://registro.br` e pesquise por `colegioreinadodacrianca.com.br`.
+   - Clique em "Registrar" e informe o **CNPJ oficial do Colégio Reinado da Criança**.
+   - Preencha os dados do representante legal e crie a conta da escola.
+   - Escolha o ciclo de pagamento (recomendado: 1 ou 2 anos, ~R$ 40/ano) e pague via PIX ou boleto em nome da escola.
+2. **Contratação de Hospedagem Rápida com SSL Gratuito:**
+   - Opções recomendadas para alta velocidade e SSL automático gratuito: **Cloudflare Pages / Vercel** (plano gratuito ou Pro para sites estáticos/React de altíssima performance) ou **Hostinger Business / HostGator** (caso desejem e-mails corporativos como `secretaria@colegioreinadodacrianca.com.br`).
+   - Após contratar, basta apontar os servidores DNS (Nameservers) no painel do Registro.br para ativar o cadeado de segurança HTTPS (SSL).
+
