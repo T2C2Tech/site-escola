@@ -39,9 +39,15 @@ jobs:
           npm ci
           npm run build
 
+      - name: Install and Build v3
+        run: |
+          cd v3
+          npm ci
+          npm run build
+
       - name: Prepare Pages Artifact
         run: |
-          mkdir -p _site/v2
+          mkdir -p _site/v2 _site/v3
           # Copia a Versão 1 para a raiz
           cp index.html _site/
           cp -r logo.png _site/ 2>/dev/null || true
@@ -49,6 +55,8 @@ jobs:
           touch _site/.nojekyll
           # Copia a build da Versão 2 para /v2
           cp -r v2/dist/* _site/v2/
+          # Copia a build da Versão 3 para /v3
+          cp -r v3/dist/* _site/v3/
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
