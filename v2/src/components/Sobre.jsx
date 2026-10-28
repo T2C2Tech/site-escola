@@ -34,7 +34,7 @@ export default function Sobre() {
           <div className="relative rounded-[2.8rem] overflow-hidden shadow-2xl shadow-[#E63946]/15">
             <img
               src="https://images.unsplash.com/photo-1544717305-996b815c338c?auto=format&fit=crop&w=900&q=80"
-              alt="Educadora contando histórias com afeto na Borboletinha"
+              alt="Educadora contando histórias com afeto no Reinado da Criança"
               className="aspect-[4/5] w-full object-cover transition-transform duration-500 group-hover:scale-103"
             />
           </div>

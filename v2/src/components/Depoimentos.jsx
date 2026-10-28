@@ -70,7 +70,7 @@ export default function Depoimentos() {
             O que as famílias dizem sobre a nossa escola
           </h2>
           <p className="mt-3 font-nunito text-[#6C7A89] text-base">
-            Ouvir a experiência de outras mães e pais é a melhor forma de sentir o clima da Borboletinha Encantada.
+            Ouvir a experiência de outras mães e pais é a melhor forma de sentir o clima do Reinado da Criança.
           </p>
         </motion.div>
 
@@ -148,7 +148,7 @@ export default function Depoimentos() {
             >
               <img
                 src="/logo.png"
-                alt="Borboletinha Mascote"
+                alt="Reinado da Criança Mascote"
                 className="h-28 w-auto object-contain"
               />
             </motion.div>

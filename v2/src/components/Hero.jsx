@@ -74,7 +74,7 @@ export default function Hero() {
           </h1>
 
           <p className="mt-6 max-w-xl font-nunito text-lg sm:text-xl font-medium leading-relaxed text-[#5b403f]">
-            Na <strong>Borboletinha Encantada</strong>, as crianças aprendem brincando, experimentando e convivendo. Espaço amplo, verde, seguro e preparado para bebês a partir de 4 meses até o 5º ano do Ensino Fundamental.
+            No <strong>Reinado da Criança</strong>, as crianças aprendem brincando, experimentando e convivendo. Espaço amplo, verde, seguro e preparado para bebês a partir de 4 meses até o 5º ano do Ensino Fundamental.
           </p>
 
           {/* Botões Chamativos */}
@@ -177,7 +177,7 @@ export default function Hero() {
             <div className="overflow-hidden rounded-[2.7rem] bg-white">
               <img
                 src="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=1200&q=80"
-                alt="Crianças aprendendo e sorrindo na Escola Borboletinha Encantada"
+                alt="Crianças aprendendo e sorrindo na Escola Reinado da Criança"
                 className="aspect-[4/5] w-full object-cover object-center transform transition-transform duration-700 hover:scale-105"
               />
             </div>

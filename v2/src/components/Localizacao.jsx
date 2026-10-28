@@ -30,7 +30,7 @@ export default function Localizacao() {
               📍
             </div>
             <div>
-              <p className="font-quicksand font-black text-lg text-[#2C3E50]">Escola Borboletinha Encantada</p>
+              <p className="font-quicksand font-black text-lg text-[#2C3E50]">Escola Reinado da Criança</p>
               <p className="font-nunito text-base text-[#5b403f] mt-1 leading-relaxed">
                 Rua das Palmeiras Encantadas, 120<br />
                 Tijuca / Maracanã — Rio de Janeiro — RJ<br />
@@ -71,7 +71,7 @@ export default function Localizacao() {
           className="min-h-[420px] overflow-hidden rounded-[2.8rem] shadow-2xl bg-white p-2"
         >
           <iframe
-            title="Localização da Escola Borboletinha Encantada"
+            title="Localização da Escola Reinado da Criança"
             src="https://www.google.com/maps?q=Tijuca%20Rio%20de%20Janeiro&output=embed"
             className="h-full min-h-[400px] w-full rounded-[2.5rem] border-0"
             loading="lazy"

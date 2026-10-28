@@ -17,11 +17,11 @@ export default function Header() {
       <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md transition-all shadow-sm">
         <div className="mx-auto flex h-24 max-w-7xl items-center justify-between gap-4 px-5">
           {/* Logotipo da Escola */}
-          <a href="#inicio" className="flex items-center gap-3.5 group" aria-label="Escola Borboletinha Encantada - Início">
+          <a href="#inicio" className="flex items-center gap-3.5 group" aria-label="Escola Reinado da Criança - Início">
             <div className="relative">
               <img
                 src="/logo.png"
-                alt="Logo Borboletinha Encantada"
+                alt="Logo Reinado da Criança"
                 className="h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
               />
               <span className="absolute -top-1 -right-1 text-sm animate-bounce">✨</span>
@@ -29,10 +29,10 @@ export default function Header() {
             <div>
               <div className="flex items-center gap-1.5">
                 <span className="font-quicksand text-2xl font-black tracking-tight text-[#2C3E50] group-hover:text-[#E63946] transition-colors">
-                  Borboletinha
+                  Reinado
                 </span>
                 <span className="font-quicksand text-2xl font-black text-[#E63946]">
-                  Encantada
+                  da Criança
                 </span>
               </div>
               <div className="flex items-center gap-2 mt-0.5">
@@ -63,7 +63,7 @@ export default function Header() {
           {/* Botões de Ação Sem Bordas Pesadas */}
           <div className="hidden items-center gap-3 md:flex">
             <a
-              href="https://wa.me/5521999999999?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20as%20matr%C3%ADculas%20da%20Borboletinha%20Encantada."
+              href="https://wa.me/5521999999999?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20as%20matr%C3%ADculas%20da%20Escola%20Reinado%20da%20Crian%C3%A7a."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full bg-[#EAF6EE] px-5 py-2.5 text-sm font-extrabold text-[#2E9A68] hover:bg-[#2E9A68] hover:text-white transition-all shadow-sm hover:scale-105"
