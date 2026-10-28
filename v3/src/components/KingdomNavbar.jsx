@@ -47,10 +47,6 @@ export default function KingdomNavbar() {
                 <span className="text-kingdom-blue">Reinado</span>
                 <span className="text-kingdom-coral">da Criança</span>
               </div>
-              <div className="flex items-center gap-1.5 text-xs font-nunito font-extrabold text-[#755700]">
-                <span className="px-2 py-0.5 rounded-full bg-kingdom-sun/50">🏰 O Castelo do Saber</span>
-                <span className="hidden sm:inline-block px-2 py-0.5 rounded-full bg-kingdom-mint/40 text-[#1e6b47]">Berçário ao 5º Ano</span>
-              </div>
             </div>
           </a>
 

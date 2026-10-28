@@ -45,9 +45,21 @@ jobs:
           npm ci
           npm run build
 
+      - name: Install and Build v4
+        run: |
+          cd v4
+          npm ci
+          npm run build
+
+      - name: Install and Build v5
+        run: |
+          cd v5
+          npm ci
+          npm run build
+
       - name: Prepare Pages Artifact
         run: |
-          mkdir -p _site/v2 _site/v3
+          mkdir -p _site/v2 _site/v3 _site/v4 _site/v5
           # Copia a Versão 1 para a raiz
           cp index.html _site/
           cp -r logo.png _site/ 2>/dev/null || true
@@ -57,6 +69,10 @@ jobs:
           cp -r v2/dist/* _site/v2/
           # Copia a build da Versão 3 para /v3
           cp -r v3/dist/* _site/v3/
+          # Copia a build da Versão 4 para /v4
+          cp -r v4/dist/* _site/v4/
+          # Copia a build da Versão 5 para /v5
+          cp -r v5/dist/* _site/v5/
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

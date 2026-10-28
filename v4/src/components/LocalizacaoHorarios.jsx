@@ -3,152 +3,211 @@ import {
   MapPin,
   Clock,
   Phone,
-  Calendar,
-  Sparkles,
-  CheckCircle2,
+  MessageCircle,
   Navigation,
 } from 'lucide-react';
+import { PEQUE_PATHS } from './PequeShape';
 
 export default function LocalizacaoHorarios({ onOpenVisitModal }) {
   const morningSlots = ['08h30', '09h00', '09h30', '10h00', '10h30', '11h00'];
   const afternoonSlots = ['14h00', '14h30', '15h00', '15h30', '16h00', '16h30'];
 
   return (
-    <section id="localizacao" className="py-16 lg:py-24 bg-white">
+    <section id="localizacao" className="py-12 lg:py-20 peque-canvas">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="grid lg:grid-cols-12 gap-10 items-stretch">
-          {/* Coluna Esquerda: Horários Exclusivos de Visita (30 em 30 min) */}
-          <div className="lg:col-span-6 rounded-[2.25rem] bg-gradient-to-br from-reinado-celeste-light via-white to-reinado-sol-light p-6 sm:p-10 border-2 border-reinado-celeste/30 shadow-xl flex flex-col justify-between">
-            <div>
-              <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-reinado-tangerina text-white font-fredoka font-bold text-xs uppercase tracking-wider">
-                <Clock className="w-3.5 h-3.5" /> Atendimento Individualizado • De 30 em 30 min
-              </span>
-
-              <h2 className="mt-3 font-fredoka text-2xl sm:text-4xl font-bold text-reinado-ink leading-tight">
-                Escolha seu horário exclusivo de visita no Mariano Procópio
-              </h2>
-
-              <p className="mt-2.5 text-sm sm:text-base text-reinado-slate font-semibold leading-relaxed">
-                De <strong>segunda a sexta-feira</strong>, reservamos janelas de <strong>30 minutos</strong> exclusivas para que sua família conheça cada espaço com calma e converse com a nossa coordenação.
-              </p>
-
-              {/* Slots da Manhã */}
-              <div className="mt-6">
-                <p className="text-xs font-extrabold uppercase tracking-wider text-reinado-celeste-dark mb-2.5">
-                  ☀️ Manhã (08h30 às 11h00) — Clique em um horário para pré-reservar:
+        {/* Estrutura Assimétrica idêntica ao Slide 15 de peque.com.br */}
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
+          {/* COLUNA ESQUERDA: Logo + Trapézio Verde-Limão (#CED636) com Seletor de Horários de 30 em 30 min */}
+          <div className="lg:col-span-6 flex flex-col justify-between gap-6">
+            <div className="flex items-center gap-4">
+              <img
+                src="./logo.svg"
+                alt="Logo Colégio Reinado da Criança"
+                className="w-16 h-16 sm:w-20 sm:h-20 object-contain"
+              />
+              <div>
+                <h2 className="font-fredoka text-2xl sm:text-4xl font-bold text-reinado-ink leading-none">
+                  Reinado <span className="text-reinado-tangerina">da Criança</span>
+                </h2>
+                <p className="text-xs sm:text-sm font-extrabold text-reinado-slate mt-1">
+                  Visitas Exclusivas de 30 em 30 minutos • Seg a Sex
                 </p>
-                <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
-                  {morningSlots.map((slot) => (
-                    <button
-                      key={slot}
-                      type="button"
-                      onClick={() =>
-                        onOpenVisitModal({
-                          turno: 'Manhã',
-                          horarioVisita: `Manhã às ${slot}`,
-                        })
-                      }
-                      className="py-2.5 px-2 rounded-xl bg-white hover:bg-reinado-celeste hover:text-white text-reinado-ink font-fredoka font-bold text-xs sm:text-sm border-2 border-reinado-celeste/30 transition-all shadow-sm cursor-pointer"
-                    >
-                      {slot}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Slots da Tarde */}
-              <div className="mt-5">
-                <p className="text-xs font-extrabold uppercase tracking-wider text-reinado-tangerina-dark mb-2.5">
-                  🌤️ Tarde (14h00 às 16h30) — Clique em um horário para pré-reservar:
-                </p>
-                <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
-                  {afternoonSlots.map((slot) => (
-                    <button
-                      key={slot}
-                      type="button"
-                      onClick={() =>
-                        onOpenVisitModal({
-                          turno: 'Tarde',
-                          horarioVisita: `Tarde às ${slot}`,
-                        })
-                      }
-                      className="py-2.5 px-2 rounded-xl bg-white hover:bg-reinado-tangerina hover:text-white text-reinado-ink font-fredoka font-bold text-xs sm:text-sm border-2 border-reinado-tangerina/30 transition-all shadow-sm cursor-pointer"
-                    >
-                      {slot}
-                    </button>
-                  ))}
-                </div>
               </div>
             </div>
 
-            <div className="mt-8 pt-6 border-t border-reinado-celeste/20 flex flex-col sm:flex-row items-center justify-between gap-4">
-              <div className="flex items-center gap-2.5">
-                <Phone className="w-5 h-5 text-reinado-limao-dark shrink-0" />
+            <div className="relative flex-1 min-h-[430px] flex items-center">
+              <svg
+                viewBox="0 0 495 485"
+                preserveAspectRatio="none"
+                className="w-full h-full absolute inset-0 drop-shadow-[0_18px_28px_rgba(101,193,31,0.22)]"
+              >
+                <path d={PEQUE_PATHS.trapezoidRight} fill="#D4DC36" />
+              </svg>
+
+              <div className="relative z-10 p-6 sm:p-10 w-full space-y-5 text-reinado-ink">
                 <div>
-                  <p className="text-xs font-bold text-reinado-slate">WhatsApp da Secretaria:</p>
-                  <p className="font-fredoka font-bold text-base text-reinado-ink">
-                    (32) 99999-1234
+                  <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-reinado-ink text-reinado-sol font-fredoka font-bold text-xs uppercase">
+                    <Clock className="w-3.5 h-3.5" /> Escolha Sua Janela Exclusiva
+                  </span>
+                  <h3 className="font-fredoka text-2xl sm:text-3xl font-bold mt-2 leading-tight">
+                    Clique em um horário para falar conosco no WhatsApp:
+                  </h3>
+                </div>
+
+                {/* Manhã */}
+                <div>
+                  <p className="text-xs font-extrabold uppercase tracking-wider text-reinado-ink mb-2">
+                    ☀️ Segunda a Sexta — Manhã (08h30 às 11h00):
                   </p>
+                  <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
+                    {morningSlots.map((slot) => (
+                      <button
+                        key={slot}
+                        type="button"
+                        onClick={() =>
+                          onOpenVisitModal({
+                            turno: 'Manhã',
+                            horarioVisita: `Manhã às ${slot}`,
+                          })
+                        }
+                        className="py-2.5 px-2 rounded-xl bg-white hover:bg-reinado-tangerina hover:text-white text-reinado-ink font-fredoka font-bold text-xs sm:text-sm border-2 border-reinado-ink/15 shadow-sm transition-all cursor-pointer"
+                      >
+                        {slot}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Tarde */}
+                <div>
+                  <p className="text-xs font-extrabold uppercase tracking-wider text-reinado-ink mb-2">
+                    🌤️ Segunda a Sexta — Tarde (14h00 às 16h30):
+                  </p>
+                  <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
+                    {afternoonSlots.map((slot) => (
+                      <button
+                        key={slot}
+                        type="button"
+                        onClick={() =>
+                          onOpenVisitModal({
+                            turno: 'Tarde',
+                            horarioVisita: `Tarde às ${slot}`,
+                          })
+                        }
+                        className="py-2.5 px-2 rounded-xl bg-white hover:bg-reinado-celeste hover:text-white text-reinado-ink font-fredoka font-bold text-xs sm:text-sm border-2 border-reinado-ink/15 shadow-sm transition-all cursor-pointer"
+                      >
+                        {slot}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Mini Mapa Embutido */}
+                <div className="rounded-2xl overflow-hidden border-2 border-reinado-ink/20 h-40 bg-white">
+                  <iframe
+                    title="Mapa Colégio Reinado da Criança - Mariano Procópio"
+                    src="https://www.google.com/maps?q=Mariano+Procopio,+Juiz+de+Fora+-+MG&output=embed"
+                    className="w-full h-full border-0"
+                    loading="lazy"
+                  />
                 </div>
               </div>
-
-              <button
-                type="button"
-                onClick={() => onOpenVisitModal()}
-                className="btn-tangerina w-full sm:w-auto px-7 py-3.5 rounded-full font-fredoka font-bold text-sm sm:text-base flex items-center justify-center gap-2 cursor-pointer"
-              >
-                <Calendar className="w-4 h-4" />
-                <span>Abrir Formulário de Visita</span>
-              </button>
             </div>
           </div>
 
-          {/* Coluna Direita: Mapa e Localização no Bairro Mariano Procópio */}
-          <div className="lg:col-span-6 rounded-[2.25rem] bg-white p-6 sm:p-8 border-2 border-slate-200 shadow-xl flex flex-col justify-between">
-            <div>
-              <div className="flex items-center justify-between gap-3 flex-wrap mb-4">
-                <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-reinado-limao-light text-reinado-limao-dark font-fredoka font-bold text-xs uppercase">
-                  <MapPin className="w-3.5 h-3.5" /> Localização Privilegiada
+          {/* COLUNA DIREITA: Trapézio Azul-Celeste (#0096FF) "Venha conhecer de perto a nossa escola" + Círculo Gigante WhatsApp */}
+          <div className="lg:col-span-6 relative min-h-[480px] flex items-center">
+            <svg
+              viewBox="0 0 410 495"
+              preserveAspectRatio="none"
+              className="w-full h-full absolute inset-0 drop-shadow-[0_20px_35px_rgba(0,150,255,0.25)]"
+            >
+              <path d={PEQUE_PATHS.tallVertical} fill="#0096FF" />
+            </svg>
+
+            <div className="relative z-10 p-8 sm:p-12 w-full flex flex-col justify-between h-full text-white space-y-6">
+              <div>
+                <span className="inline-block px-3.5 py-1 rounded-full bg-reinado-sol text-reinado-ink font-fredoka font-bold text-xs uppercase mb-3">
+                  Portas e Coração Abertos
                 </span>
-                <span className="text-xs font-extrabold text-reinado-slate">
-                  Juiz de Fora • Minas Gerais
-                </span>
+                <h2 className="font-fredoka text-3xl sm:text-5xl font-bold leading-[1.12] text-reinado-ink bg-white/95 p-5 rounded-3xl shadow-lg">
+                  Venha conhecer de perto a nossa escola.
+                </h2>
               </div>
 
-              <h3 className="font-fredoka text-2xl sm:text-3xl font-bold text-reinado-ink">
-                No coração do bairro Mariano Procópio
-              </h3>
-              <p className="mt-2 text-sm sm:text-base text-reinado-slate font-semibold">
-                Fácil acesso para embarque e desembarque seguro das crianças, pertinho do Museu Mariano Procópio e das principais vias da região.
-              </p>
+              {/* Bloco Central com Contatos + Círculo Gigante Verde do WhatsApp (idêntico ao Slide 15 da Pequê) */}
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3.5">
+                    <span className="w-12 h-12 rounded-2xl bg-white text-reinado-ink flex items-center justify-center shadow-md shrink-0">
+                      <Phone className="w-6 h-6 text-reinado-tangerina" />
+                    </span>
+                    <div>
+                      <p className="text-xs font-extrabold uppercase text-white/80">
+                        Secretaria de Matrículas
+                      </p>
+                      <p className="font-fredoka text-2xl font-bold text-white">
+                        (32) 99999-1234
+                      </p>
+                    </div>
+                  </div>
 
-              <div className="mt-5 rounded-2xl overflow-hidden border-2 border-reinado-celeste/25 aspect-[16/10] bg-slate-100">
-                <iframe
-                  title="Mapa Colégio Reinado da Criança - Mariano Procópio, Juiz de Fora"
-                  src="https://www.google.com/maps?q=Mariano+Procopio,+Juiz+de+Fora+-+MG&output=embed"
-                  className="w-full h-full border-0"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
-              </div>
-            </div>
+                  <div className="flex items-center gap-3.5">
+                    <span className="w-12 h-12 rounded-2xl bg-white text-reinado-ink flex items-center justify-center shadow-md shrink-0">
+                      <Clock className="w-6 h-6 text-reinado-limao-dark" />
+                    </span>
+                    <div>
+                      <p className="text-xs font-extrabold uppercase text-white/80">
+                        Horário de Visitas (Seg a Sex)
+                      </p>
+                      <p className="font-fredoka text-base sm:text-lg font-bold text-white">
+                        08h30 às 11h00 e 14h00 às 16h30
+                      </p>
+                    </div>
+                  </div>
 
-            <div className="mt-5 grid sm:grid-cols-2 gap-3">
-              <div className="flex items-center gap-2.5 p-3.5 rounded-2xl bg-reinado-celeste-light/50">
-                <CheckCircle2 className="w-5 h-5 text-reinado-celeste shrink-0" />
-                <span className="text-xs sm:text-sm font-bold text-reinado-ink">
-                  Bairro Mariano Procópio • Juiz de Fora/MG
-                </span>
+                  <div className="flex items-center gap-3.5">
+                    <span className="w-12 h-12 rounded-2xl bg-white text-reinado-ink flex items-center justify-center shadow-md shrink-0">
+                      <MapPin className="w-6 h-6 text-reinado-celeste" />
+                    </span>
+                    <div>
+                      <p className="text-xs font-extrabold uppercase text-white/80">
+                        Endereço
+                      </p>
+                      <p className="font-fredoka text-lg font-bold text-white leading-snug">
+                        Bairro Mariano Procópio
+                        <br />
+                        Juiz de Fora - MG
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Botão Circular Gigante Verde do WhatsApp (idêntico ao Slide 15 da Pequê) */}
+                <button
+                  type="button"
+                  onClick={() => onOpenVisitModal()}
+                  className="w-32 h-32 sm:w-36 sm:h-36 rounded-full bg-[#1BA553] hover:bg-[#09D349] border-[6px] border-white shadow-2xl flex flex-col items-center justify-center gap-1 transition-transform hover:scale-110 cursor-pointer shrink-0 mx-auto sm:mx-0"
+                  aria-label="Falar conosco pelo WhatsApp"
+                >
+                  <MessageCircle className="w-12 h-12 text-white fill-white" />
+                  <span className="font-fredoka font-bold text-xs text-white uppercase tracking-wider">
+                    Fale Conosco
+                  </span>
+                </button>
               </div>
-              <a
-                href="https://www.google.com/maps/search/?api=1&query=Mariano+Procopio+Juiz+de+Fora+MG"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 p-3.5 rounded-2xl bg-reinado-ink text-white font-fredoka font-bold text-xs sm:text-sm hover:bg-reinado-celeste transition-colors"
-              >
-                <Navigation className="w-4 h-4 text-reinado-sol" />
-                <span>Traçar Rota no Google Maps</span>
-              </a>
+
+              <div className="pt-2">
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Mariano+Procopio+Juiz+de+Fora+MG"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-reinado-ink/90 hover:bg-reinado-ink text-white font-fredoka font-bold text-xs sm:text-sm transition-colors"
+                >
+                  <Navigation className="w-4 h-4 text-reinado-sol" />
+                  <span>Abrir Localização no Google Maps</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -156,4 +215,3 @@ export default function LocalizacaoHorarios({ onOpenVisitModal }) {
     </section>
   );
 }
-

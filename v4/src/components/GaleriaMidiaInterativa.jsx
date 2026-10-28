@@ -2,240 +2,195 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Camera,
-  Video,
-  ShieldCheck,
   Play,
+  ShieldCheck,
   X,
-  Calendar,
-  Sparkles,
   ZoomIn,
+  Calendar,
 } from 'lucide-react';
 
 export default function GaleriaMidiaInterativa({ onOpenVisitModal, onOpenVideoModal }) {
   const [activeFilter, setActiveFilter] = useState('todos');
-  const [lightboxItem, setLightboxItem] = useState(null);
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
 
-  const categories = [
-    { id: 'todos', label: '🌟 Todos os Espaços' },
-    { id: 'patio', label: '☀️ Pátio & Área Livre' },
-    { id: 'salas', label: '🎨 Salas Temáticas & Bilíngue' },
-    { id: 'refeitorio', label: '👩‍🍳 Refeitório & Mini-Chef' },
-    { id: 'brinquedoteca', label: '🧸 Brinquedoteca & Psicomotricidade' },
+  const filters = [
+    { id: 'todos', label: '🌟 Mosaico Completo' },
+    { id: 'patio', label: '☀️ Pátio & Recreação' },
+    { id: 'bercario', label: '👶 Berçário & Salas Temáticas' },
+    { id: 'minichef', label: '👩‍🍳 Refeitório & Mini-Chef' },
     { id: 'horta', label: '🌱 Horta Comunitária' },
   ];
 
-  const mediaItems = [
+  // Mosaicos estilo Slides 12, 13 e 14 da Pequê usando os novos assets exclusivos gerados
+  const mosaicItems = [
     {
       id: 1,
       category: 'patio',
-      type: 'video',
-      title: 'Pátio Ensolarado e Recreação Guiada',
-      subtitle: 'Espaço amplo, arejado e monitorado para brincadeiras coletivas e banhos de sol.',
+      span: 'md:col-span-7',
+      title: 'Pátio Ensolarado & Convivência Afetiva',
+      subtitle: 'Brincadeiras ao ar livre, acolhimento pelo nome e muita alegria no Mariano Procópio.',
       badge: 'Pátio & Área Livre',
-      image: './design/quem-somos.png',
-      fallback: 'https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=900&q=80',
-      duration: '01:15',
+      badgeColor: 'bg-reinado-celeste',
+      image: './assets/hero-criancas.png',
+      type: 'photo',
     },
     {
       id: 2,
-      category: 'salas',
+      category: 'bercario',
+      span: 'md:col-span-5',
+      title: 'Berçário Afetivo & Salas Temáticas',
+      subtitle: 'Ambiente higienizado, seguro e estimulante a partir dos 4 meses de idade.',
+      badge: 'Berçário & Maternal',
+      badgeColor: 'bg-reinado-tangerina',
+      image: './assets/bercario-afetivo.png',
       type: 'photo',
-      title: 'Salas Temáticas e Imersão Bilíngue',
-      subtitle: 'Ambientes coloridos, climatizados e preparados para o aprendizado ativo do Berçário ao 5º Ano.',
-      badge: 'Salas Temáticas',
-      image: './design/segmentos.png',
-      fallback: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=80',
     },
     {
       id: 3,
-      category: 'refeitorio',
+      category: 'minichef',
+      span: 'md:col-span-5',
+      title: 'Oficina de Mini-Chef & Refeitório',
+      subtitle: 'Cozinha pedagógica para explorar receitas nutritivas e alimentação saudável.',
+      badge: 'Cozinha Pedagógica',
+      badgeColor: 'bg-reinado-sol text-reinado-ink',
+      image: './assets/minichef-cozinha.png',
       type: 'video',
-      title: 'Refeitório Acolhedor & Oficina de Mini-Chef',
-      subtitle: 'Cozinha pedagógica onde nossos alunos exploram receitas nutritivas e hábitos saudáveis.',
-      badge: 'Refeitório & Mini-Chef',
-      image: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=900&q=80',
-      fallback: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=900&q=80',
-      duration: '00:55',
     },
     {
       id: 4,
-      category: 'brinquedoteca',
-      type: 'photo',
-      title: 'Brinquedoteca & Circuito de Psicomotricidade',
-      subtitle: 'Piso emborrachado antitrauma, brinquedos pedagógicos higienizados e estímulo motor diário.',
-      badge: 'Brinquedoteca',
-      image: 'https://images.unsplash.com/photo-1566004100631-35d015d6a491?auto=format&fit=crop&w=900&q=80',
-      fallback: 'https://images.unsplash.com/photo-1566004100631-35d015d6a491?auto=format&fit=crop&w=900&q=80',
-    },
-    {
-      id: 5,
       category: 'horta',
-      type: 'photo',
-      title: 'Horta Comunitária do Reinado',
-      subtitle: 'Contato direto com a terra: as crianças plantam, cuidam e colhem hortaliças fresquinhas.',
+      span: 'md:col-span-7',
+      title: 'Horta Comunitária & Educação Ambiental',
+      subtitle: 'Contato diário com a natureza: plantar, regar, cuidar e colher em equipe.',
       badge: 'Horta Comunitária',
-      image: 'https://images.unsplash.com/photo-1592150621744-aca64f48394a?auto=format&fit=crop&w=900&q=80',
-      fallback: 'https://images.unsplash.com/photo-1592150621744-aca64f48394a?auto=format&fit=crop&w=900&q=80',
-    },
-    {
-      id: 6,
-      category: 'salas',
-      type: 'video',
-      title: 'Educação Socioemocional "Líder em Mim"',
-      subtitle: 'Rodas de conversa, empatia e protagonismo infantil onde cada criança é chamada pelo nome.',
-      badge: 'Socioemocional',
-      image: 'https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=900&q=80',
-      fallback: 'https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=900&q=80',
-      duration: '01:05',
+      badgeColor: 'bg-reinado-limao',
+      image: './assets/horta-comunitaria.png',
+      type: 'photo',
     },
   ];
 
-  const filteredItems =
+  const visibleItems =
     activeFilter === 'todos'
-      ? mediaItems
-      : mediaItems.filter((item) => item.category === activeFilter);
+      ? mosaicItems
+      : mosaicItems.filter((item) => item.category === activeFilter);
 
   return (
-    <section
-      id="galeria"
-      className="py-16 lg:py-24 bg-gradient-to-b from-white via-reinado-celeste-light/30 to-white"
-    >
+    <section id="galeria" className="py-16 lg:py-24 peque-canvas">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        {/* Cabeçalho */}
-        <div className="text-center max-w-3xl mx-auto mb-10">
-          <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-reinado-tangerina-light text-reinado-tangerina-dark font-fredoka font-bold text-xs sm:text-sm uppercase tracking-wider">
-            <Camera className="w-4 h-4" /> Tour Interativo • Fotos e Vídeos em Alta Resolução
-          </span>
-          <h2 className="mt-3 font-fredoka text-3xl sm:text-4xl lg:text-5xl font-bold text-reinado-ink">
-            Conheça cada cantinho do nosso{' '}
-            <span className="text-reinado-celeste">Reinado no Mariano Procópio</span>
-          </h2>
-          <p className="mt-3 text-base sm:text-lg text-reinado-slate font-semibold">
-            Pátio, salas temáticas, refeitório, horta e brinquedoteca preparados com carinho, higiene e segurança.
-          </p>
+        {/* Cabeçalho dos Mosaicos (Slides 12, 13 e 14 da Pequê) */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
+          <div>
+            <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-reinado-celeste text-white font-fredoka font-bold text-xs uppercase tracking-wider">
+              <Camera className="w-4 h-4" /> Mosaico Visual • Estrutura no Mariano Procópio
+            </span>
+            <h2 className="mt-3 font-fredoka text-3xl sm:text-5xl font-bold text-reinado-ink leading-tight">
+              Nosso espaço em cada detalhe
+            </h2>
+          </div>
+
+          {/* Filtros Rápidos */}
+          <div className="flex flex-wrap gap-2">
+            {filters.map((f) => (
+              <button
+                key={f.id}
+                type="button"
+                onClick={() => setActiveFilter(f.id)}
+                className={`px-4 py-2 rounded-full font-fredoka font-bold text-xs sm:text-sm transition-all cursor-pointer ${
+                  activeFilter === f.id
+                    ? 'bg-reinado-ink text-reinado-sol shadow-md scale-105'
+                    : 'bg-white text-reinado-ink border border-reinado-ink/15 hover:bg-reinado-sol/30'
+                }`}
+              >
+                {f.label}
+              </button>
+            ))}
+          </div>
         </div>
 
-        {/* Filtros de Categoria Interativos */}
-        <div className="flex flex-wrap justify-center gap-2.5 mb-10">
-          {categories.map((cat) => (
-            <button
-              key={cat.id}
-              type="button"
-              onClick={() => setActiveFilter(cat.id)}
-              className={`px-4 py-2.5 rounded-full font-fredoka font-bold text-xs sm:text-sm transition-all cursor-pointer ${
-                activeFilter === cat.id
-                  ? 'bg-reinado-celeste text-white shadow-md scale-105'
-                  : 'bg-white text-reinado-ink border border-reinado-celeste/25 hover:bg-reinado-celeste-light'
-              }`}
-            >
-              {cat.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Grid de Fotos e Vídeos */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {filteredItems.map((item) => (
+        {/* Grid Bento Collage estilo Slides 12-14 da Pequê */}
+        <div className="grid md:grid-cols-12 gap-6">
+          {visibleItems.map((item) => (
             <motion.div
               layout
               key={item.id}
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3 }}
-              className="card-vibrante overflow-hidden flex flex-col justify-between group"
+              transition={{ duration: 0.35 }}
+              className={`${
+                activeFilter === 'todos' ? item.span : 'md:col-span-6'
+              } group relative rounded-[2.25rem] overflow-hidden bg-white p-3 shadow-xl border-2 border-reinado-ink/10`}
             >
-              <div className="relative aspect-[16/11] overflow-hidden bg-slate-100">
+              <div className="relative h-[300px] sm:h-[360px] rounded-[1.75rem] overflow-hidden">
                 <img
                   src={item.image}
-                  onError={(e) => {
-                    e.currentTarget.src = item.fallback;
-                  }}
                   alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-reinado-ink/75 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-reinado-ink/85 via-reinado-ink/20 to-transparent" />
 
-                {/* Tag de Espaço */}
-                <span className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-white/95 text-reinado-ink font-fredoka font-bold text-xs shadow-sm">
+                <span
+                  className={`absolute top-4 left-4 px-3.5 py-1 rounded-full font-fredoka font-bold text-xs text-white shadow-md ${item.badgeColor}`}
+                >
                   {item.badge}
                 </span>
 
-                {/* Indicador Vídeo vs Foto */}
                 {item.type === 'video' ? (
                   <button
                     type="button"
                     onClick={() => onOpenVideoModal(item)}
-                    className="absolute inset-0 flex items-center justify-center cursor-pointer"
-                    aria-label={`Assistir vídeo: ${item.title}`}
+                    className="absolute top-4 right-4 px-3.5 py-1.5 rounded-full bg-reinado-tangerina text-white font-fredoka font-bold text-xs flex items-center gap-1.5 shadow-lg cursor-pointer"
                   >
-                    <span className="w-14 h-14 rounded-full bg-reinado-tangerina text-white flex items-center justify-center shadow-xl border-2 border-white group-hover:scale-110 transition-transform">
-                      <Play className="w-6 h-6 fill-white ml-0.5" />
-                    </span>
-                    <span className="absolute bottom-3 right-3 px-2.5 py-1 rounded-lg bg-reinado-ink/85 text-white font-bold text-xs flex items-center gap-1">
-                      <Video className="w-3.5 h-3.5 text-reinado-sol" /> {item.duration}
-                    </span>
+                    <Play className="w-3.5 h-3.5 fill-white" /> Assistir Vídeo
                   </button>
                 ) : (
                   <button
                     type="button"
-                    onClick={() => setLightboxItem(item)}
-                    className="absolute bottom-3 right-3 px-3 py-1.5 rounded-xl bg-white/90 hover:bg-white text-reinado-ink font-fredoka font-bold text-xs flex items-center gap-1.5 shadow-sm cursor-pointer"
+                    onClick={() => setSelectedPhoto(item)}
+                    className="absolute top-4 right-4 px-3.5 py-1.5 rounded-full bg-white/95 text-reinado-ink font-fredoka font-bold text-xs flex items-center gap-1.5 shadow-lg cursor-pointer"
                   >
-                    <ZoomIn className="w-3.5 h-3.5 text-reinado-celeste" /> Ampliar Foto
+                    <ZoomIn className="w-3.5 h-3.5 text-reinado-celeste" /> Ampliar
                   </button>
                 )}
-              </div>
 
-              <div className="p-5 sm:p-6">
-                <h3 className="font-fredoka text-xl font-bold text-reinado-ink mb-1.5">
-                  {item.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-reinado-slate font-semibold leading-relaxed">
-                  {item.subtitle}
-                </p>
+                <div className="absolute bottom-5 left-5 right-5 text-white">
+                  <h3 className="font-fredoka text-xl sm:text-2xl font-bold leading-snug">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-white/90 font-semibold mt-1">
+                    {item.subtitle}
+                  </p>
+                </div>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Selo de Conformidade & Direito de Imagem (LGPD) + CTA de Visita Presencial */}
-        <div className="mt-12 rounded-3xl bg-reinado-ink text-white p-6 sm:p-8 flex flex-col lg:flex-row items-center justify-between gap-6 shadow-xl border-2 border-reinado-sol">
-          <div className="flex items-start sm:items-center gap-4">
-            <div className="w-12 h-12 rounded-2xl bg-reinado-limao text-white flex items-center justify-center shrink-0">
-              <ShieldCheck className="w-7 h-7" />
-            </div>
-            <div>
-              <span className="inline-flex items-center gap-1 text-xs font-extrabold uppercase tracking-wider text-reinado-sol">
-                <Sparkles className="w-3.5 h-3.5" /> Compromisso com a Segurança e Privacidade (LGPD)
-              </span>
-              <p className="text-sm sm:text-base font-bold text-white mt-0.5">
-                Todas as fotos e vídeos institucionais possuem Termo de Autorização de Uso de Imagem assinado pelos responsáveis.
-              </p>
-              <p className="text-xs sm:text-sm text-white/80 font-semibold mt-0.5">
-                Nada substitui sentir a energia do colégio pessoalmente! Agende sua visita guiada de 30 minutos.
-              </p>
-            </div>
+        {/* Selo Oficial de Direito de Imagem (LGPD) */}
+        <div className="mt-8 bg-white rounded-3xl p-5 sm:p-6 border-2 border-reinado-limao flex flex-col sm:flex-row items-center justify-between gap-4 shadow-md">
+          <div className="flex items-center gap-3.5">
+            <ShieldCheck className="w-8 h-8 text-reinado-limao shrink-0" />
+            <p className="text-xs sm:text-sm font-bold text-reinado-ink">
+              <strong>Segurança & Conformidade LGPD:</strong> Todas as imagens e vídeos institucionais do acervo possuem Termo de Autorização de Uso de Imagem assinado pelos responsáveis.
+            </p>
           </div>
-
           <button
             type="button"
             onClick={() => onOpenVisitModal()}
-            className="btn-tangerina px-7 py-4 rounded-full font-fredoka font-bold text-base shrink-0 flex items-center gap-2 cursor-pointer"
+            className="px-5 py-2.5 rounded-full bg-reinado-celeste text-white font-fredoka font-bold text-xs sm:text-sm shrink-0 hover:bg-reinado-celeste-dark transition-colors cursor-pointer"
           >
-            <Calendar className="w-5 h-5" />
-            <span>Agendar Visita Presencial</span>
+            Conhecer Pessoalmente →
           </button>
         </div>
       </div>
 
-      {/* Lightbox para Ampliar Foto */}
+      {/* Modal Lightbox de Foto */}
       <AnimatePresence>
-        {lightboxItem && (
+        {selectedPhoto && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setLightboxItem(null)}
+            onClick={() => setSelectedPhoto(null)}
             className="fixed inset-0 z-50 bg-reinado-ink/85 backdrop-blur-md flex items-center justify-center p-4"
           >
             <motion.div
@@ -243,47 +198,41 @@ export default function GaleriaMidiaInterativa({ onOpenVisitModal, onOpenVideoMo
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.92, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-3xl max-w-3xl w-full overflow-hidden shadow-2xl border-4 border-reinado-sol"
+              className="bg-white rounded-[2.25rem] max-w-3xl w-full overflow-hidden shadow-2xl border-4 border-reinado-sol"
             >
-              <div className="relative aspect-video bg-slate-900">
+              <div className="relative aspect-video bg-slate-950">
                 <img
-                  src={lightboxItem.image}
-                  onError={(e) => {
-                    e.currentTarget.src = lightboxItem.fallback;
-                  }}
-                  alt={lightboxItem.title}
+                  src={selectedPhoto.image}
+                  alt={selectedPhoto.title}
                   className="w-full h-full object-cover"
                 />
                 <button
                   type="button"
-                  onClick={() => setLightboxItem(null)}
-                  className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white text-reinado-ink flex items-center justify-center shadow-lg hover:bg-reinado-tangerina hover:text-white transition-colors cursor-pointer"
-                  aria-label="Fechar imagem"
+                  onClick={() => setSelectedPhoto(null)}
+                  className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white text-reinado-ink flex items-center justify-center shadow-lg cursor-pointer"
                 >
                   <X className="w-5 h-5" />
                 </button>
               </div>
               <div className="p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div>
-                  <span className="px-3 py-1 rounded-full bg-reinado-celeste-light text-reinado-celeste-dark font-fredoka font-bold text-xs">
-                    {lightboxItem.badge}
-                  </span>
-                  <h4 className="font-fredoka text-2xl font-bold text-reinado-ink mt-1">
-                    {lightboxItem.title}
+                  <h4 className="font-fredoka text-2xl font-bold text-reinado-ink">
+                    {selectedPhoto.title}
                   </h4>
                   <p className="text-sm text-reinado-slate font-semibold mt-1">
-                    {lightboxItem.subtitle}
+                    {selectedPhoto.subtitle}
                   </p>
                 </div>
                 <button
                   type="button"
                   onClick={() => {
-                    setLightboxItem(null);
+                    setSelectedPhoto(null);
                     onOpenVisitModal();
                   }}
-                  className="btn-tangerina px-5 py-3 rounded-2xl font-fredoka font-bold text-sm shrink-0 cursor-pointer"
+                  className="peque-cta-pill px-6 py-3 rounded-full font-fredoka font-bold text-sm shrink-0 flex items-center gap-2 cursor-pointer"
                 >
-                  Conhecer Pessoalmente
+                  <Calendar className="w-4 h-4" />
+                  <span>Fale conosco</span>
                 </button>
               </div>
             </motion.div>
@@ -293,4 +242,3 @@ export default function GaleriaMidiaInterativa({ onOpenVisitModal, onOpenVideoMo
     </section>
   );
 }
-

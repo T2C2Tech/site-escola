@@ -1,271 +1,191 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import {
-  Calendar,
-  Play,
-  Heart,
-  ShieldCheck,
-  Clock,
-  Sparkles,
-  CheckCircle2,
-  Baby,
-  BookOpen,
-  Sun,
-} from 'lucide-react';
+import { MessageCircle, Play, Sparkles, Clock, MapPin } from 'lucide-react';
+import { PEQUE_PATHS } from './PequeShape';
 
 export default function Hero({ onOpenVisitModal, onOpenVideoModal }) {
-  const quickStages = [
-    {
-      id: 'Berçário (a partir de 4 meses)',
-      title: 'Berçário & Maternal',
-      subtitle: '4 meses a 4 anos • Manhã, Tarde e Integral',
-      icon: Baby,
-      badgeBg: 'bg-reinado-celeste',
-      lightBg: 'bg-reinado-celeste-light hover:border-reinado-celeste',
-      textColor: 'text-reinado-celeste-dark',
-    },
-    {
-      id: 'Ensino Fundamental I (1º ao 5º Ano)',
-      title: 'Ensino Fundamental I',
-      subtitle: '1º ao 5º Ano (6 a 10 anos) • Manhã e Tarde',
-      icon: BookOpen,
-      badgeBg: 'bg-reinado-limao',
-      lightBg: 'bg-reinado-limao-light hover:border-reinado-limao',
-      textColor: 'text-reinado-limao-dark',
-    },
-    {
-      id: 'Tempo Integral Humanizado',
-      title: 'Integral Humanizado',
-      subtitle: 'Rotina acolhedora, Mini-Chef, Horta e Inglês',
-      icon: Sun,
-      badgeBg: 'bg-reinado-tangerina',
-      lightBg: 'bg-reinado-sol-light hover:border-reinado-tangerina',
-      textColor: 'text-reinado-sol-dark',
-    },
-  ];
-
   return (
     <section
       id="inicio"
-      className="relative overflow-hidden pt-8 pb-16 lg:pt-12 lg:pb-24 bg-gradient-to-b from-[#E5F5FF] via-[#F8FCFF] to-white bg-dots-pattern"
+      className="relative pt-6 pb-14 lg:py-14 overflow-hidden peque-canvas"
     >
-      {/* Elementos Decorativos Vibrantes (Paleta Oficial: Azul-Celeste, Amarelo-Sol, Verde-Limão, Laranja-Tangerina) */}
-      <div className="pointer-events-none absolute -top-24 -left-24 w-96 h-96 rounded-full bg-reinado-celeste/15 blur-3xl" />
-      <div className="pointer-events-none absolute top-20 -right-24 w-96 h-96 rounded-full bg-reinado-sol/25 blur-3xl" />
-      <div className="pointer-events-none absolute bottom-0 left-1/3 w-80 h-80 rounded-full bg-reinado-limao/15 blur-3xl" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          {/* Coluna Esquerda: Copywriting de Alta Conversão */}
-          <div className="lg:col-span-7 space-y-6">
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex flex-wrap items-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm border-2 border-reinado-celeste/30"
-            >
-              <span className="px-2.5 py-0.5 rounded-full bg-reinado-sol text-reinado-ink font-fredoka font-bold text-xs">
-                👑 Bairro Mariano Procópio
-              </span>
-              <span className="text-xs sm:text-sm font-extrabold text-reinado-ink">
-                Aqui cada criança é chamada pelo nome!
-              </span>
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.1 }}
-              className="font-fredoka text-3xl sm:text-5xl lg:text-[52px] font-bold text-reinado-ink leading-[1.12] tracking-tight"
-            >
-              O ensino afetivo e o{' '}
-              <span className="text-reinado-celeste underline decoration-reinado-sol decoration-4 underline-offset-4">
-                tempo integral humanizado
-              </span>{' '}
-              que dão paz ao coração dos pais.
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.2 }}
-              className="text-base sm:text-lg lg:text-xl text-reinado-slate font-semibold leading-relaxed max-w-2xl"
-            >
-              Do <strong>Berçário (a partir de 4 meses)</strong> ao <strong>5º ano do Ensino Fundamental I</strong>. Unimos o acolhimento familiar de bairro a uma estrutura moderna com{' '}
-              <span className="text-reinado-ink font-extrabold">
-                Iniciação Bilíngue diária, Oficina de Mini-Chef, Horta Comunitária e Educação Socioemocional
-              </span>.
-            </motion.p>
-
-            {/* Gatilhos Mentais: Segurança, Acolhimento e Urgência */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.25 }}
-              className="grid sm:grid-cols-3 gap-3 pt-1"
-            >
-              <div className="flex items-center gap-2.5 bg-white/90 px-3.5 py-2.5 rounded-2xl border border-reinado-celeste/20 shadow-sm">
-                <ShieldCheck className="w-5 h-5 text-reinado-celeste shrink-0" />
-                <span className="text-xs sm:text-sm font-extrabold text-reinado-ink">
-                  Ambiente 100% Seguro e Monitorado
-                </span>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        {/* Grid Assimétrico de 2 Colunas — Estrutura idêntica ao Slide 1 de peque.com.br */}
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
+          {/* COLUNA ESQUERDA: Logo + Trapézio Verde-Limão + Foto Recortada Sobreposta */}
+          <motion.div
+            initial={{ opacity: 0, x: -25 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-6 flex flex-col justify-between relative"
+          >
+            {/* Topo: Marca em Destaque Editorial */}
+            <div className="flex items-center gap-4 mb-4 lg:mb-6 pl-2">
+              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-3xl bg-white p-2.5 shadow-xl border-4 border-reinado-sol shrink-0">
+                <img
+                  src="./logo.png"
+                  onError={(e) => {
+                    e.currentTarget.src = './logo.svg';
+                  }}
+                  alt="Colégio Reinado da Criança"
+                  className="w-full h-full object-contain"
+                />
               </div>
-              <div className="flex items-center gap-2.5 bg-white/90 px-3.5 py-2.5 rounded-2xl border border-reinado-limao/30 shadow-sm">
-                <Heart className="w-5 h-5 text-reinado-tangerina shrink-0 fill-reinado-tangerina" />
-                <span className="text-xs sm:text-sm font-extrabold text-reinado-ink">
-                  Desenvolvimento Emocional e Cognitivo
+              <div>
+                <span className="inline-flex items-center gap-1 px-3 py-0.5 rounded-full bg-reinado-celeste text-white font-fredoka font-bold text-xs uppercase tracking-wider">
+                  <MapPin className="w-3 h-3" /> Bairro Mariano Procópio • JF
                 </span>
-              </div>
-              <div className="flex items-center gap-2.5 bg-white/90 px-3.5 py-2.5 rounded-2xl border border-reinado-sol/50 shadow-sm">
-                <Clock className="w-5 h-5 text-reinado-limao-dark shrink-0" />
-                <span className="text-xs sm:text-sm font-extrabold text-reinado-ink">
-                  Visitas Exclusivas (30 em 30 min)
-                </span>
-              </div>
-            </motion.div>
-
-            {/* Botões de Ação Principal (Estilo Red Balloon + Visconde) */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.3 }}
-              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2"
-            >
-              <button
-                type="button"
-                onClick={() => onOpenVisitModal()}
-                className="btn-tangerina inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full font-fredoka font-bold text-lg tracking-wide cursor-pointer"
-              >
-                <Calendar className="w-6 h-6" />
-                <span>Agendar Visita pelo WhatsApp</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => onOpenVideoModal()}
-                className="inline-flex items-center justify-center gap-3 px-6 py-4 rounded-full bg-white text-reinado-ink font-fredoka font-bold text-base border-2 border-reinado-celeste hover:bg-reinado-celeste-light transition-all shadow-sm cursor-pointer"
-              >
-                <span className="w-8 h-8 rounded-full bg-reinado-celeste text-white flex items-center justify-center">
-                  <Play className="w-4 h-4 fill-white ml-0.5" />
-                </span>
-                <span>Tour em Vídeo pelo Colégio</span>
-              </button>
-            </motion.div>
-
-            {/* Seletor Rápido de Turma (Pré-Qualificação Interativa) */}
-            <div className="pt-3">
-              <p className="text-xs font-extrabold uppercase tracking-wider text-reinado-slate mb-2.5 flex items-center gap-1.5">
-                <Sparkles className="w-4 h-4 text-reinado-tangerina" />
-                Clique na fase do seu filho para agendar atendimento exclusivo:
-              </p>
-              <div className="grid sm:grid-cols-3 gap-3">
-                {quickStages.map((stage) => {
-                  const Icon = stage.icon;
-                  return (
-                    <button
-                      key={stage.id}
-                      type="button"
-                      onClick={() => onOpenVisitModal({ serie: stage.id })}
-                      className={`text-left p-3.5 rounded-2xl border-2 border-transparent transition-all shadow-sm hover:shadow-md cursor-pointer ${stage.lightBg}`}
-                    >
-                      <div className="flex items-center gap-2.5 mb-1">
-                        <span className={`w-7 h-7 rounded-xl ${stage.badgeBg} text-white flex items-center justify-center shrink-0`}>
-                          <Icon className="w-4 h-4" />
-                        </span>
-                        <span className={`font-fredoka font-bold text-sm ${stage.textColor}`}>
-                          {stage.title}
-                        </span>
-                      </div>
-                      <p className="text-xs font-bold text-reinado-slate leading-snug">
-                        {stage.subtitle}
-                      </p>
-                    </button>
-                  );
-                })}
+                <h1 className="font-fredoka text-3xl sm:text-5xl font-bold text-reinado-ink leading-none mt-1">
+                  Reinado{' '}
+                  <span className="text-reinado-tangerina">da Criança</span>
+                </h1>
+                <p className="text-xs sm:text-sm font-extrabold text-reinado-slate mt-1">
+                  Ensino Afetivo & Tempo Integral Humanizado
+                </p>
               </div>
             </div>
-          </div>
 
-          {/* Coluna Direita: Vitrine Audiovisual Interativa (Vídeo + Fotos Autorizadas) */}
+            {/* Bloco Trapézio Verde-Limão (#D4DC36 / #65C11F) + Imagem Sobreposta */}
+            <div className="relative min-h-[340px] sm:min-h-[390px] flex items-end">
+              {/* SVG Poligonal original da Pequê (Slide 1 Left Block) */}
+              <svg
+                viewBox="0 0 495 425"
+                preserveAspectRatio="none"
+                className="w-full h-full absolute inset-0 drop-shadow-[0_18px_30px_rgba(101,193,31,0.22)]"
+              >
+                <path d={PEQUE_PATHS.heroBlockLeft} fill="#D4DC36" />
+              </svg>
+
+              {/* Conteúdo dentro do Trapézio Verde-Limão */}
+              <div className="relative z-10 w-full p-6 sm:p-9 grid sm:grid-cols-12 gap-4 items-end">
+                <div className="sm:col-span-7 space-y-2.5 pt-10 sm:pt-14">
+                  <span className="inline-block px-3 py-1 rounded-full bg-reinado-ink text-reinado-sol font-fredoka font-bold text-xs uppercase">
+                    Educação Infantil & Fundamental I
+                  </span>
+                  <h2 className="font-fredoka text-2xl sm:text-4xl font-bold text-reinado-ink leading-[1.12]">
+                    Do Berçário (4 meses)
+                    <br />
+                    ao 5º Ano
+                  </h2>
+                  <p className="font-fredoka text-lg sm:text-2xl font-bold text-[#1B4D06]">
+                    Integral Humanizado,
+                    <br />
+                    Manhã e Tarde
+                  </p>
+                  <div className="pt-2 flex flex-wrap gap-1.5">
+                    <span className="px-2.5 py-1 rounded-full bg-white/90 text-reinado-ink font-extrabold text-xs">
+                      🇬🇧 Inglês Diário
+                    </span>
+                    <span className="px-2.5 py-1 rounded-full bg-white/90 text-reinado-ink font-extrabold text-xs">
+                      👩‍🍳 Mini-Chef
+                    </span>
+                    <span className="px-2.5 py-1 rounded-full bg-white/90 text-reinado-ink font-extrabold text-xs">
+                      🌱 Horta & Líder em Mim
+                    </span>
+                  </div>
+                </div>
+
+                {/* Foto Recortada Sobreposta à direita do Trapézio (como na Pequê) */}
+                <div className="sm:col-span-5 relative">
+                  <div className="rounded-[2rem] overflow-hidden border-4 border-white shadow-2xl bg-reinado-celeste-light aspect-[3/4] transform sm:-translate-y-4 sm:rotate-2">
+                    <img
+                      src="./assets/hero-criancas.png"
+                      onError={(e) => {
+                        e.currentTarget.src =
+                          'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=800&q=80';
+                      }}
+                      alt="Criança feliz no Colégio Reinado da Criança"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* COLUNA DIREITA: Trapézio Azul-Celeste + Tipografia Curva/Contornada + Super Botão Fale Conosco */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-5 relative"
+            initial={{ opacity: 0, x: 25 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="lg:col-span-6 relative flex flex-col justify-between min-h-[440px] sm:min-h-[500px]"
           >
-            <div className="relative rounded-[2.25rem] bg-white p-3 sm:p-4 shadow-2xl border-4 border-reinado-sol">
-              {/* Imagem Principal / Preview do Vídeo Institucional */}
-              <div className="relative rounded-[1.75rem] overflow-hidden aspect-[4/4.3] bg-reinado-celeste-light group">
-                <img
-                  src="./design/quem-somos.png"
-                  onError={(e) => {
-                    e.currentTarget.src =
-                      'https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=1000&q=80';
-                  }}
-                  alt="Crianças aprendendo com alegria no Colégio Reinado da Criança no Mariano Procópio"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-reinado-ink/80 via-reinado-ink/20 to-transparent" />
+            {/* Trapézio Vertical Azul-Celeste (#0096FF) idêntico ao bloco direito do Slide 1 da Pequê */}
+            <svg
+              viewBox="0 0 410 495"
+              preserveAspectRatio="none"
+              className="w-full h-full absolute inset-0 drop-shadow-[0_20px_35px_rgba(0,150,255,0.24)]"
+            >
+              <path d={PEQUE_PATHS.tallVertical} fill="#0096FF" />
+            </svg>
 
-                {/* Botão Central de Vídeo Interativo */}
+            <div className="relative z-10 p-7 sm:p-11 flex flex-col justify-between h-full">
+              {/* Selo Superior */}
+              <div className="flex items-center justify-between gap-2 flex-wrap">
+                <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-white text-reinado-ink font-fredoka font-bold text-xs sm:text-sm shadow-md">
+                  <Sparkles className="w-4 h-4 text-reinado-tangerina" />
+                  Cada criança é chamada pelo nome!
+                </span>
+
                 <button
                   type="button"
                   onClick={() => onOpenVideoModal()}
-                  className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-white group/btn cursor-pointer"
-                  aria-label="Assistir vídeo da rotina do Colégio Reinado da Criança"
+                  className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-reinado-ink/90 hover:bg-reinado-ink text-white font-fredoka font-bold text-xs transition-transform hover:scale-105 cursor-pointer"
                 >
-                  <span className="w-20 h-20 rounded-full bg-reinado-tangerina text-white flex items-center justify-center shadow-2xl border-4 border-white group-hover/btn:scale-110 transition-transform">
-                    <Play className="w-8 h-8 fill-white ml-1" />
-                  </span>
-                  <span className="px-4 py-1.5 rounded-full bg-reinado-ink/85 backdrop-blur-md text-xs sm:text-sm font-fredoka font-bold border border-white/25">
-                    ▶ Conheça nossa rotina em 1 minuto
-                  </span>
+                  <Play className="w-3.5 h-3.5 fill-reinado-sol text-reinado-sol" />
+                  <span>Ver Vídeo (1 min)</span>
                 </button>
+              </div>
 
-                {/* Rodapé do Card de Vídeo */}
-                <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md rounded-2xl p-3.5 shadow-lg flex items-center justify-between gap-3">
-                  <div>
-                    <span className="inline-flex items-center gap-1 text-[11px] font-extrabold uppercase tracking-wider text-reinado-limao-dark">
-                      <CheckCircle2 className="w-3.5 h-3.5" /> Fotos & Vídeos Reais Autorizados
-                    </span>
-                    <p className="font-fredoka font-bold text-sm text-reinado-ink">
-                      Pátio, Salas Temáticas, Horta e Brinquedoteca
-                    </p>
-                  </div>
+              {/* Composição Tipográfica "Estamos de coração e matrículas abertas!" */}
+              <div className="my-6 sm:my-8 text-center sm:text-left">
+                <p className="font-fredoka text-3xl sm:text-5xl font-bold text-white leading-none drop-shadow-sm">
+                  Estamos de
+                </p>
+                <p className="font-fredoka text-4xl sm:text-6xl font-bold text-stroke-peque tracking-wide leading-tight my-1 transform -rotate-2 inline-block">
+                  coração e
+                </p>
+                <div className="mt-1">
+                  <span className="inline-block px-5 py-2 rounded-2xl bg-[#FF007A] text-white font-fredoka text-2xl sm:text-4xl font-bold shadow-lg transform rotate-1">
+                    matrículas abertas!
+                  </span>
+                </div>
+
+                <p className="mt-5 text-white text-sm sm:text-base font-bold leading-relaxed max-w-lg">
+                  Tradição acolhedora no <strong>Mariano Procópio</strong> aliada a uma estrutura moderna para o desenvolvimento emocional, social e cognitivo do seu filho.
+                </p>
+              </div>
+
+              {/* Botão Assinatura da Pequê: Barra Laranja "Fale conosco." + Círculo Gigante WhatsApp */}
+              <div className="pt-2">
+                <div className="flex flex-col sm:flex-row items-center gap-4">
                   <button
                     type="button"
                     onClick={() => onOpenVisitModal()}
-                    className="px-3.5 py-2 rounded-xl bg-reinado-celeste text-white font-fredoka font-bold text-xs hover:bg-reinado-celeste-dark transition-colors shrink-0 cursor-pointer"
+                    className="w-full sm:w-auto flex-1 peque-cta-pill rounded-full pl-7 pr-3 py-3 flex items-center justify-between gap-4 cursor-pointer group"
                   >
-                    Visitar Agora
+                    <div className="text-left">
+                      <span className="block font-fredoka text-xl sm:text-2xl font-bold text-white leading-none">
+                        Fale conosco.
+                      </span>
+                      <span className="block text-xs font-extrabold text-white/90 mt-1">
+                         Seg a Sex • 08h30 às 11h e 14h às 16h30
+                      </span>
+                    </div>
+
+                    {/* Círculo Verde Gigante do WhatsApp (idêntico ao canto inferior direito do Slide 1 da Pequê) */}
+                    <span className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#09D349] border-4 border-white flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform shrink-0">
+                      <MessageCircle className="w-7 h-7 sm:w-8 sm:h-8 text-white fill-white" />
+                    </span>
                   </button>
                 </div>
-              </div>
 
-              {/* Selo Flutuante Superior: Inglês Todo Dia + Mini-Chef */}
-              <div className="hidden sm:flex absolute -top-5 -left-6 bg-white rounded-2xl px-4 py-2.5 shadow-xl border-2 border-reinado-celeste items-center gap-2.5">
-                <span className="text-2xl">🇬🇧</span>
-                <div>
-                  <p className="font-fredoka font-bold text-xs text-reinado-celeste-dark leading-none">
-                    Iniciação Bilíngue
-                  </p>
-                  <p className="text-[11px] font-bold text-reinado-slate">
-                    Imersão lúdica todos os dias
-                  </p>
-                </div>
-              </div>
-
-              {/* Selo Flutuante Inferior Direito: Horários Exclusivos */}
-              <div className="hidden sm:flex absolute -bottom-5 -right-5 bg-reinado-limao text-white rounded-2xl px-4 py-2.5 shadow-xl border-2 border-white items-center gap-2.5">
-                <span className="text-2xl">👩‍🍳</span>
-                <div>
-                  <p className="font-fredoka font-bold text-xs leading-none">
-                    Oficina de Mini-Chef & Horta
-                  </p>
-                  <p className="text-[11px] font-semibold text-white/95">
-                    Alimentação saudável na prática
-                  </p>
-                </div>
+                <p className="mt-3 text-xs font-extrabold text-white/90 flex items-center justify-center sm:justify-start gap-1.5">
+                  <Clock className="w-4 h-4 text-reinado-sol shrink-0" />
+                  <span>
+                    Atendimento exclusivo de 30 em 30 minutos pelo WhatsApp (32) 99999-1234
+                  </span>
+                </p>
               </div>
             </div>
           </motion.div>
@@ -274,4 +194,3 @@ export default function Hero({ onOpenVisitModal, onOpenVideoModal }) {
     </section>
   );
 }
-

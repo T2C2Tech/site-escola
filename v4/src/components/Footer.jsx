@@ -90,10 +90,10 @@ export default function Footer({ onOpenVisitModal }) {
               <button
                 type="button"
                 onClick={() => onOpenVisitModal()}
-                className="btn-tangerina w-full py-3.5 px-5 rounded-full font-fredoka font-bold text-sm flex items-center justify-center gap-2 cursor-pointer"
+                className="peque-cta-pill w-full py-3.5 px-5 rounded-full font-fredoka font-bold text-sm flex items-center justify-center gap-2 cursor-pointer"
               >
                 <Calendar className="w-4 h-4" />
-                <span>Agendar Visita pelo WhatsApp</span>
+                <span>Fale conosco pelo WhatsApp</span>
               </button>
             </div>
           </div>
@@ -116,16 +116,16 @@ export default function Footer({ onOpenVisitModal }) {
         </div>
       </div>
 
-      {/* Botão Flutuante de WhatsApp / Agendamento Rápido */}
+      {/* Botão Flutuante de WhatsApp */}
       <div className="fixed bottom-4 right-4 z-40 flex items-center gap-2">
         <button
           type="button"
           onClick={() => onOpenVisitModal()}
           className="flex items-center gap-2.5 px-5 py-3.5 rounded-full bg-[#25D366] hover:bg-[#1ebe57] text-white font-fredoka font-bold text-sm sm:text-base shadow-2xl border-2 border-white transition-transform hover:scale-105 cursor-pointer"
-          aria-label="Agendar visita pelo WhatsApp"
+          aria-label="Falar conosco pelo WhatsApp"
         >
           <MessageCircle className="w-5 h-5 fill-white" />
-          <span>Agendar Visita no WhatsApp</span>
+          <span>Fale Conosco no WhatsApp</span>
         </button>
       </div>
     </footer>

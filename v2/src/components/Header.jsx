@@ -35,17 +35,6 @@ export default function Header() {
                   da Criança
                 </span>
               </div>
-              <div className="flex items-center gap-2 mt-0.5">
-                <span className="inline-block rounded-full bg-[#EAF6EE] px-2.5 py-0.5 text-[11px] font-bold text-[#2E9A68]">
-                  🌱 Berçário
-                </span>
-                <span className="inline-block rounded-full bg-[#EFEBFA] px-2.5 py-0.5 text-[11px] font-bold text-[#5E50A1]">
-                  🎨 Infantil
-                </span>
-                <span className="inline-block rounded-full bg-[#cee5ff] px-2.5 py-0.5 text-[11px] font-bold text-[#00639c]">
-                  📚 1º ao 5º Ano
-                </span>
-              </div>
             </div>
           </a>
 

@@ -116,7 +116,7 @@ export default function ModalAgendamentoWhatsApp({
                 </span>
 
                 <h3 className="font-fredoka text-2xl sm:text-3xl font-bold mt-2.5 leading-tight">
-                  Agendar Visita ao Colégio Reinado da Criança
+                  Fale com o Colégio Reinado da Criança
                 </h3>
                 <p className="text-xs sm:text-sm text-white/90 font-semibold mt-1">
                   Preencha abaixo em 15 segundos para nossa secretária já receber seus dados prontos no WhatsApp <strong>(32) 99999-1234</strong>:
@@ -317,7 +317,7 @@ export default function ModalAgendamentoWhatsApp({
                     <span>Ensino Afetivo • Tempo Integral Humanizado • Mariano Procópio</span>
                   </div>
                   <p className="text-xs sm:text-sm font-bold text-reinado-ink">
-                    Gostou do nosso ambiente? Agende uma visita exclusiva de 30 minutos!
+                    Gostou do nosso ambiente? Venha conhecer de perto no Mariano Procópio!
                   </p>
                 </div>
 
@@ -329,7 +329,7 @@ export default function ModalAgendamentoWhatsApp({
                   }}
                   className="btn-tangerina px-6 py-3 rounded-full font-fredoka font-bold text-sm shrink-0 cursor-pointer"
                 >
-                  Agendar Visita pelo WhatsApp
+                  Fale conosco pelo WhatsApp
                 </button>
               </div>
             </motion.div>

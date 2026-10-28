@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #FAF9F5;
+    color: #1E2D3D;
+  }
+}
+
+/* Fundo Sóbrio, Quente e Acolhedor (Marfim Editorial com Luzes Muito Sutis) */
+.storybook-canvas {
+  background-color: #FAF9F5;
+  background-image:
+    radial-gradient(at 10% 10%, rgba(43, 124, 184, 0.04) 0px, transparent 50%),
+    radial-gradient(at 90% 15%, rgba(243, 201, 105, 0.06) 0px, transparent 50%);
+}
+
+/* Cartão Limpo, Sóbrio e Acolhedor (Sem bordas pretas pesadas) */
+.sticker-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(30, 45, 61, 0.09);
+  box-shadow: 0 10px 30px -8px rgba(30, 45, 61, 0.06), 0 2px 6px -1px rgba(30, 45, 61, 0.03);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.sticker-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px -8px rgba(30, 45, 61, 0.09), 0 4px 10px -2px rgba(30, 45, 61, 0.04);
+  border-color: rgba(43, 124, 184, 0.22);
+}
+
+/* Botão Suave e Moderno */
+.btn-toy {
+  border: 1px solid rgba(30, 45, 61, 0.12);
+  box-shadow: 0 4px 14px -2px rgba(30, 45, 61, 0.10);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-toy:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px -4px rgba(30, 45, 61, 0.15);
+}
+
+.btn-toy:active {
+  transform: translateY(0px);
+}
+
+/* Fita Adesiva Delicada e Discreta */
+.washi-tape {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-1deg);
+  width: 96px;
+  height: 20px;
+  background: rgba(243, 201, 105, 0.45);
+  border: 1px solid rgba(125, 90, 16, 0.15);
+  border-radius: 4px;
+  z-index: 20;
+}

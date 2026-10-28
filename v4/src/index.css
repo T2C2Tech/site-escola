@@ -4,45 +4,45 @@
 
 @layer base {
   body {
-    background-color: #F8FCFF;
+    background-color: #F1F1F1;
     color: #0F2537;
   }
 }
 
-/* Botões de Conversão Super Destacados (Inspiração Red Balloon) */
-.btn-tangerina {
+/* Textura editorial suave do canvas estilo Pequê (#F1F1F1) */
+.peque-canvas {
+  background-color: #F1F1F1;
+}
+
+/* Texto com contorno lúdico estilo Slide 1 da Pequê ("coração e") */
+.text-stroke-peque {
+  -webkit-text-stroke: 2px #0F2537;
+  color: #FFC700;
+  paint-order: stroke fill;
+}
+
+/* Botão Pílula Laranja-Tangerina conectado ao Círculo Verde WhatsApp (Assinatura Visual Pequê) */
+.peque-cta-pill {
   background: linear-gradient(135deg, #FF7A1A 0%, #FF6B00 100%);
   color: #FFFFFF;
-  box-shadow: 0 5px 0 #C84B00, 0 12px 24px rgba(255, 107, 0, 0.35);
-  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 10px 24px -4px rgba(255, 107, 0, 0.4);
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.btn-tangerina:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 7px 0 #C84B00, 0 16px 30px rgba(255, 107, 0, 0.45);
+.peque-cta-pill:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 16px 32px -4px rgba(255, 107, 0, 0.52);
 }
 
-.btn-tangerina:active {
-  transform: translateY(3px);
-  box-shadow: 0 2px 0 #C84B00, 0 6px 12px rgba(255, 107, 0, 0.25);
-}
-
-/* Cards Interativos Limpos e Vibrantes (Inspiração Visconde de Porto Seguro + Red Balloon) */
-.card-vibrante {
+/* Card de Depoimento estilo Post de Instagram (Slides 10 e 11 da Pequê) */
+.peque-insta-card {
   background: #FFFFFF;
-  border-radius: 1.75rem;
-  box-shadow: 0 12px 32px -6px rgba(15, 37, 55, 0.07), 0 0 0 1.5px rgba(0, 150, 255, 0.12);
-  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  border-radius: 1.5rem;
+  box-shadow: 0 16px 36px -8px rgba(15, 37, 55, 0.14);
+  border: 2px solid #0F2537;
+  transition: transform 0.3s ease;
 }
 
-.card-vibrante:hover {
+.peque-insta-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 22px 44px -10px rgba(0, 150, 255, 0.16), 0 0 0 2px #0096FF;
 }
-
-/* Padrão sutil de pontos lúdicos */
-.bg-dots-pattern {
-  background-image: radial-gradient(rgba(0, 150, 255, 0.13) 1.5px, transparent 1.5px);
-  background-size: 24px 24px;
-}
-

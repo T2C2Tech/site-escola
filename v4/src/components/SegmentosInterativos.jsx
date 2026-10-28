@@ -273,7 +273,7 @@ export default function SegmentosInterativos({ onOpenVisitModal }) {
                   className="w-full py-3.5 px-4 rounded-2xl bg-reinado-tangerina hover:bg-reinado-tangerina-dark text-white font-fredoka font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-md cursor-pointer"
                 >
                   <Calendar className="w-4 h-4" />
-                  <span>Agendar Visita para {card.name}</span>
+                  <span>Saber mais sobre {card.name}</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </div>

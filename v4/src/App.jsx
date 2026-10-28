@@ -29,7 +29,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-reinado-canvas text-reinado-ink font-nunito">
+    <div className="min-h-screen flex flex-col peque-canvas text-reinado-ink font-nunito">
       <Navbar onOpenVisitModal={handleOpenVisitModal} />
 
       <main className="flex-1">
@@ -39,12 +39,15 @@ export default function App() {
         />
         <PropostaAfetiva onOpenVisitModal={handleOpenVisitModal} />
         <SegmentosInterativos onOpenVisitModal={handleOpenVisitModal} />
-        <ProjetosExtracurriculares onOpenVisitModal={handleOpenVisitModal} />
-        <GaleriaMidiaInterativa
+        <ProjetosExtracurriculares
           onOpenVisitModal={handleOpenVisitModal}
           onOpenVideoModal={handleOpenVideoModal}
         />
         <DepoimentosFamilias onOpenVisitModal={handleOpenVisitModal} />
+        <GaleriaMidiaInterativa
+          onOpenVisitModal={handleOpenVisitModal}
+          onOpenVideoModal={handleOpenVideoModal}
+        />
         <LocalizacaoHorarios onOpenVisitModal={handleOpenVisitModal} />
       </main>
 
@@ -61,4 +64,3 @@ export default function App() {
     </div>
   );
 }
-
