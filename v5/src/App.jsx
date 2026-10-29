@@ -10,6 +10,7 @@ import GaleriaMidiaInterativa from './components/GaleriaMidiaInterativa';
 import LocalizacaoHorarios from './components/LocalizacaoHorarios';
 import Footer from './components/Footer';
 import ModalAgendamentoWhatsApp from './components/ModalAgendamentoWhatsApp';
+import { ScrollInteractiveBackdrop } from './components/ScrollInteractive';
 
 export default function App() {
   const [visitModalOpen, setVisitModalOpen] = useState(false);
@@ -30,10 +31,11 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col storybook-canvas text-reinado-ink font-nunito">
+    <div className="min-h-screen flex flex-col storybook-canvas text-reinado-ink font-nunito relative">
+      <ScrollInteractiveBackdrop />
       <Navbar onOpenVisitModal={handleOpenVisitModal} />
 
-      <main className="flex-1">
+      <main className="flex-1 relative z-10">
         <Hero
           onOpenVisitModal={handleOpenVisitModal}
           onOpenVideoModal={handleOpenVideoModal}

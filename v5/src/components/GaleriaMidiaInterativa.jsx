@@ -8,6 +8,7 @@ import {
   ZoomIn,
   Calendar,
 } from 'lucide-react';
+import { ScrollReveal } from './ScrollInteractive';
 
 export default function GaleriaMidiaInterativa({
   onOpenVisitModal,
@@ -86,8 +87,11 @@ export default function GaleriaMidiaInterativa({
       className="py-16 lg:py-24 bg-white/80 border-t border-slate-200/80"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        {/* Cabeçalho Sóbrio */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
+        {/* Cabeçalho com Revelação no Scroll */}
+        <ScrollReveal
+          direction="up"
+          className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10"
+        >
           <div>
             <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-reinado-uva-light border border-purple-200 text-reinado-uva font-fredoka font-semibold text-xs">
               <Camera className="w-3.5 h-3.5" /> Estrutura no Mariano Procópio
@@ -97,7 +101,7 @@ export default function GaleriaMidiaInterativa({
             </h2>
           </div>
 
-          {/* Botões de Filtro Sóbrios */}
+          {/* Botões de Filtro */}
           <div className="flex flex-wrap gap-2">
             {filters.map((f) => (
               <button
@@ -114,84 +118,88 @@ export default function GaleriaMidiaInterativa({
               </button>
             ))}
           </div>
-        </div>
+        </ScrollReveal>
 
-        {/* Grid de Fotos Limpo */}
+        {/* Grid de Fotos com Entrada Interativa no Scroll */}
         <div className="grid md:grid-cols-12 gap-6">
-          {visibleItems.map((item) => (
-            <motion.div
-              layout
+          {visibleItems.map((item, idx) => (
+            <ScrollReveal
               key={item.id}
-              initial={{ opacity: 0, scale: 0.98 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3 }}
-              className={`${
-                activeFilter === 'todos' ? item.span : 'md:col-span-6'
-              } sticker-card rounded-3xl p-3 bg-white group`}
+              direction={idx % 2 === 0 ? 'left' : 'right'}
+              delay={idx * 0.08}
+              className={activeFilter === 'todos' ? item.span : 'md:col-span-6'}
             >
-              <div className="relative h-[280px] sm:h-[330px] rounded-2xl overflow-hidden bg-slate-100">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-reinado-ink/75 via-reinado-ink/15 to-transparent" />
+              <motion.div
+                layout
+                whileHover={{ y: -5 }}
+                className="sticker-card rounded-3xl p-3 bg-white group h-full"
+              >
+                <div className="relative h-[280px] sm:h-[330px] rounded-2xl overflow-hidden bg-slate-100">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-reinado-ink/75 via-reinado-ink/15 to-transparent" />
 
-                <span
-                  className={`absolute top-3.5 left-3.5 px-3 py-1 rounded-full border border-white/60 font-fredoka font-semibold text-xs shadow-sm ${item.badgeColor}`}
-                >
-                  {item.badge}
-                </span>
-
-                {item.type === 'video' ? (
-                  <button
-                    type="button"
-                    onClick={() => onOpenVideoModal(item)}
-                    className="btn-toy absolute top-3.5 right-3.5 px-3.5 py-1.5 rounded-full bg-reinado-tangerina text-white font-fredoka font-semibold text-xs flex items-center gap-1.5 cursor-pointer"
+                  <span
+                    className={`absolute top-3.5 left-3.5 px-3 py-1 rounded-full border border-white/60 font-fredoka font-semibold text-xs shadow-sm ${item.badgeColor}`}
                   >
-                    <Play className="w-3.5 h-3.5 fill-white" /> Assistir Vídeo
-                  </button>
-                ) : (
-                  <button
-                    type="button"
-                    onClick={() => setSelectedPhoto(item)}
-                    className="btn-toy absolute top-3.5 right-3.5 px-3.5 py-1.5 rounded-full bg-white/95 text-reinado-ink font-fredoka font-semibold text-xs flex items-center gap-1.5 cursor-pointer"
-                  >
-                    <ZoomIn className="w-3.5 h-3.5 text-reinado-celeste" /> Ampliar
-                  </button>
-                )}
+                    {item.badge}
+                  </span>
 
-                <div className="absolute bottom-3.5 left-3.5 right-3.5 bg-white/95 backdrop-blur-sm rounded-2xl p-3.5 border border-slate-200/80">
-                  <h3 className="font-fredoka text-base sm:text-lg font-bold text-reinado-ink leading-snug">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs text-reinado-slate font-semibold mt-0.5">
-                    {item.subtitle}
-                  </p>
+                  {item.type === 'video' ? (
+                    <button
+                      type="button"
+                      onClick={() => onOpenVideoModal(item)}
+                      className="btn-toy absolute top-3.5 right-3.5 px-3.5 py-1.5 rounded-full bg-reinado-tangerina text-white font-fredoka font-semibold text-xs flex items-center gap-1.5 cursor-pointer"
+                    >
+                      <Play className="w-3.5 h-3.5 fill-white" /> Assistir Vídeo
+                    </button>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={() => setSelectedPhoto(item)}
+                      className="btn-toy absolute top-3.5 right-3.5 px-3.5 py-1.5 rounded-full bg-white/95 text-reinado-ink font-fredoka font-semibold text-xs flex items-center gap-1.5 cursor-pointer"
+                    >
+                      <ZoomIn className="w-3.5 h-3.5 text-reinado-celeste" /> Ampliar
+                    </button>
+                  )}
+
+                  <div className="absolute bottom-3.5 left-3.5 right-3.5 bg-white/95 backdrop-blur-sm rounded-2xl p-3.5 border border-slate-200/80">
+                    <h3 className="font-fredoka text-base sm:text-lg font-bold text-reinado-ink leading-snug">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs text-reinado-slate font-semibold mt-0.5">
+                      {item.subtitle}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </ScrollReveal>
           ))}
         </div>
 
         {/* Selo Oficial de Direito de Imagem (LGPD) */}
-        <div className="mt-8 sticker-card rounded-2xl p-5 bg-white flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-3.5">
-            <div className="w-10 h-10 rounded-xl bg-reinado-limao-light border border-emerald-200 flex items-center justify-center shrink-0">
-              <ShieldCheck className="w-5 h-5 text-reinado-limao" />
+        <ScrollReveal direction="up" delay={0.15}>
+          <div className="mt-8 sticker-card rounded-2xl p-5 bg-white flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-3.5">
+              <div className="w-10 h-10 rounded-xl bg-reinado-limao-light border border-emerald-200 flex items-center justify-center shrink-0">
+                <ShieldCheck className="w-5 h-5 text-reinado-limao" />
+              </div>
+              <p className="text-xs sm:text-sm font-semibold text-reinado-slate">
+                <strong className="text-reinado-ink">Segurança & Conformidade LGPD:</strong> Todas as imagens e vídeos institucionais do acervo possuem Termo de Autorização de Uso de Imagem assinado pelos responsáveis.
+              </p>
             </div>
-            <p className="text-xs sm:text-sm font-semibold text-reinado-slate">
-              <strong className="text-reinado-ink">Segurança & Conformidade LGPD:</strong> Todas as imagens e vídeos institucionais do acervo possuem Termo de Autorização de Uso de Imagem assinado pelos responsáveis.
-            </p>
+            <button
+              type="button"
+              onClick={() => onOpenVisitModal()}
+              className="btn-toy px-5 py-2.5 rounded-full bg-reinado-celeste hover:bg-reinado-celeste-dark text-white font-fredoka font-semibold text-xs sm:text-sm shrink-0 cursor-pointer"
+            >
+              Conhecer Pessoalmente →
+            </button>
           </div>
-          <button
-            type="button"
-            onClick={() => onOpenVisitModal()}
-            className="btn-toy px-5 py-2.5 rounded-full bg-reinado-celeste hover:bg-reinado-celeste-dark text-white font-fredoka font-semibold text-xs sm:text-sm shrink-0 cursor-pointer"
-          >
-            Conhecer Pessoalmente →
-          </button>
-        </div>
+        </ScrollReveal>
       </div>
 
       {/* Modal Lightbox de Foto */}

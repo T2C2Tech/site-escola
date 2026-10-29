@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import {
   MessageCircle,
   Play,
@@ -14,8 +14,31 @@ import {
   SunSmileyDoodle,
   RainbowStickerDoodle,
 } from './PlayfulDoodles';
+import { ScrollReveal } from './ScrollInteractive';
 
 export default function Hero({ onOpenVisitModal, onOpenVideoModal }) {
+  const sectionRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start start', 'end start'],
+  });
+
+  // Movimentos interativos ligados ao scroll no Hero
+  const photoY = useSpring(useTransform(scrollYProgress, [0, 1], [0, 55]), {
+    stiffness: 90,
+    damping: 24,
+  });
+  const photoRotate = useSpring(
+    useTransform(scrollYProgress, [0, 1], [0, -2.5]),
+    { stiffness: 90, damping: 24 }
+  );
+  const sunRotate = useTransform(scrollYProgress, [0, 1], [0, 120]);
+  const sunY = useTransform(scrollYProgress, [0, 1], [0, -45]);
+  const badgeFloatY = useSpring(
+    useTransform(scrollYProgress, [0, 1], [0, -35]),
+    { stiffness: 90, damping: 24 }
+  );
+
   const quickBadges = [
     {
       emoji: '👶',
@@ -45,121 +68,133 @@ export default function Hero({ onOpenVisitModal, onOpenVideoModal }) {
 
   return (
     <section
+      ref={sectionRef}
       id="inicio"
       className="relative pt-8 pb-16 lg:pt-12 lg:pb-24 overflow-hidden"
     >
-      {/* Sol Ilustrado Discreto no Canto Superior */}
-      <div className="hidden lg:block absolute top-10 right-12 pointer-events-none opacity-65">
+      {/* Sol Ilustrado que gira suavemente conforme a página rola */}
+      <motion.div
+        style={{ rotate: sunRotate, y: sunY }}
+        className="hidden lg:block absolute top-10 right-12 pointer-events-none opacity-65"
+      >
         <SunSmileyDoodle className="w-14 h-14" />
-      </div>
+      </motion.div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          {/* COLUNA ESQUERDA: Narrativa Afetiva, Calma e Acolhedora */}
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55 }}
-            className="lg:col-span-7 space-y-6"
-          >
-            {/* Selos Topo Sóbrios */}
-            <div className="flex flex-wrap items-center gap-2.5">
-              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white border border-slate-200 font-fredoka font-medium text-xs sm:text-sm text-reinado-ink shadow-sticker-sm">
-                <MapPin className="w-3.5 h-3.5 text-reinado-tangerina" />
-                Bairro Mariano Procópio • Juiz de Fora
-              </span>
+          {/* COLUNA ESQUERDA: Narrativa Afetiva com Revelação ao Rolar */}
+          <div className="lg:col-span-7 space-y-6">
+            <ScrollReveal direction="up" delay={0.05}>
+              <div className="flex flex-wrap items-center gap-2.5">
+                <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white border border-slate-200 font-fredoka font-medium text-xs sm:text-sm text-reinado-ink shadow-sticker-sm">
+                  <MapPin className="w-3.5 h-3.5 text-reinado-tangerina" />
+                  Bairro Mariano Procópio • Juiz de Fora
+                </span>
 
-              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-reinado-sol-light border border-amber-200/80 font-fredoka font-semibold text-xs sm:text-sm text-reinado-sol-dark">
-                <Sparkles className="w-3.5 h-3.5 text-reinado-tangerina" />
-                Matrículas Abertas
-              </span>
-            </div>
-
-            {/* Título Principal Equilibrado */}
-            <div className="space-y-2.5">
-              <div className="inline-flex items-center gap-2 text-reinado-celeste font-fredoka font-semibold text-sm sm:text-base">
-                <CrownDoodle className="w-5 h-5" />
-                <span>Educação Infantil & Ensino Fundamental I</span>
+                <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-reinado-sol-light border border-amber-200/80 font-fredoka font-semibold text-xs sm:text-sm text-reinado-sol-dark">
+                  <Sparkles className="w-3.5 h-3.5 text-reinado-tangerina" />
+                  Matrículas Abertas
+                </span>
               </div>
+            </ScrollReveal>
 
-              <h1 className="font-fredoka text-3xl sm:text-5xl lg:text-[50px] font-bold text-reinado-ink leading-[1.12] tracking-tight">
-                Onde cada criança é{' '}
-                <span className="inline-block px-3 py-0.5 rounded-xl bg-reinado-sol/35 text-reinado-ink">
-                  chamada pelo nome
-                </span>{' '}
-                e aprende com afeto.
-              </h1>
-            </div>
-
-            <p className="text-base sm:text-lg text-reinado-slate font-semibold leading-relaxed max-w-2xl">
-              Do <strong>Berçário (a partir de 4 meses)</strong> ao{' '}
-              <strong>5º Ano do Fundamental I</strong>. Unimos a segurança de um ambiente acolhedor no{' '}
-              <strong>Mariano Procópio</strong> ao nosso{' '}
-              <strong className="text-reinado-ink">Tempo Integral Humanizado</strong>, Iniciação Bilíngue diária, Oficina de Mini-Chef e Horta Comunitária.
-            </p>
-
-            {/* Botões de Ação Equilibrados */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-1">
-              <button
-                type="button"
-                onClick={() => onOpenVisitModal()}
-                className="btn-toy px-6 py-3.5 rounded-full bg-reinado-tangerina hover:bg-reinado-tangerina-dark text-white font-fredoka font-semibold text-base sm:text-lg flex items-center justify-center gap-3 cursor-pointer"
-              >
-                <span className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center shrink-0">
-                  <MessageCircle className="w-5 h-5 text-white" />
-                </span>
-                <div className="text-left leading-tight">
-                  <span className="block">Agendar Visita pelo WhatsApp</span>
-                  <span className="block text-[11px] font-nunito font-semibold text-white/90">
-                    Seg a Sex • 08h30 às 11h e 14h às 16h30
-                  </span>
+            <ScrollReveal direction="up" delay={0.12}>
+              <div className="space-y-2.5">
+                <div className="inline-flex items-center gap-2 text-reinado-celeste font-fredoka font-semibold text-sm sm:text-base">
+                  <CrownDoodle className="w-5 h-5" />
+                  <span>Educação Infantil & Ensino Fundamental I</span>
                 </div>
-              </button>
 
-              <button
-                type="button"
-                onClick={() => onOpenVideoModal()}
-                className="btn-toy px-5 py-3.5 rounded-full bg-white hover:bg-reinado-celeste-light text-reinado-ink font-fredoka font-semibold text-sm sm:text-base flex items-center justify-center gap-2.5 cursor-pointer"
-              >
-                <span className="w-8 h-8 rounded-full bg-reinado-celeste-light text-reinado-celeste flex items-center justify-center shrink-0">
-                  <Play className="w-4 h-4 fill-reinado-celeste ml-0.5" />
-                </span>
-                <span>Conhecer em Vídeo (1 min)</span>
-              </button>
-            </div>
+                <h1 className="font-fredoka text-3xl sm:text-5xl lg:text-[50px] font-bold text-reinado-ink leading-[1.12] tracking-tight">
+                  Onde cada criança é{' '}
+                  <span className="inline-block px-3 py-0.5 rounded-xl bg-reinado-sol/35 text-reinado-ink">
+                    chamada pelo nome
+                  </span>{' '}
+                  e aprende com afeto.
+                </h1>
+              </div>
+            </ScrollReveal>
 
-            {/* 4 Mini Cards Pastel Sóbrios */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
-              {quickBadges.map((item) => (
-                <div
-                  key={item.title}
-                  className={`${item.bg} border border-slate-200/80 rounded-2xl p-3.5 transition-transform hover:-translate-y-0.5`}
+            <ScrollReveal direction="up" delay={0.18}>
+              <p className="text-base sm:text-lg text-reinado-slate font-semibold leading-relaxed max-w-2xl">
+                Do <strong>Berçário (a partir de 4 meses)</strong> ao{' '}
+                <strong>5º Ano do Fundamental I</strong>. Unimos a segurança de um ambiente acolhedor no{' '}
+                <strong>Mariano Procópio</strong> ao nosso{' '}
+                <strong className="text-reinado-ink">Tempo Integral Humanizado</strong>, Iniciação Bilíngue diária, Oficina de Mini-Chef e Horta Comunitária.
+              </p>
+            </ScrollReveal>
+
+            {/* Botões de Ação */}
+            <ScrollReveal direction="up" delay={0.24}>
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-1">
+                <button
+                  type="button"
+                  onClick={() => onOpenVisitModal()}
+                  className="btn-toy px-6 py-3.5 rounded-full bg-reinado-tangerina hover:bg-reinado-tangerina-dark text-white font-fredoka font-semibold text-base sm:text-lg flex items-center justify-center gap-3 cursor-pointer"
                 >
-                  <div className="text-xl mb-1">{item.emoji}</div>
-                  <p className="font-fredoka font-semibold text-xs sm:text-sm text-reinado-ink leading-tight">
-                    {item.title}
-                  </p>
-                  <p className="text-[11px] font-semibold text-reinado-slate mt-0.5">
-                    {item.desc}
-                  </p>
-                </div>
+                  <span className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center shrink-0">
+                    <MessageCircle className="w-5 h-5 text-white" />
+                  </span>
+                  <div className="text-left leading-tight">
+                    <span className="block">Agendar Visita pelo WhatsApp</span>
+                    <span className="block text-[11px] font-nunito font-semibold text-white/90">
+                      Seg a Sex • 08h30 às 11h e 14h às 16h30
+                    </span>
+                  </div>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => onOpenVideoModal()}
+                  className="btn-toy px-5 py-3.5 rounded-full bg-white hover:bg-reinado-celeste-light text-reinado-ink font-fredoka font-semibold text-sm sm:text-base flex items-center justify-center gap-2.5 cursor-pointer"
+                >
+                  <span className="w-8 h-8 rounded-full bg-reinado-celeste-light text-reinado-celeste flex items-center justify-center shrink-0">
+                    <Play className="w-4 h-4 fill-reinado-celeste ml-0.5" />
+                  </span>
+                  <span>Conhecer em Vídeo (1 min)</span>
+                </button>
+              </div>
+            </ScrollReveal>
+
+            {/* 4 Mini Cards com Entrada Escalonada ao Rolar */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+              {quickBadges.map((item, idx) => (
+                <ScrollReveal
+                  key={item.title}
+                  direction="up"
+                  delay={0.28 + idx * 0.07}
+                >
+                  <motion.div
+                    whileHover={{ y: -4, scale: 1.02 }}
+                    className={`${item.bg} border border-slate-200/80 rounded-2xl p-3.5 h-full`}
+                  >
+                    <div className="text-xl mb-1">{item.emoji}</div>
+                    <p className="font-fredoka font-semibold text-xs sm:text-sm text-reinado-ink leading-tight">
+                      {item.title}
+                    </p>
+                    <p className="text-[11px] font-semibold text-reinado-slate mt-0.5">
+                      {item.desc}
+                    </p>
+                  </motion.div>
+                </ScrollReveal>
               ))}
             </div>
-          </motion.div>
+          </div>
 
-          {/* COLUNA DIREITA: Moldura Fotográfica Suave e Acolhedora */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.97 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="lg:col-span-5 relative"
-          >
-            <div className="relative mx-auto max-w-md lg:max-w-none">
+          {/* COLUNA DIREITA: Moldura Fotográfica com Movimento Parallax ao Rolar */}
+          <div className="lg:col-span-5 relative">
+            <motion.div
+              style={{ y: photoY, rotate: photoRotate }}
+              className="relative mx-auto max-w-md lg:max-w-none"
+            >
               <div className="washi-tape" />
 
-              <div className="absolute -top-6 -left-3 z-20 opacity-85">
+              <motion.div
+                style={{ y: badgeFloatY }}
+                className="absolute -top-6 -left-3 z-20 opacity-85"
+              >
                 <RainbowStickerDoodle className="w-16 h-11" />
-              </div>
+              </motion.div>
 
               {/* Card Principal com Foto Grande */}
               <div className="sticker-card rounded-[2.25rem] p-3.5 bg-white">
@@ -203,8 +238,9 @@ export default function Hero({ onOpenVisitModal, onOpenVideoModal }) {
                 </div>
               </div>
 
-              {/* Card Flutuante Discreto: Horários de Visita */}
-              <button
+              {/* Card Flutuante com Parallax Oposto: Horários de Visita */}
+              <motion.button
+                style={{ y: badgeFloatY }}
                 type="button"
                 onClick={() => onOpenVisitModal()}
                 className="mt-3.5 sm:mt-0 sm:absolute sm:-bottom-4 sm:right-4 z-20 w-full sm:w-auto bg-white hover:bg-reinado-celeste-light text-reinado-ink rounded-2xl px-4 py-2.5 border border-slate-200 shadow-sticker flex items-center justify-center gap-2.5 transition-colors cursor-pointer"
@@ -218,9 +254,9 @@ export default function Hero({ onOpenVisitModal, onOpenVideoModal }) {
                     WhatsApp (32) 99999-1234
                   </span>
                 </div>
-              </button>
-            </div>
-          </motion.div>
+              </motion.button>
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>
