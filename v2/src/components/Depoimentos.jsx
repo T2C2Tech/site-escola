@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Star, CheckCircle, ArrowRight } from 'lucide-react';
+import { Star, CheckCircle, ArrowRight, ExternalLink } from 'lucide-react';
 import WaveTransition from './WaveTransition';
 
 const projetosDestaque = [
@@ -32,39 +32,53 @@ const projetosDestaque = [
 
 const depoimentosData = [
   {
-    nome: 'Mariana & Carlos Silveira',
-    relacao: 'Pais da Sophia (Maternal 1) e do Lucas (4º Ano)',
-    origem: 'Comunidade Escolar',
-    texto: 'Deixar a Sophia no Maternal 1 foi uma tranquilidade imensa. O número reduzido de alunos por turma garante um carinho que não encontramos em outro lugar. E o Lucas ama as aulas de robótica no Colégio Estrutura!',
-    iniciais: 'MC',
+    nome: 'Renata Cristina',
+    relacao: 'Mãe de aluna • Avaliação no Google',
+    origem: 'Google Maps',
+    texto: 'Uma escola excelente, com profissionais qualificados e muito carinhosos. Minha filha está lá desde 1 ano e meio e ela simplesmente é apaixonada por todos. Ambiente acolhedor e familiar. Cuidado, dedicação e confiança são palavras que definem a Escola.',
+    iniciais: 'RC',
+    foto: 'https://lh3.googleusercontent.com/a/ACg8ocJFengortmvFcKw0-41cbGctfmEvwlJN4PDhQ8uz4_AgEVgNA=s120-c-rp-mo-br100',
     corBg: 'bg-[#ffdad8] text-[#E63946]',
-    categoria: 'comunidade'
+    categoria: 'google'
   },
   {
-    nome: 'Renata Albuquerque',
-    relacao: 'Mãe do Bernardo (2º Período)',
-    origem: 'Avaliação da Família',
-    texto: 'O Bernardo se encantou pelas aulas de inglês e pelas rodas de leitura. As aulas extras de capoeira e a vivência na hortinha tornam a rotina dele super alegre e saudável. Estamos muito felizes!',
-    iniciais: 'RA',
+    nome: 'Natália Barbosa',
+    relacao: 'Mãe de alunos • Avaliação no Google',
+    origem: 'Google Maps',
+    texto: 'Não tenho palavras para descrever a escola, o carinho das professoras com os alunos, o olhar individualizado para os alunos, entendendo que cada criança é única! Tenho muita segurança em deixar meus filhos sobre os cuidados da Silmara e a equipe maravilhosa que ela tem! Meus filhos amam a escola e sentem falta até nos finais de semana, e isso é reflexo do trabalho feito com amor e dedicação!',
+    iniciais: 'NB',
+    foto: 'https://lh3.googleusercontent.com/a-/ALV-UjWnsGXoFPePW7zGNSUMfc7I2eVcsng6j2rxIXqgM0wildO3l9zu=s120-c-rp-mo-br100',
     corBg: 'bg-[#cee5ff] text-[#2B90D9]',
     categoria: 'google'
   },
   {
-    nome: 'Dra. Juliana Vasconcelos',
-    relacao: 'Mãe do Gabriel (1º Período)',
-    origem: 'Comunidade Escolar',
-    texto: 'O horário flexível no período integral atende perfeitamente nossos plantões. A escola tem uma proposta socioemocional de verdade: respeito mútuo, acolhimento e turmas com atenção individualizada.',
-    iniciais: 'JV',
-    corBg: 'bg-[#EAF6EE] text-[#2E9A68]',
-    categoria: 'comunidade'
+    nome: 'Francineide Cheffer',
+    relacao: 'Mãe de aluna • Avaliação no Google',
+    origem: 'Google Maps',
+    texto: 'Excelente! Só tenho a dizer que só tem pontos positivos na escola, são todos muito atenciosos e o aprendizado é ótimo. Minha filha teve muita facilidade em aprender com as professoras graças a Deus, e ela adora estudar nessa escola. E pretendo manter ela até o quinto ano.',
+    iniciais: 'FC',
+    foto: 'https://lh3.googleusercontent.com/a/ACg8ocIazci2QYd2QAiWDlcnQqnlmRvPtFlg1kUYEAxQKNvP5FnecA=s120-c-rp-mo-br100',
+    corBg: 'bg-[#ffdf9b] text-[#755700]',
+    categoria: 'google'
   },
   {
-    nome: 'Fernando & Camila Torres',
-    relacao: 'Pais da Beatriz (3º Ano do Fundamental)',
-    origem: 'Avaliação da Família',
-    texto: 'No Colégio Estrutura a Beatriz encontrou professores experientes e material didático de altíssima qualidade. O slogan "Estrutura para crescer, valores para a vida" é cumprido todos os dias!',
-    iniciais: 'FT',
-    corBg: 'bg-[#ffdf9b] text-[#755700]',
+    nome: 'Michele Fayer',
+    relacao: 'Mãe de aluno • Avaliação no Google',
+    origem: 'Google Maps',
+    texto: 'Minha experiência foi ótima. Uma escola acolhedora, que está realmente preocupada com o desenvolvimento das crianças. Meu filho foi muito bem recebido e tratado com muito carinho por todos. Só tenho a agradecer.',
+    iniciais: 'MF',
+    foto: 'https://lh3.googleusercontent.com/a-/ALV-UjVvYUa1IrG-DsOwmOw3GAorkN0z7GLc6qGTgl0qVwIlPmYeGpldfg=s120-c-rp-mo-br100',
+    corBg: 'bg-[#EAF6EE] text-[#2E9A68]',
+    categoria: 'google'
+  },
+  {
+    nome: 'Allan Souza Rodrigues',
+    relacao: 'Pai de aluno (4 anos na escola) • Avaliação no Google',
+    origem: 'Google Maps',
+    texto: 'Meu filho já está na escola Borboletinha Encantada/Colégio Estrutura há 4 anos. Em todos esses anos só temos a agradecer a todos da escola que sempre mostrou excelência no ensino e no trato carinhoso com todos os pequenos. Eu e minha família amamos a escola e todos os profissionais de lá, se eu pudesse daria mil estrelas.',
+    iniciais: 'AR',
+    foto: 'https://lh3.googleusercontent.com/a-/ALV-UjUEgXbzh7sH2nL9fNzSYWB4V7oXM9K3j27VhxClpkhi5_Qof-gNeg=s120-c-rp-mo-ba12-br100',
+    corBg: 'bg-[#f0e7ff] text-[#6b21a8]',
     categoria: 'google'
   }
 ];
@@ -140,46 +154,31 @@ export default function Depoimentos() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.7 }}
-          className="mb-12 text-center max-w-2xl mx-auto"
+          className="mb-10 text-center max-w-2xl mx-auto"
         >
-          <div className="inline-flex items-center gap-2 rounded-full bg-[#ffdf9b] px-4 py-1 mb-3 shadow-sm">
-            <span className="text-base">💬</span>
-            <span className="font-quicksand text-xs font-black uppercase tracking-wider text-[#755700]">
-              Corações Tranquilos
-            </span>
-          </div>
           <h2 className="font-quicksand text-3xl sm:text-4xl lg:text-5xl font-black text-[#2C3E50]">
             O que as famílias dizem sobre nossa escola
           </h2>
           <p className="mt-3 font-nunito text-[#6C7A89] text-base">
-            Ouvir a vivência de outras mães e pais reflete o carinho da E.I. Borboletinha Encantada e Colégio Estrutura.
+            Depoimentos verídicos de pais da Escola Borboletinha Encantada & Colégio Estrutura.
           </p>
+
+          {/* Selo 5.0 Estrelas */}
+          <div className="mt-4 inline-flex items-center gap-2.5 bg-amber-50 border border-amber-200/80 px-4 py-2 rounded-2xl shadow-sm">
+            <span className="font-quicksand font-black text-amber-800 text-lg">5.0</span>
+            <div className="flex gap-0.5">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="h-4 w-4 fill-amber-500 text-amber-500" />
+              ))}
+            </div>
+            <span className="text-xs font-bold text-slate-600 font-sans border-l border-amber-200 pl-2.5">
+              Nota máxima no Google Maps
+            </span>
+          </div>
         </motion.div>
 
-        {/* Tabs de Filtro */}
-        <div className="mb-10 flex flex-wrap justify-center gap-2.5">
-          <button
-            onClick={() => setActiveTab('todas')}
-            className={`rounded-full px-6 py-2.5 text-sm font-extrabold transition-all ${activeTab === 'todas' ? 'bg-[#E63946] text-white shadow-md shadow-[#E63946]/30 scale-105' : 'bg-white text-[#2C3E50] shadow-sm hover:bg-[#edf4ff]'}`}
-          >
-            Todas as opiniões ✨
-          </button>
-          <button
-            onClick={() => setActiveTab('google')}
-            className={`rounded-full px-6 py-2.5 text-sm font-extrabold transition-all ${activeTab === 'google' ? 'bg-[#2B90D9] text-white shadow-md shadow-[#2B90D9]/30 scale-105' : 'bg-white text-[#2C3E50] shadow-sm hover:bg-[#edf4ff]'}`}
-          >
-            Avaliações com Estrelas ⭐
-          </button>
-          <button
-            onClick={() => setActiveTab('comunidade')}
-            className={`rounded-full px-6 py-2.5 text-sm font-extrabold transition-all ${activeTab === 'comunidade' ? 'bg-[#2E9A68] text-white shadow-md shadow-[#2E9A68]/30 scale-105' : 'bg-white text-[#2C3E50] shadow-sm hover:bg-[#edf4ff]'}`}
-          >
-            Depoimentos de Pais & Mães ❤️
-          </button>
-        </div>
-
         {/* Cards de Depoimento */}
-        <div className="no-scrollbar flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4">
+        <div className="no-scrollbar flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4 pt-2">
           {filtered.map((dep, index) => (
             <motion.article
               key={index}
@@ -188,20 +187,39 @@ export default function Depoimentos() {
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -8 }}
-              className="flex w-[88%] shrink-0 snap-start flex-col rounded-[2.2rem] bg-white p-8 shadow-md hover:shadow-xl sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] transition-all duration-300"
+              className="flex w-[88%] shrink-0 snap-start flex-col rounded-[2.2rem] bg-white p-7 shadow-md hover:shadow-xl sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] transition-all duration-300 border border-slate-100"
             >
-              <div className="flex gap-1" aria-label="5 de 5 estrelas">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 fill-[#F6C343] text-[#F6C343]" />
-                ))}
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex gap-1" aria-label="5 de 5 estrelas">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-[#F6C343] text-[#F6C343]" />
+                  ))}
+                </div>
               </div>
-              <p className="mt-5 flex-1 font-nunito text-base leading-relaxed text-[#2C3E50] font-medium">
+
+              <p className="flex-1 font-nunito text-sm sm:text-base leading-relaxed text-[#2C3E50] font-medium">
                 “{dep.texto}”
               </p>
-              <div className="mt-6 flex items-center gap-3.5 border-t border-[#2B90D9]/10 pt-5">
-                <span className={`flex h-12 w-12 items-center justify-center rounded-2xl ${dep.corBg} text-sm font-black shadow-sm`}>
+
+              <div className="mt-6 flex items-center gap-3.5 border-t border-slate-100 pt-5">
+                {dep.foto ? (
+                  <img
+                    src={dep.foto}
+                    alt={dep.nome}
+                    className="h-12 w-12 rounded-2xl object-cover shadow-sm border border-slate-200 shrink-0"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.nextSibling.style.display = 'flex';
+                    }}
+                  />
+                ) : null}
+                <span
+                  style={{ display: dep.foto ? 'none' : 'flex' }}
+                  className={`h-12 w-12 items-center justify-center rounded-2xl ${dep.corBg} text-sm font-black shadow-sm shrink-0`}
+                >
                   {dep.iniciais}
                 </span>
+
                 <div className="min-w-0">
                   <p className="truncate font-quicksand font-black text-base text-[#2C3E50]">{dep.nome}</p>
                   <p className="flex items-center gap-1 text-xs text-[#2E9A68] font-bold">
@@ -212,6 +230,27 @@ export default function Depoimentos() {
               </div>
             </motion.article>
           ))}
+        </div>
+
+        {/* Botão Ver no Google Maps */}
+        <div className="mt-8 flex justify-center">
+          <motion.a
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
+            href="https://www.google.com/maps/place/Escola+Infantil+Borboletinha+Encantada/@-21.7581492,-43.3806702,17z/data=!4m8!3m7!1s0x989bbda7315ac1:0xc63f2e17aa270c6e!8m2!3d-21.7581492!4d-43.3780953!9m1!1b1!16s%2Fg%2F11h5wpr75g?entry=ttu"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2.5 rounded-full bg-slate-900 px-6 py-3 font-quicksand text-sm font-black text-white shadow-md hover:bg-slate-800 transition-all"
+          >
+            <svg className="w-4 h-4" viewBox="0 0 24 24">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" />
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" />
+            </svg>
+            Ver avaliações no Google Maps
+            <ExternalLink className="h-4 w-4" />
+          </motion.a>
         </div>
 
         {/* Banner de Confiança com Logo da Escola */}

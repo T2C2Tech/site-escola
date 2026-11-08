@@ -9,7 +9,7 @@
     content="Escola Reino Feliz no Bairro Mariano Procópio em Juiz de Fora. Berçário, Educação Infantil e Fundamental I. Onde o aprendizado ganha asas e o afeto guia cada descoberta." />
 
   <!-- Favicon Oficial -->
-  <link rel="icon" type="image/svg+xml" href="logo.svg" />
+  <link rel="icon" type="image/png" href="logo.png" />
 
   <!-- Fontes do DESIGN.md: Quicksand e Nunito Sans + Google Material Symbols -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -389,9 +389,12 @@
 
     /* Micro-animação lúdica de flutuação suave para badges e chips */
     @keyframes badgeGentlePulse {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: translateY(0);
       }
+
       50% {
         transform: translateY(-3px);
       }
@@ -672,8 +675,7 @@
     </div>
 
     <!-- ================= 2. QUEM SOMOS ================= -->
-    <section id="quem-somos"
-      class="w-full px-4 sm:px-8 py-16 lg:py-20 bg-white v4-section-reveal v4-parallax-section">
+    <section id="quem-somos" class="w-full px-4 sm:px-8 py-16 lg:py-20 bg-white v4-section-reveal v4-parallax-section">
       <!-- Decorações Flutuantes -->
       <div class="v4-floating-decor w-72 h-72 bg-secondary-fixed/40 -top-12 -left-20" data-decor-speed="-0.15"></div>
       <div class="v4-floating-decor w-60 h-60 bg-tertiary-fixed/30 -bottom-10 -right-16" data-decor-speed="0.18"></div>
@@ -953,8 +955,7 @@
     </div>
 
     <!-- ================= 4. METODOLOGIA SECTION ================= -->
-    <section id="metodologia"
-      class="w-full px-4 sm:px-8 py-16 lg:py-20 bg-white v4-section-reveal v4-parallax-section">
+    <section id="metodologia" class="w-full px-4 sm:px-8 py-16 lg:py-20 bg-white v4-section-reveal v4-parallax-section">
       <!-- Decorações Flutuantes -->
       <div class="v4-floating-decor w-72 h-72 bg-tertiary-fixed/25 -top-14 -left-16" data-decor-speed="-0.16"></div>
       <div class="v4-floating-decor w-60 h-60 bg-secondary-fixed/35 -bottom-10 -right-20" data-decor-speed="0.14"></div>
@@ -1037,8 +1038,7 @@
     </div>
 
     <!-- ================= 5. ROTINA E TIMELINE LÚDICA (ESPECIAL DESIGN.MD) ================= -->
-    <section id="rotina"
-      class="w-full px-4 sm:px-8 py-16 lg:py-20 bg-[#FAFCFE] v4-section-reveal v4-parallax-section">
+    <section id="rotina" class="w-full px-4 sm:px-8 py-16 lg:py-20 bg-[#FAFCFE] v4-section-reveal v4-parallax-section">
       <!-- Decorações -->
       <div class="v4-floating-decor w-72 h-72 bg-secondary-fixed/20 -top-12 -left-16" data-decor-speed="-0.15"></div>
 
@@ -1159,114 +1159,248 @@
     </div>
 
     <!-- ================= 6. DEPOIMENTOS DAS FAMÍLIAS ================= -->
-    <section id="depoimentos"
-      class="w-full px-4 sm:px-8 py-16 lg:py-20 bg-white v4-section-reveal v4-parallax-section">
+    <section id="depoimentos" class="w-full px-4 sm:px-8 py-16 lg:py-20 bg-white v4-section-reveal v4-parallax-section">
       <!-- Decorações -->
       <div class="v4-floating-decor w-72 h-72 bg-secondary-fixed/30 -top-12 -right-20" data-decor-speed="0.16"></div>
       <div class="v4-floating-decor w-64 h-64 bg-tertiary-fixed/20 -bottom-16 -left-16" data-decor-speed="-0.15"></div>
 
       <div class="max-w-6xl mx-auto v4-parallax-layer">
 
-        <div class="text-center max-w-2xl mx-auto mb-12">
-          <span
-            class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-chip-coral-bg text-primary font-quicksand font-bold text-xs uppercase tracking-wider mb-2">
-            <span class="material-symbols-outlined text-sm">favorite</span>
-            Famílias Encantadas
-          </span>
+        <!-- Cabeçalho com Selo Google Reviews -->
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-[#2C3E50] font-quicksand font-bold text-xs uppercase tracking-wider mb-3 shadow-sm">
+            <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+            </svg>
+            <span>Avaliações Reais no Google Maps</span>
+          </div>
+
           <h2 class="font-quicksand text-headline-lg lg:text-3xl font-bold text-on-surface">
             O carinho sincero de quem vive a nossa escola.
           </h2>
           <p class="font-sans text-body-md text-brand-subdued mt-2">
-            A parceria harmoniosa com os pais constrói a base emocional segura que as crianças levam para a vida
-            inteira.
+            A parceria harmoniosa com os pais constrói a base emocional segura que as crianças levam para a vida inteira.
           </p>
+
+          <!-- Resumo de Avaliação Oficial (5.0 ★★★★★) -->
+          <div class="mt-4 inline-flex items-center gap-2.5 bg-amber-50 border border-amber-200/80 px-4 py-2 rounded-2xl shadow-sm">
+            <span class="font-quicksand font-black text-amber-800 text-lg">5.0</span>
+            <div class="flex text-amber-500">
+              <span class="material-symbols-outlined text-lg">star</span>
+              <span class="material-symbols-outlined text-lg">star</span>
+              <span class="material-symbols-outlined text-lg">star</span>
+              <span class="material-symbols-outlined text-lg">star</span>
+              <span class="material-symbols-outlined text-lg">star</span>
+            </div>
+            <span class="text-xs font-bold text-slate-600 font-sans border-l border-amber-200 pl-2.5">
+              100% de satisfação no Google
+            </span>
+          </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Grid 2x2 com as 4 primeiras avaliações do Google -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-          <!-- Depoimento 1 (Card com borda design-card) -->
+          <!-- Avaliação 1: Renata Cristina -->
           <div class="design-card p-6 flex flex-col justify-between" data-parallax-speed="0.02">
             <div>
-              <div class="flex text-brand-sun mb-3">
-                <span class="material-symbols-outlined text-lg">star</span>
-                <span class="material-symbols-outlined text-lg">star</span>
-                <span class="material-symbols-outlined text-lg">star</span>
-                <span class="material-symbols-outlined text-lg">star</span>
-                <span class="material-symbols-outlined text-lg">star</span>
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex text-amber-500">
+                  <span class="material-symbols-outlined text-lg">star</span>
+                  <span class="material-symbols-outlined text-lg">star</span>
+                  <span class="material-symbols-outlined text-lg">star</span>
+                  <span class="material-symbols-outlined text-lg">star</span>
+                  <span class="material-symbols-outlined text-lg">star</span>
+                </div>
+                <span class="inline-flex items-center gap-1 text-[11px] font-bold text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-full">
+                  <svg class="w-3 h-3" viewBox="0 0 24 24">
+                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                  </svg>
+                  Google
+                </span>
               </div>
               <p class="font-sans text-body-md text-brand-slate italic leading-relaxed">
-                "A Escola Reino Feliz acolheu meu filho no berçário com tanto carinho que hoje, no 2º ano, ele não vê a
-                hora
-                das férias acabarem para voltar! Os professores são anjos que ensinam com amor."
+                "Uma escola excelente, com profissionais qualificados e muito carinhosos. Minha filha está lá desde 1 ano e meio e ela simplesmente é apaixonada por todos. Ambiente acolhedor e familiar. Cuidado, dedicação e confiança são palavras que definem a Escola."
               </p>
             </div>
-            <div class="flex items-center gap-3 pt-4 mt-6">
-              <div
-                class="w-11 h-11 rounded-full bg-chip-coral-bg flex items-center justify-center font-quicksand font-bold text-primary text-sm shrink-0">
-                MC
-              </div>
+            <div class="flex items-center gap-3 pt-4 mt-6 border-t border-slate-100">
+              <img
+                src="https://lh3.googleusercontent.com/a/ACg8ocJFengortmvFcKw0-41cbGctfmEvwlJN4PDhQ8uz4_AgEVgNA=s120-c-rp-mo-br100"
+                alt="Foto de Renata Cristina"
+                class="w-11 h-11 rounded-full object-cover shrink-0 shadow-sm border border-slate-200"
+                onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Renata+Cristina&background=ffd6d6&color=E63946';"
+              />
               <div>
-                <span class="font-quicksand font-bold text-primary block text-sm">Mariana Castro</span>
-                <span class="font-sans text-xs text-brand-subdued">Mãe do Theo • Bairro Mariano Procópio</span>
+                <span class="font-quicksand font-bold text-primary block text-sm">Renata Cristina</span>
+                <span class="font-sans text-xs text-brand-subdued flex items-center gap-1">
+                  <span class="material-symbols-outlined text-xs text-[#2E9A68]">verified</span>
+                  Mãe de aluna • Avaliação no Google
+                </span>
               </div>
             </div>
           </div>
 
-          <!-- Depoimento 2 (Card com borda design-card) -->
+          <!-- Avaliação 2: Natália Barbosa -->
           <div class="design-card p-6 flex flex-col justify-between" data-parallax-speed="-0.02">
             <div>
-              <div class="flex text-brand-sun mb-3">
-                <span class="material-symbols-outlined text-lg">star</span>
-                <span class="material-symbols-outlined text-lg">star</span>
-                <span class="material-symbols-outlined text-lg">star</span>
-                <span class="material-symbols-outlined text-lg">star</span>
-                <span class="material-symbols-outlined text-lg">star</span>
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex text-amber-500">
+                  <span class="material-symbols-outlined text-lg">star</span>
+                  <span class="material-symbols-outlined text-lg">star</span>
+                  <span class="material-symbols-outlined text-lg">star</span>
+                  <span class="material-symbols-outlined text-lg">star</span>
+                  <span class="material-symbols-outlined text-lg">star</span>
+                </div>
+                <span class="inline-flex items-center gap-1 text-[11px] font-bold text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-full">
+                  <svg class="w-3 h-3" viewBox="0 0 24 24">
+                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                  </svg>
+                  Google
+                </span>
               </div>
               <p class="font-sans text-body-md text-brand-slate italic leading-relaxed">
-                "O turno integral é impecável. A alimentação saudável, o cuidado rigoroso com a higiene e a
-                tranquilidade
-                de saber que minha filha está protegida enquanto trabalho não têm preço."
+                "Não tenho palavras para descrever a escola, o carinho das professoras com os alunos, o olhar individualizado para os alunos, entendendo que cada criança é única! Tenho muita segurança em deixar meus filhos sobre os cuidados da Silmara e a equipe maravilhosa que ela tem! Meus filhos amam a escola e sentem falta até nos finais de semana, e isso é reflexo do trabalho feito com amor e dedicação!"
               </p>
             </div>
-            <div class="flex items-center gap-3 pt-4 mt-6">
-              <div
-                class="w-11 h-11 rounded-full bg-chip-sky-bg flex items-center justify-center font-quicksand font-bold text-secondary text-sm shrink-0">
-                RA
-              </div>
+            <div class="flex items-center gap-3 pt-4 mt-6 border-t border-slate-100">
+              <img
+                src="https://lh3.googleusercontent.com/a-/ALV-UjWnsGXoFPePW7zGNSUMfc7I2eVcsng6j2rxIXqgM0wildO3l9zu=s120-c-rp-mo-br100"
+                alt="Foto de Natália Barbosa"
+                class="w-11 h-11 rounded-full object-cover shrink-0 shadow-sm border border-slate-200"
+                onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Natalia+Barbosa&background=cee5ff&color=00456e';"
+              />
               <div>
-                <span class="font-quicksand font-bold text-primary block text-sm">Rodrigo Almeida</span>
-                <span class="font-sans text-xs text-brand-subdued">Pai da Alice • Bairro Mariano Procópio</span>
+                <span class="font-quicksand font-bold text-primary block text-sm">Natália Barbosa</span>
+                <span class="font-sans text-xs text-brand-subdued flex items-center gap-1">
+                  <span class="material-symbols-outlined text-xs text-[#2E9A68]">verified</span>
+                  Mãe de alunos • Avaliação no Google
+                </span>
               </div>
             </div>
           </div>
 
-          <!-- Depoimento 3 (Card com borda design-card) -->
-          <div class="design-card p-6 flex flex-col justify-between" data-parallax-speed="0.03">
+          <!-- Avaliação 3: Francineide Cheffer -->
+          <div class="design-card p-6 flex flex-col justify-between" data-parallax-speed="0.02">
             <div>
-              <div class="flex text-brand-sun mb-3">
-                <span class="material-symbols-outlined text-lg">star</span>
-                <span class="material-symbols-outlined text-lg">star</span>
-                <span class="material-symbols-outlined text-lg">star</span>
-                <span class="material-symbols-outlined text-lg">star</span>
-                <span class="material-symbols-outlined text-lg">star</span>
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex text-amber-500">
+                  <span class="material-symbols-outlined text-lg">star</span>
+                  <span class="material-symbols-outlined text-lg">star</span>
+                  <span class="material-symbols-outlined text-lg">star</span>
+                  <span class="material-symbols-outlined text-lg">star</span>
+                  <span class="material-symbols-outlined text-lg">star</span>
+                </div>
+                <span class="inline-flex items-center gap-1 text-[11px] font-bold text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-full">
+                  <svg class="w-3 h-3" viewBox="0 0 24 24">
+                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                  </svg>
+                  Google
+                </span>
               </div>
               <p class="font-sans text-body-md text-brand-slate italic leading-relaxed">
-                "A transição da Educação Infantil para o Fundamental I aconteceu sem traumas. O estímulo à leitura e aos
-                valores de empatia e respeito é visível na conduta da minha filha."
+                "Excelente! Só tenho a dizer que só tem pontos positivos na escola, são todos muito atenciosos e o aprendizado é ótimo. Minha filha teve muita facilidade em aprender com as professoras graças a Deus, e ela adora estudar nessa escola. E pretendo manter ela até o quinto ano."
               </p>
             </div>
-            <div class="flex items-center gap-3 pt-4 mt-6">
-              <div
-                class="w-11 h-11 rounded-full bg-chip-green-bg flex items-center justify-center font-quicksand font-bold text-brand-green text-sm shrink-0">
-                PN
-              </div>
+            <div class="flex items-center gap-3 pt-4 mt-6 border-t border-slate-100">
+              <img
+                src="https://lh3.googleusercontent.com/a/ACg8ocIazci2QYd2QAiWDlcnQqnlmRvPtFlg1kUYEAxQKNvP5FnecA=s120-c-rp-mo-br100"
+                alt="Foto de Francineide Cheffer"
+                class="w-11 h-11 rounded-full object-cover shrink-0 shadow-sm border border-slate-200"
+                onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Francineide+Cheffer&background=ffdf9b&color=755700';"
+              />
               <div>
-                <span class="font-quicksand font-bold text-primary block text-sm">Patrícia Nogueira</span>
-                <span class="font-sans text-xs text-brand-subdued">Mãe da Luísa • Juiz de Fora</span>
+                <span class="font-quicksand font-bold text-primary block text-sm">Francineide Cheffer</span>
+                <span class="font-sans text-xs text-brand-subdued flex items-center gap-1">
+                  <span class="material-symbols-outlined text-xs text-[#2E9A68]">verified</span>
+                  Mãe de aluna • Avaliação no Google
+                </span>
               </div>
             </div>
           </div>
 
+          <!-- Avaliação 4: Michele Fayer -->
+          <div class="design-card p-6 flex flex-col justify-between" data-parallax-speed="-0.02">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex text-amber-500">
+                  <span class="material-symbols-outlined text-lg">star</span>
+                  <span class="material-symbols-outlined text-lg">star</span>
+                  <span class="material-symbols-outlined text-lg">star</span>
+                  <span class="material-symbols-outlined text-lg">star</span>
+                  <span class="material-symbols-outlined text-lg">star</span>
+                </div>
+                <span class="inline-flex items-center gap-1 text-[11px] font-bold text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-full">
+                  <svg class="w-3 h-3" viewBox="0 0 24 24">
+                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                  </svg>
+                  Google
+                </span>
+              </div>
+              <p class="font-sans text-body-md text-brand-slate italic leading-relaxed">
+                "Minha experiência foi ótima. Uma escola acolhedora, que está realmente preocupada com o desenvolvimento das crianças. Meu filho foi muito bem recebido e tratado com muito carinho por todos. Só tenho a agradecer."
+              </p>
+            </div>
+            <div class="flex items-center gap-3 pt-4 mt-6 border-t border-slate-100">
+              <img
+                src="https://lh3.googleusercontent.com/a-/ALV-UjVvYUa1IrG-DsOwmOw3GAorkN0z7GLc6qGTgl0qVwIlPmYeGpldfg=s120-c-rp-mo-br100"
+                alt="Foto de Michele Fayer"
+                class="w-11 h-11 rounded-full object-cover shrink-0 shadow-sm border border-slate-200"
+                onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Michele+Fayer&background=EAF6EE&color=2E9A68';"
+              />
+              <div>
+                <span class="font-quicksand font-bold text-primary block text-sm">Michele Fayer</span>
+                <span class="font-sans text-xs text-brand-subdued flex items-center gap-1">
+                  <span class="material-symbols-outlined text-xs text-[#2E9A68]">verified</span>
+                  Mãe de aluno • Avaliação no Google
+                </span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Botões de Ação para o Google Maps -->
+        <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+          <a
+            href="https://www.google.com/maps/place/Escola+Infantil+Borboletinha+Encantada/@-21.7581492,-43.3806702,17z/data=!4m8!3m7!1s0x989bbda7315ac1:0xc63f2e17aa270c6e!8m2!3d-21.7581492!4d-43.3780953!9m1!1b1!16s%2Fg%2F11h5wpr75g?entry=ttu"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-slate-900 text-white font-quicksand font-bold text-sm shadow-md hover:bg-slate-800 hover:shadow-lg transition-all"
+          >
+            <svg class="w-4 h-4" viewBox="0 0 24 24">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+            </svg>
+            Ver todas as avaliações no Google
+            <span class="material-symbols-outlined text-sm">open_in_new</span>
+          </a>
+
+          <a
+            href="https://search.google.com/local/writereview?placeid=ChIJwcFaM6e7mZgRbgynqhcuP8Y"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white border border-slate-300 text-slate-700 font-quicksand font-bold text-sm hover:bg-slate-50 transition-all shadow-sm"
+          >
+            <span class="material-symbols-outlined text-base text-amber-500">rate_review</span>
+            Deixar uma avaliação
+          </a>
         </div>
 
       </div>
@@ -1437,8 +1571,7 @@
     </div>
 
     <!-- ================= 8. FAQ ================= -->
-    <section id="faq"
-      class="w-full px-4 sm:px-8 py-16 lg:py-20 bg-white v4-section-reveal v4-parallax-section">
+    <section id="faq" class="w-full px-4 sm:px-8 py-16 lg:py-20 bg-white v4-section-reveal v4-parallax-section">
       <!-- Decorações -->
       <div class="v4-floating-decor w-72 h-72 bg-secondary-fixed/25 -top-14 -left-16" data-decor-speed="0.14"></div>
       <div class="v4-floating-decor w-60 h-60 bg-tertiary-fixed/30 -bottom-10 -right-20" data-decor-speed="-0.16"></div>
@@ -1523,19 +1656,19 @@
             <div
               class="inline-flex items-center gap-2 text-secondary font-quicksand font-bold text-xs uppercase tracking-wider">
               <span class="material-symbols-outlined text-lg">location_on</span>
-              <span>Bairro Mariano Procópio • Juiz de Fora</span>
+              <span>Bairro Borboleta • Juiz de Fora</span>
             </div>
             <h3 class="font-quicksand text-headline-md font-bold text-on-surface">
               Fácil acesso, tranquilidade e embarque seguro
             </h3>
             <p class="font-sans text-body-md text-brand-subdued leading-relaxed">
-              Situada em rua calma e residencial no bairro Mariano Procópio, nossa sede dispõe de área segura para
+              Situada em rua calma e residencial no bairro Borboleta, nossa sede dispõe de área segura para
               embarque e
               desembarque,
               proporcionando tranquilidade diária para os pais.
             </p>
             <div class="pt-2">
-              <a href="https://maps.google.com/?q=Bairro+Mariano+Procopio+Juiz+de+Fora" target="_blank"
+              <a href="https://www.google.com/maps/search/?api=1&query=Rua+Dr.+Euvaldo+Lodi%2C+131+-+Borboleta%2C+Juiz+de+Fora+-+MG" target="_blank"
                 rel="noopener noreferrer"
                 class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-brand-coral hover:bg-primary text-white font-quicksand font-bold text-sm shadow-coral-glow hover:-translate-y-0.5 transition-all">
                 <span class="material-symbols-outlined text-base">navigation</span>
@@ -1551,9 +1684,9 @@
                 class="w-14 h-14 rounded-full bg-chip-coral-bg flex items-center justify-center text-brand-coral mb-3">
                 <span class="material-symbols-outlined text-3xl">pin_drop</span>
               </div>
-              <h4 class="font-quicksand font-bold text-primary text-lg">Escola Reino Feliz</h4>
+              <h4 class="font-quicksand font-bold text-primary text-lg">Escola Borboletinha Encantada & Colégio Estrutura</h4>
               <p class="font-sans text-body-sm text-brand-subdued mt-1">
-                Rua das Papoulas, 240 - Bairro Mariano Procópio<br />Juiz de Fora - MG, CEP 36035-000
+                Rua Dr. Euvaldo Lodi, 131 - Bairro Borboleta<br />Juiz de Fora - MG
               </p>
             </div>
           </div>
