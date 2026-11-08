@@ -1,77 +1,61 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageCircle, Menu, X, Sparkles, Heart } from 'lucide-react';
+import { Menu, X, Sparkles } from 'lucide-react';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <>
-      {/* Top Banner Alegre Colorido */}
-      <div className="bg-gradient-to-r from-[#E63946] via-[#F6C343] to-[#2B90D9] px-4 py-2 text-center text-xs sm:text-sm font-bold text-white flex items-center justify-center gap-2">
-        <Sparkles className="h-4 w-4 animate-spin text-white" />
-        <span>Matrículas Abertas 2026/2027 • Berçário ao 5º Ano do Ensino Fundamental</span>
-        <span className="hidden sm:inline bg-white text-[#E63946] px-2.5 py-0.5 rounded-full font-bold ml-2 shadow-sm">Vagas Limitadas!</span>
+      {/* Top Banner Institucional */}
+      <div className="bg-gradient-to-r from-[#1E5A87] via-[#2B90D9] to-[#2E9A68] px-4 py-2 text-center text-xs sm:text-sm font-bold text-white flex items-center justify-center gap-2">
+        <Sparkles className="h-4 w-4 animate-spin text-[#F6C343]" />
+        <span>Matrículas Abertas 2027 • Do Maternal 1 ao 5º Ano</span>
+        <span className="hidden sm:inline bg-white text-[#1E5A87] px-2.5 py-0.5 rounded-full font-extrabold ml-2 shadow-sm text-xs">
+          Turmas Reduzidas • Robótica • Horário Flexível
+        </span>
       </div>
 
-      <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md transition-all shadow-sm">
+      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md transition-all shadow-sm border-b border-slate-100">
         <div className="mx-auto flex h-24 max-w-7xl items-center justify-between gap-4 px-5">
-          {/* Logotipo da Escola */}
-          <a href="#inicio" className="flex items-center gap-3.5 group" aria-label="Escola Reinado da Criança - Início">
+          {/* Logotipo Oficial da Instituição */}
+          <a href="#inicio" className="flex items-center gap-3.5 group" aria-label="Escola Borboletinha Encantada e Colégio Estrutura">
             <div className="relative">
               <img
-                src="./logo.svg"
-                alt="Logo Reinado da Criança"
-                className="h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                src="./logo.png"
+                alt="Escola Borboletinha Encantada e Colégio Estrutura"
+                className="h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-sm"
               />
-              <span className="absolute -top-1 -right-1 text-sm animate-bounce">✨</span>
+              <span className="absolute -top-1 -right-1 text-sm animate-bounce">🦋</span>
             </div>
             <div>
-              <div className="flex items-center gap-1.5">
-                <span className="font-quicksand text-2xl font-black tracking-tight text-[#2C3E50] group-hover:text-[#E63946] transition-colors">
-                  Reinado
+              <div className="leading-tight">
+                <span className="block font-quicksand text-xl sm:text-2xl font-black tracking-tight text-[#1E5A87] group-hover:text-[#E63946] transition-colors">
+                  Borboletinha Encantada
                 </span>
-                <span className="font-quicksand text-2xl font-black text-[#E63946]">
-                  da Criança
+                <span className="hidden sm:block text-[20px] font-bold text-[#6C7A89]">
+                  Colégio Estrutura
                 </span>
               </div>
             </div>
           </a>
 
           {/* Menu Desktop */}
-          <nav className="hidden items-center gap-6 xl:flex font-quicksand" aria-label="Navegação Principal">
-            <a href="#inicio" className="text-sm font-bold text-[#2C3E50] hover:text-[#E63946] transition-colors">Início</a>
-            <a href="#sobre" className="text-sm font-bold text-[#2C3E50] hover:text-[#2B90D9] transition-colors">Quem Somos</a>
-            <a href="#segmentos" className="text-sm font-bold text-[#2C3E50] hover:text-[#2E9A68] transition-colors">Turminhas</a>
+          <nav className="hidden items-center gap-6 lg:flex font-quicksand" aria-label="Navegação Principal">
+            <a href="#inicio" className="text-sm font-bold text-[#2C3E50] hover:text-[#2B90D9] transition-colors">Início</a>
+            <a href="#sobre" className="text-sm font-bold text-[#2C3E50] hover:text-[#1E5A87] transition-colors">Quem Somos</a>
+            <a href="#metodologia" className="text-sm font-bold text-[#2C3E50] hover:text-[#E63946] transition-colors">Metodologia</a>
+            <a href="#segmentos" className="text-sm font-bold text-[#2C3E50] hover:text-[#2E9A68] transition-colors">Turmas</a>
             <a href="#diferenciais" className="text-sm font-bold text-[#2C3E50] hover:text-[#5E50A1] transition-colors">Diferenciais</a>
             <a href="#espaco" className="text-sm font-bold text-[#2C3E50] hover:text-[#F6C343] transition-colors">Nosso Espaço</a>
-            <a href="#depoimentos" className="text-sm font-bold text-[#2C3E50] hover:text-[#E63946] transition-colors">Famílias</a>
-            <a href="#localizacao" className="text-sm font-bold text-[#2C3E50] hover:text-[#2B90D9] transition-colors">Localização</a>
+            <a href="#projetos" className="text-sm font-bold text-[#2C3E50] hover:text-[#2B90D9] transition-colors">Momentos & Projetos</a>
+            <a href="#localizacao" className="text-sm font-bold text-[#2C3E50] hover:text-[#1E5A87] transition-colors">Localização</a>
           </nav>
-
-          {/* Botões de Ação Sem Bordas Pesadas */}
-          <div className="hidden items-center gap-3 md:flex">
-            <a
-              href="https://wa.me/5521999999999?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20as%20matr%C3%ADculas%20da%20Escola%20Reinado%20da%20Crian%C3%A7a."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-[#EAF6EE] px-5 py-2.5 text-sm font-extrabold text-[#2E9A68] hover:bg-[#2E9A68] hover:text-white transition-all shadow-sm hover:scale-105"
-            >
-              <MessageCircle className="h-4 w-4" /> WhatsApp
-            </a>
-            <a
-              href="#visita"
-              className="relative inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#E63946] to-[#db313f] px-6 py-2.5 text-sm font-extrabold text-white shadow-md shadow-[#E63946]/25 hover:scale-105 transition-all"
-            >
-              <Heart className="h-4 w-4 fill-white" />
-              Agendar Visita
-            </a>
-          </div>
 
           {/* Menu Mobile Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="rounded-2xl p-2.5 text-[#2C3E50] bg-[#edf4ff] hover:bg-[#2B90D9] hover:text-white transition-colors xl:hidden"
+            className="rounded-2xl p-2.5 text-[#2C3E50] bg-[#edf4ff] hover:bg-[#2B90D9] hover:text-white transition-colors lg:hidden"
             aria-label="Abrir menu"
             aria-expanded={mobileMenuOpen}
           >
@@ -86,16 +70,16 @@ export default function Header() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="bg-white px-5 py-6 shadow-lg xl:hidden"
+              className="bg-white px-5 py-6 shadow-lg lg:hidden border-t border-slate-100"
             >
-              <nav className="flex flex-col gap-4 font-quicksand font-bold">
-                <a onClick={() => setMobileMenuOpen(false)} href="#inicio" className="text-base text-[#2C3E50] hover:text-[#E63946]">Início</a>
-                <a onClick={() => setMobileMenuOpen(false)} href="#sobre" className="text-base text-[#2C3E50] hover:text-[#2B90D9]">Quem Somos</a>
-                <a onClick={() => setMobileMenuOpen(false)} href="#segmentos" className="text-base text-[#2C3E50] hover:text-[#2E9A68]">Turminhas (Berçário ao 5º Ano)</a>
-                <a onClick={() => setMobileMenuOpen(false)} href="#diferenciais" className="text-base text-[#2C3E50] hover:text-[#5E50A1]">Diferenciais</a>
-                <a onClick={() => setMobileMenuOpen(false)} href="#espaco" className="text-base text-[#2C3E50] hover:text-[#F6C343]">Nosso Espaço</a>
-                <a onClick={() => setMobileMenuOpen(false)} href="#depoimentos" className="text-base text-[#2C3E50] hover:text-[#E63946]">Famílias</a>
-                <a onClick={() => setMobileMenuOpen(false)} href="#visita" className="text-base text-[#E63946] flex items-center gap-2">Agendar Visita <Heart className="h-4 w-4 fill-[#E63946]" /></a>
+              <nav className="flex flex-col gap-3.5 font-quicksand font-bold">
+                <a onClick={() => setMobileMenuOpen(false)} href="#inicio" className="text-base text-[#2C3E50] hover:text-[#2B90D9]">Início</a>
+                <a onClick={() => setMobileMenuOpen(false)} href="#sobre" className="text-base text-[#2C3E50] hover:text-[#1E5A87]">Quem Somos</a>
+                <a onClick={() => setMobileMenuOpen(false)} href="#metodologia" className="text-base text-[#2C3E50] hover:text-[#E63946]">Metodologia (Vygotsky, Freire & Cury)</a>
+                <a onClick={() => setMobileMenuOpen(false)} href="#segmentos" className="text-base text-[#2C3E50] hover:text-[#2E9A68]">Turmas (Maternal 1 ao 5º Ano)</a>
+                <a onClick={() => setMobileMenuOpen(false)} href="#diferenciais" className="text-base text-[#2C3E50] hover:text-[#5E50A1]">Diferenciais & Robótica</a>
+                <a onClick={() => setMobileMenuOpen(false)} href="#espaco" className="text-base text-[#2C3E50] hover:text-[#F6C343]">Nosso Espaço & Hortinha</a>
+                <a onClick={() => setMobileMenuOpen(false)} href="#projetos" className="text-base text-[#2C3E50] hover:text-[#2B90D9]">Momentos & Balé/Capoeira</a>
                 <a onClick={() => setMobileMenuOpen(false)} href="#localizacao" className="text-base text-[#2C3E50]">Localização</a>
               </nav>
             </motion.div>

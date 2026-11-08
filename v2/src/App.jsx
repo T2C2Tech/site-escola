@@ -9,6 +9,7 @@ import Depoimentos from './components/Depoimentos';
 import AgendamentoVisita from './components/AgendamentoVisita';
 import Localizacao from './components/Localizacao';
 import Footer from './components/Footer';
+import FloatingWhatsApp from './components/FloatingWhatsApp';
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
         <Localizacao />
       </main>
       <Footer />
+      <FloatingWhatsApp />
     </div>
   );
 }

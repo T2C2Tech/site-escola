@@ -3,41 +3,62 @@ import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import WaveTransition from './WaveTransition';
 
-const selos = [
+const diferenciais = [
   {
-    titulo: 'Acreditação CEE-RJ',
-    sub: 'Autorização plena da Educação Infantil ao 5º Ano do E.F.',
-    emoji: '🏛️',
-    tag: 'Reconhecimento Oficial',
-    cor: 'from-[#E63946] to-[#db313f]'
-  },
-  {
-    titulo: 'Certificação Lei Lucas',
-    sub: '100% da equipe capacitada e revalidada em Primeiros Socorros Pediátricos.',
-    emoji: '🩺',
-    tag: 'Prevenção & Saúde',
+    titulo: 'Aulas de Robótica',
+    sub: 'Tecnologia, raciocínio lógico e criatividade preparando a mente para o mundo do amanhã.',
+    emoji: '🤖',
+    tag: 'Infantil & Fundamental',
     cor: 'from-[#2B90D9] to-[#00639c]'
   },
   {
-    titulo: 'Programa Bilíngue Divertido',
-    sub: 'Músicas, jogos teatrais e vocabulário natural em língua inglesa.',
-    emoji: '🇬🇧',
-    tag: 'Vivência Global',
+    titulo: 'Número Reduzido por Turma',
+    sub: 'Mais atenção, cuidado individualizado e melhores resultados de desenvolvimento para cada aluno.',
+    emoji: '👥',
+    tag: 'Acolhimento Singular',
+    cor: 'from-[#E63946] to-[#db313f]'
+  },
+  {
+    titulo: 'Aulas de Inglês',
+    sub: 'Familiarização natural com a língua inglesa através de jogos, músicas e diálogos lúdicos.',
+    emoji: '🗣️',
+    tag: 'Educação Infantil',
     cor: 'from-[#5E50A1] to-[#453880]'
   },
   {
-    titulo: 'Selo Alimentação do Bem',
-    sub: 'Acompanhamento nutricional, sem açúcar para os pequeninos e horta viva.',
-    emoji: '🥦',
-    tag: 'Nutrição Infantil',
+    titulo: 'Aulas Extras: Capoeira & Balé',
+    sub: 'Expressão artística, flexibilidade, ritmo e disciplina através de modalidades extracurriculares.',
+    emoji: '🩰',
+    tag: 'Corpo & Movimento',
+    cor: 'from-[#F6C343] to-[#d69f16]'
+  },
+  {
+    titulo: 'Educação Socioemocional',
+    sub: 'Desenvolvendo emoções, empatia, princípios éticos e valores para a vida inspirados em Augusto Cury.',
+    emoji: '💜',
+    tag: 'Valores para a Vida',
     cor: 'from-[#2E9A68] to-[#1f734b]'
   },
   {
-    titulo: 'Clube de Leitura Encantada',
-    sub: 'Estímulo ao vínculo familiar com maleta de livrinhos toda sexta-feira.',
+    titulo: 'Amplo Espaço com Hortinha',
+    sub: 'A "Nossa Hortinha" oferece contato direto com a terra, rega, plantio e vivências ecológicas reais.',
+    emoji: '🌱',
+    tag: 'Nossa Hortinha',
+    cor: 'from-[#2E9A68] to-[#165b38]'
+  },
+  {
+    titulo: 'Material Didático & Professores',
+    sub: 'Conteúdos atualizados que inspiram e educadores experientes, qualificados e apaixonados pelo ensino.',
     emoji: '📚',
-    tag: 'Família & Escola',
-    cor: 'from-[#F6C343] to-[#d69f16]'
+    tag: 'Excelência Pedagógica',
+    cor: 'from-[#1E5A87] to-[#2B90D9]'
+  },
+  {
+    titulo: 'Horário Parcial e Integral Flexível',
+    sub: 'Flexibilidade de horários pensada para acolher a rotina profissional das famílias com tranquilidade.',
+    emoji: '⏰',
+    tag: 'Horário Flexível',
+    cor: 'from-[#E63946] to-[#F6C343]'
   }
 ];
 
@@ -52,7 +73,7 @@ export default function Certificados() {
   };
 
   return (
-    <section id="diferenciais" className="relative bg-gradient-to-br from-[#203243] via-[#1a2d3f] to-[#0d1d2b] pt-28 pb-32 text-white overflow-hidden">
+    <section id="diferenciais" className="relative bg-gradient-to-br from-[#203243] via-[#1a2d3f] to-[#0d1d2b] pt-28 pb-32 text-white overflow-hidden scroll-mt-20">
       {/* Estrelinhas cintilantes animadas */}
       <motion.div
         animate={{ scale: [1, 1.4, 1], opacity: [0.3, 0.8, 0.3] }}
@@ -79,27 +100,21 @@ export default function Certificados() {
           className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end"
         >
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 rounded-full bg-[#F6C343]/20 px-4 py-1.5 mb-3">
-              <span className="text-base">🏆</span>
-              <p className="font-quicksand text-xs font-black uppercase tracking-wider text-[#F6C343]">
-                Selos de Excelência & Segurança
-              </p>
-            </div>
             <h2 className="font-quicksand text-3xl sm:text-4xl lg:text-5xl font-black text-white">
-              Cuidado profissional para seu filho brilhar com tranquilidade
+              Estrutura para crescer. Valores para a vida.
             </h2>
             <p className="mt-4 font-nunito text-base text-white/80 leading-relaxed">
-              Aliamos a alegria lúdica da infância às mais sérias acreditações pedagógicas, sanitárias e de proteção à criança.
+              Aliamos afeto e ludicidade a serviços de excelência: robótica, inglês, capoeira, balé, turmas reduzidas e amplo espaço verde com hortinha.
             </p>
           </div>
-          
+
           <div className="flex gap-3">
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => scroll('left')}
               aria-label="Anterior"
-              className="rounded-full bg-white/10 p-3.5 hover:bg-[#F6C343] hover:text-[#203243] transition-all shadow-sm"
+              className="rounded-full bg-white/10 p-3.5 hover:bg-[#F6C343] hover:text-[#203243] transition-all shadow-sm cursor-pointer"
             >
               <ChevronLeft className="h-6 w-6" />
             </motion.button>
@@ -108,19 +123,19 @@ export default function Certificados() {
               whileTap={{ scale: 0.95 }}
               onClick={() => scroll('right')}
               aria-label="Próximo"
-              className="rounded-full bg-white/10 p-3.5 hover:bg-[#F6C343] hover:text-[#203243] transition-all shadow-sm"
+              className="rounded-full bg-white/10 p-3.5 hover:bg-[#F6C343] hover:text-[#203243] transition-all shadow-sm cursor-pointer"
             >
               <ChevronRight className="h-6 w-6" />
             </motion.button>
           </div>
         </motion.div>
 
-        {/* Lista dos Selos com Animação Scroll */}
+        {/* Lista dos Diferenciais com Animação Scroll */}
         <div
           ref={sliderRef}
           className="no-scrollbar flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4"
         >
-          {selos.map((selo, idx) => (
+          {diferenciais.map((item, idx) => (
             <motion.div
               key={idx}
               initial={{ opacity: 0, scale: 0.92 }}
@@ -128,28 +143,28 @@ export default function Certificados() {
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               whileHover={{ y: -8 }}
-              className="group w-[85%] shrink-0 snap-start rounded-[2rem] bg-white/10 p-7 backdrop-blur-md sm:w-[45%] lg:w-[calc(25%-15px)] transition-all duration-300 hover:bg-white/20 shadow-xl flex flex-col justify-between"
+              className="group w-[85%] shrink-0 snap-start rounded-[2rem] bg-white/10 p-6 sm:p-7 backdrop-blur-md sm:w-[45%] lg:w-[calc(25%-15px)] transition-all duration-300 hover:bg-white/20 shadow-xl flex flex-col justify-between"
             >
               <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-4xl p-2.5 rounded-2xl bg-white/10 group-hover:scale-110 transition-transform">
-                    {selo.emoji}
+                {/* Cabeçalho Compacto e Proporcional */}
+                <div className="flex items-center justify-between gap-3 mb-4">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/10 text-xl shadow-sm group-hover:scale-105 transition-transform">
+                    {item.emoji}
                   </span>
-                  <span className={`text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full text-white bg-gradient-to-r ${selo.cor}`}>
-                    {selo.tag}
+                  <span className={`text-[9px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full text-white bg-gradient-to-r ${item.cor} shadow-sm shrink-0 leading-none`}>
+                    {item.tag}
                   </span>
                 </div>
-                <h3 className="font-quicksand font-black text-xl text-white group-hover:text-[#F6C343] transition-colors">
-                  {selo.titulo}
+
+                <h3 className="font-quicksand font-black text-lg text-white group-hover:text-[#F6C343] transition-colors leading-snug">
+                  {item.titulo}
                 </h3>
-                <p className="mt-2.5 text-sm text-white/80 font-nunito leading-relaxed">
-                  {selo.sub}
+                <p className="mt-2 text-xs text-white/80 font-nunito leading-relaxed">
+                  {item.sub}
                 </p>
               </div>
 
-              <div className="mt-6 pt-4 flex items-center justify-between text-xs font-bold text-[#F6C343]">
-                <span>Selo 0{idx + 1}</span>
-                <span>Auditado ✓</span>
+              <div className="mt-5 pt-3.5 flex items-center justify-between text-[11px] font-bold text-[#F6C343] border-t border-white/10">
               </div>
             </motion.div>
           ))}
