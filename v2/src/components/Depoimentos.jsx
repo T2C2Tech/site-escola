@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Star, CheckCircle, ArrowRight, ExternalLink } from 'lucide-react';
 import WaveTransition from './WaveTransition';
@@ -84,12 +84,6 @@ const depoimentosData = [
 ];
 
 export default function Depoimentos() {
-  const [activeTab, setActiveTab] = useState('todas');
-
-  const filtered = activeTab === 'todas'
-    ? depoimentosData
-    : depoimentosData.filter(d => d.categoria === activeTab);
-
   return (
     <section id="depoimentos" className="relative pt-24 pb-32 bg-[#FAFCFE] overflow-hidden scroll-mt-20">
       {/* Âncora invisível para link direto #projetos */}
@@ -97,51 +91,54 @@ export default function Depoimentos() {
 
       <div className="mx-auto max-w-7xl px-5">
 
-        {/* Bloco 1: Nossos Momentos & Projetos (Páginas 9 e 10 do Portfólio) */}
+        {/* Bloco 1: Nossos Momentos & Projetos (Layout Assimétrico 2x2) */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.65 }}
           className="mb-20"
         >
-          <div className="text-center max-w-3xl mx-auto mb-10">
-            <div className="inline-flex items-center gap-2 rounded-full bg-[#cee5ff] px-4 py-1 mb-3 shadow-sm">
-              <span className="text-base">✨</span>
-              <span className="font-quicksand text-xs font-black uppercase tracking-wider text-[#00456e]">
-                Nossos Momentos & Projetos
-              </span>
+          <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div className="max-w-2xl">
+              <div className="inline-flex items-center gap-2 rounded-full bg-[#cee5ff] px-4 py-1 mb-3 shadow-sm">
+                <span className="text-base" aria-hidden="true">✨</span>
+                <span className="font-quicksand text-xs font-black uppercase tracking-wider text-[#00456e]">
+                  Nossos Momentos &amp; Projetos
+                </span>
+              </div>
+              <h2 className="font-quicksand text-3xl sm:text-4xl lg:text-5xl font-black text-[#2C3E50]">
+                Vivências que transformam curiosidade em aprendizado
+              </h2>
             </div>
-            <h2 className="font-quicksand text-3xl sm:text-4xl lg:text-5xl font-black text-[#2C3E50]">
-              Vivências que transformam curiosidade em aprendizado
-            </h2>
-            <p className="mt-3 font-nunito text-[#4A5568] text-base">
+            <p className="max-w-md font-nunito text-[#4A5568] text-base">
               Do laboratório de misturas e densidades às oficinas de culinária e saídas de campo na natureza.
             </p>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-5 md:grid-cols-2">
             {projetosDestaque.map((proj, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, y: 25 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-40px' }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                whileHover={{ y: -8 }}
-                className="rounded-3xl bg-white p-6 shadow-md border border-slate-100 flex flex-col justify-between hover:shadow-xl transition-all"
+                transition={{ duration: 0.45, delay: idx * 0.08 }}
+                whileHover={{ y: -4 }}
+                className="flex items-start gap-5 rounded-3xl bg-white p-6 sm:p-7 shadow-md border border-slate-100 hover:shadow-xl transition-all"
               >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-4xl p-2 rounded-2xl bg-slate-50">{proj.icone}</span>
-                    <span className="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full bg-slate-100 text-[#00456e]">
-                      {proj.tag}
-                    </span>
-                  </div>
-                  <h3 className="font-quicksand font-black text-lg text-[#2C3E50]">{proj.titulo}</h3>
-                  <p className="mt-2 text-xs font-nunito text-[#5b403f] leading-relaxed">{proj.sub}</p>
-                </div>
-                <div className="mt-5 pt-3 border-t border-slate-100 text-xs font-bold text-[#E63946] flex items-center justify-between">
+                <span
+                  className="flex h-14 w-14 shrink-0 items-center justify-center text-3xl rounded-2xl bg-[#edf4ff]"
+                  aria-hidden="true"
+                >
+                  {proj.icone}
+                </span>
+                <div className="flex-1">
+                  <span className="inline-block text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full bg-slate-100 text-[#00456e] mb-2">
+                    {proj.tag}
+                  </span>
+                  <h3 className="font-quicksand font-black text-lg sm:text-xl text-[#2C3E50]">{proj.titulo}</h3>
+                  <p className="mt-1.5 text-xs sm:text-sm font-nunito text-[#5b403f] leading-relaxed">{proj.sub}</p>
                 </div>
               </motion.div>
             ))}
@@ -150,23 +147,23 @@ export default function Depoimentos() {
 
         {/* Bloco 2: Cabeçalho dos Depoimentos */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.65 }}
           className="mb-10 text-center max-w-2xl mx-auto"
         >
           <h2 className="font-quicksand text-3xl sm:text-4xl lg:text-5xl font-black text-[#2C3E50]">
             O que as famílias dizem sobre nossa escola
           </h2>
           <p className="mt-3 font-nunito text-[#6C7A89] text-base">
-            Depoimentos verídicos de pais da Escola Borboletinha Encantada & Colégio Estrutura.
+            Depoimentos verídicos de pais da Escola Borboletinha Encantada &amp; Colégio Estrutura.
           </p>
 
           {/* Selo 5.0 Estrelas */}
           <div className="mt-4 inline-flex items-center gap-2.5 bg-amber-50 border border-amber-200/80 px-4 py-2 rounded-2xl shadow-sm">
             <span className="font-quicksand font-black text-amber-800 text-lg">5.0</span>
-            <div className="flex gap-0.5">
+            <div className="flex gap-0.5" aria-hidden="true">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="h-4 w-4 fill-amber-500 text-amber-500" />
               ))}
@@ -179,7 +176,7 @@ export default function Depoimentos() {
 
         {/* Cards de Depoimento */}
         <div className="no-scrollbar flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4 pt-2">
-          {filtered.map((dep, index) => (
+          {depoimentosData.map((dep, index) => (
             <motion.article
               key={index}
               initial={{ opacity: 0, y: 30 }}
@@ -301,8 +298,8 @@ export default function Depoimentos() {
         </motion.div>
       </div>
 
-      {/* Onda de Transição para o Agendamento */}
-      <WaveTransition fill="#edf4ff" position="bottom" variant={3} />
+      {/* Onda de Transição para o FAQ */}
+      <WaveTransition fill="#ffffff" position="bottom" variant={3} />
     </section>
   );
 }

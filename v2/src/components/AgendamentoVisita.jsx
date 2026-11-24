@@ -34,7 +34,7 @@ export default function AgendamentoVisita() {
       'Aguardo o retorno para combinarmos o melhor dia e horário. Obrigado(a)!'
     ].join('\n');
 
-    return `https://wa.me/553298804496?text=${encodeURIComponent(msg)}`;
+    return `https://wa.me/5532988044966?text=${encodeURIComponent(msg)}`;
   };
 
   const handleSubmit = (e) => {
@@ -257,7 +257,7 @@ export default function AgendamentoVisita() {
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
-                  href="https://wa.me/553298804496?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20as%20matr%C3%ADculas%20da%20E.I.%20Borboletinha%20Encantada%20e%20Col%C3%A9gio%20Estrutura."
+                  href="https://wa.me/5532988044966?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20as%20matr%C3%ADculas%20da%20E.I.%20Borboletinha%20Encantada%20e%20Col%C3%A9gio%20Estrutura."
                   className="flex h-14 items-center justify-center gap-3 rounded-2xl bg-white/10 px-5 text-sm font-black text-white hover:bg-[#F6C343] hover:text-[#203243] transition-all shadow-md"
                 >
                   <svg className="h-5 w-5 fill-current" viewBox="0 0 24 24">

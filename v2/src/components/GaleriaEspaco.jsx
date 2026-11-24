@@ -56,9 +56,10 @@ export default function GaleriaEspaco() {
             className="group relative w-[82%] shrink-0 snap-start overflow-hidden rounded-[2.5rem] md:w-auto md:col-span-2 md:row-span-2 shadow-xl hover:shadow-2xl transition-all"
           >
             <img
-              src="https://images.unsplash.com/photo-1472162072942-cd5147eb3902?auto=format&fit=crop&w=1200&q=80"
-              alt="Crianças brincando no pátio lúdico da escola infantil"
-              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              src="./images/patio-caracol.jpg"
+              alt="Crianças uniformizadas brincando no pátio do caracol numérico da escola"
+              loading="lazy"
+              className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex items-end p-8">
               <div>
@@ -82,9 +83,10 @@ export default function GaleriaEspaco() {
             className="group relative w-[82%] shrink-0 snap-start overflow-hidden rounded-[2.2rem] md:w-auto shadow-lg hover:shadow-2xl transition-all"
           >
             <img
-              src="https://images.unsplash.com/photo-1592150621744-aca64f48394a?auto=format&fit=crop&w=800&q=80"
-              alt="Crianças em contato com a terra na Nossa Hortinha e pátio sombreado"
-              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              src="./images/hortinha-pedagogica.jpg"
+              alt="Aluna cuidando da terra na Nossa Hortinha pedagógica da escola"
+              loading="lazy"
+              className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-5">
               <div>
@@ -106,9 +108,10 @@ export default function GaleriaEspaco() {
             className="group relative w-[82%] shrink-0 snap-start overflow-hidden rounded-[2.2rem] md:w-auto shadow-lg hover:shadow-2xl transition-all"
           >
             <img
-              src="https://images.unsplash.com/photo-1597089542047-b9873d82d8ec?auto=format&fit=crop&w=800&q=80"
-              alt="Parquinho infantil colorido com casinha e brinquedos lúdicos"
-              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              src="./images/parquinho-casinha.jpg"
+              alt="Parquinho arborizado com escorregador, bancos coloridos e casinha lúdica"
+              loading="lazy"
+              className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent flex items-end p-5">
               <div>
@@ -129,9 +132,10 @@ export default function GaleriaEspaco() {
             className="group relative w-[82%] shrink-0 snap-start overflow-hidden rounded-[2.2rem] md:w-auto md:col-span-2 shadow-lg hover:shadow-2xl transition-all"
           >
             <img
-              src="https://images.unsplash.com/photo-1500995617113-cf789362a3e1?auto=format&fit=crop&w=1200&q=80"
-              alt="Crianças no cantinho da leitura com livros ilustrados e historinhas"
-              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              src="./images/cantinho-leitura.jpg"
+              alt="Cantinho da Leitura da escola com prateleiras coloridas de livros infantis por turma"
+              loading="lazy"
+              className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent flex items-end p-6">
               <div>

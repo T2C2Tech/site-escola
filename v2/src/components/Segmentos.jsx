@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle2 } from 'lucide-react';
 import WaveTransition from './WaveTransition';
 
 const ciclos = [
   {
+    id: 'maternal',
+    categoria: 'infantil',
     titulo: 'Maternal 1 e 2',
     idade: '1 a 3 anos',
     instituicao: 'Escola Borboletinha Encantada',
@@ -12,7 +14,7 @@ const ciclos = [
     destaques: [
       'Número reduzido de crianças por turma',
       'Estimulação sensorial, visual e musicalização',
-      'Coordenação motora e acolhimento com afeto'
+      'Coordenação motora e acolhimento com afeto',
     ],
     corBg: 'from-[#ffdad8] to-[#ffb3b1]',
     corTexto: 'text-[#b7102a]',
@@ -21,6 +23,8 @@ const ciclos = [
     imagem: 'https://images.unsplash.com/photo-1566004100631-35d015d6a491?auto=format&fit=crop&w=800&q=80',
   },
   {
+    id: 'periodo1',
+    categoria: 'infantil',
     titulo: '1º Período',
     idade: '4 anos',
     instituicao: 'Escola Borboletinha Encantada',
@@ -28,7 +32,7 @@ const ciclos = [
     destaques: [
       'Aulas de Robótica e iniciação ao Inglês',
       'Coordenação motora e autonomia infantil',
-      'Amplo espaço com hortinha e contato com a terra'
+      'Amplo espaço com hortinha e contato com a terra',
     ],
     corBg: 'from-[#cee5ff] to-[#98cbff]',
     corTexto: 'text-[#00456e]',
@@ -37,6 +41,8 @@ const ciclos = [
     imagem: 'https://images.unsplash.com/photo-1596495578065-6e0763fa1178?auto=format&fit=crop&w=800&q=80',
   },
   {
+    id: 'periodo2',
+    categoria: 'infantil',
     titulo: '2º Período',
     idade: '5 anos',
     instituicao: 'Escola Borboletinha Encantada',
@@ -44,7 +50,7 @@ const ciclos = [
     destaques: [
       'Iniciação ao universo das letras com afeto',
       'Aulas de Robótica e vocabulário em Inglês',
-      'Expressão espontânea pela leitura e arte'
+      'Expressão espontânea pela leitura e arte',
     ],
     corBg: 'from-[#ffdf9b] to-[#f2bf40]',
     corTexto: 'text-[#5b4300]',
@@ -53,15 +59,18 @@ const ciclos = [
     imagem: 'https://images.unsplash.com/photo-1500995617113-cf789362a3e1?auto=format&fit=crop&w=800&q=80',
   },
   {
+    id: 'fundamental',
+    categoria: 'fundamental',
     titulo: 'Ensino Fundamental 1',
     idade: '1º ao 5º ano',
     instituicao: 'Colégio Estrutura',
-    desc: 'Um ensino completo para formar hoje o amanhã: turmas com número reduzido, professores experientes, material didático de qualidade, aulas de robótica e educação socioemocional.',
+    desc: 'Um ensino completo para formar hoje o amanhã: turmas com número reduzido, professores experientes, material didático de qualidade, aulas de robótica, educação socioemocional, educação financeira e empreendedorismo.',
     destaques: [
       'Número reduzido de crianças por turma',
       'Aulas de Robótica: tecnologia e criatividade',
       'Material didático atualizado e professores experientes',
-      'Educação Socioemocional para a vida'
+      'Educação Socioemocional para a vida',
+      'Educação Financeira e Empreendedorismo',
     ],
     corBg: 'from-[#EAF6EE] to-[#c1e7ce]',
     corTexto: 'text-[#1c6342]',
@@ -70,14 +79,16 @@ const ciclos = [
     imagem: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80',
   },
   {
+    id: 'extras',
+    categoria: 'extras',
     titulo: 'Aulas Extras: Capoeira & Balé',
     idade: 'Educação Infantil & Fundamental',
     instituicao: 'Borboletinha & Estrutura',
-    desc: 'Aulas extras de Capoeira e Balé que estimulam ritmo, flexibilidade, expressão artística, disciplina e consciência corporal, além de Educação Física dinâmica e tecido acrobático.',
+    desc: 'Aulas extras de Capoeira e Balé que estimulam ritmo, flexibilidade, expressão artística, disciplina e consciência corporal.',
     destaques: [
       'Aulas extras de Capoeira e Balé',
       'Equilíbrio, postura corporal e saúde',
-      'Circuitos psicomotores e tecido acrobático'
+      'Ritmo, disciplina e expressão artística',
     ],
     corBg: 'from-[#EFEBFA] to-[#d6cff1]',
     corTexto: 'text-[#3b3266]',
@@ -86,21 +97,31 @@ const ciclos = [
     imagem: 'https://images.unsplash.com/photo-1545558014-8692077e9b5c?auto=format&fit=crop&w=800&q=80',
   },
   {
+    id: 'integral',
+    categoria: 'extras',
     titulo: 'Parcial & Integral Flexível',
     idade: 'Maternal 1 ao 5º Ano',
     instituicao: 'Borboletinha & Estrutura',
-    desc: 'Horário parcial e integral com horário flexível adaptado às necessidades dos pais. Oficinas culinárias ("mão na massa"), vivências na Nossa Hortinha, apoio escolar e descanso seguro.',
+    desc: 'Horário parcial e integral com horário flexível adaptado às necessidades dos pais. Cardápio balanceado com acompanhamento de nutricionista, oficinas culinárias ("mão na massa"), vivências na Nossa Hortinha, apoio escolar e descanso seguro.',
     destaques: [
       'Horário parcial e integral flexível',
+      'Cardápio balanceado e acompanhamento de nutricionista',
       'Amplo espaço com hortinha pedagógica',
-      'Oficinas de culinária e ateliê criativo'
+      'Oficinas de culinária e ateliê criativo',
     ],
     corBg: 'from-[#ffdad8] to-[#ffdf9b]',
     corTexto: 'text-[#b7102a]',
     emoji: '⏰',
     badge: 'Horário Flexível',
     imagem: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=800&q=80',
-  }
+  },
+];
+
+const filtros = [
+  { id: 'todos', label: 'Todos os Ciclos' },
+  { id: 'infantil', label: '🍼 Educação Infantil (Borboletinha)' },
+  { id: 'fundamental', label: '🚀 Ensino Fundamental I (Estrutura)' },
+  { id: 'extras', label: '⏰ Integral & Aulas Extras' },
 ];
 
 const condicoesEducacionais = [
@@ -110,7 +131,7 @@ const condicoesEducacionais = [
   { icon: '🇬🇧', texto: 'Inglês Lúdico com Músicas' },
   { icon: '🩰', texto: 'Aulas Extras de Capoeira e Balé' },
   { icon: '🌱', texto: 'Horta Pedagógica que as Crianças Cuidam' },
-  { icon: '🎵', texto: 'Musicalização e Bandinha Rítmica' },
+  { icon: '💰', texto: 'Educação Financeira e Empreendedorismo' },
   { icon: '📚', texto: 'Cantinho da Leitura e Material Atualizado' },
   { icon: '💜', texto: 'Educação Socioemocional e Empatia' },
   { icon: '⏰', texto: 'Horário Parcial e Integral Flexível' },
@@ -118,49 +139,84 @@ const condicoesEducacionais = [
   { icon: '🍼', texto: 'Estimulação Sensorial no Maternal 1 e 2' },
   { icon: '🤸', texto: 'Educação Física e Consciência Corporal' },
   { icon: '👩‍🍳', texto: 'Oficinas Culinárias Práticas Mão na Massa' },
-  { icon: '🎪', texto: 'Pátio Amplo e Seguro para Brincar' }
+  { icon: '🎪', texto: 'Pátio Amplo e Seguro para Brincar' },
 ];
 
 export default function Segmentos() {
+  const [filtroAtivo, setFiltroAtivo] = useState('todos');
+
+  const ciclosVisiveis =
+    filtroAtivo === 'todos' ? ciclos : ciclos.filter((c) => c.categoria === filtroAtivo);
+
   return (
     <section id="segmentos" className="relative bg-[#edf4ff] pt-24 pb-32 overflow-hidden scroll-mt-20">
       <div className="mx-auto max-w-7xl px-5">
-        {/* Cabeçalho */}
+        {/* Cabeçalho Assimétrico + Abas Interativas */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.7 }}
-          className="mb-14 text-center max-w-3xl mx-auto"
+          transition={{ duration: 0.65 }}
+          className="mb-12 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between"
         >
+          <div className="max-w-2xl">
+            <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-1 text-xs font-black uppercase tracking-wider text-[#1E5A87] shadow-sm mb-3">
+              🦋 Nossas Etapas de Ensino
+            </span>
+            <h2 className="font-quicksand text-3xl sm:text-4xl lg:text-5xl font-black text-[#2C3E50] leading-[1.12]">
+              Da primeira infância ao <br />
+              <span className="text-[#2B90D9]">protagonismo escolar</span> com amor e inovação!
+            </h2>
+            <p className="mt-4 font-nunito text-base sm:text-lg text-[#5b403f] leading-relaxed">
+              Conheça as etapas e serviços da <strong>Escola Borboletinha Encantada</strong> (Maternal 1 ao 2º Período) e do{' '}
+              <strong>Colégio Estrutura</strong> (1º ao 5º Ano do Ensino Fundamental).
+            </p>
+          </div>
 
-          <h2 className="font-quicksand text-3xl sm:text-4xl lg:text-5xl font-black text-[#2C3E50]">
-            Da primeira infância ao <br />
-            <span className="text-[#2B90D9]">protagonismo escolar</span> com amor e inovação!
-          </h2>
-          <p className="mt-4 font-nunito text-base sm:text-lg text-[#5b403f] leading-relaxed">
-            Conheça as etapas e serviços da <strong>Escola Borboletinha Encantada</strong> (Maternal 1 ao 2º Período) e do <strong>Colégio Estrutura</strong> (1º ao 5º Ano do Ensino Fundamental): turmas reduzidas, robótica, inglês, capoeira, balé e horário flexível.
-          </p>
+          {/* Abas de Filtro */}
+          <div className="flex flex-wrap gap-2" role="tablist" aria-label="Filtrar segmentos escolares">
+            {filtros.map((f) => {
+              const active = filtroAtivo === f.id;
+              return (
+                <button
+                  key={f.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={active}
+                  onClick={() => setFiltroAtivo(f.id)}
+                  className={`rounded-full px-4 py-2.5 font-quicksand text-xs sm:text-sm font-black transition-all ${
+                    active
+                      ? 'bg-[#1E5A87] text-white shadow-md shadow-[#1E5A87]/25'
+                      : 'bg-white text-[#2C3E50] border border-slate-200/80 hover:border-[#2B90D9] hover:text-[#1E5A87]'
+                  }`}
+                >
+                  {f.label}
+                </button>
+              );
+            })}
+          </div>
         </motion.div>
 
-        {/* Grid de Cards com Stagger Suave */}
+        {/* Grid de Cards */}
         <div className="no-scrollbar -mx-5 flex snap-x snap-mandatory gap-6 overflow-x-auto px-5 md:mx-0 md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-visible md:px-0">
-          {ciclos.map((item, index) => (
+          {ciclosVisiveis.map((item, index) => (
             <motion.article
-              key={index}
-              initial={{ opacity: 0, y: 40 }}
+              key={item.id}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -8 }}
-              className="flex w-[85%] shrink-0 snap-start flex-col rounded-[2.8rem] bg-white p-7 shadow-lg hover:shadow-2xl sm:w-[calc(50%-12px)] lg:w-auto transition-all duration-300 border border-slate-100"
+              transition={{ duration: 0.45, delay: index * 0.08 }}
+              whileHover={{ y: -6 }}
+              className="flex w-[85%] shrink-0 snap-start flex-col rounded-[2.6rem] bg-white p-7 shadow-lg hover:shadow-2xl sm:w-[calc(50%-12px)] lg:w-auto transition-all duration-300 border border-slate-100"
             >
               {/* Badge Superior */}
-              <div className="flex items-center justify-between mb-4">
-                <span className={`inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r ${item.corBg} px-3.5 py-1 text-xs font-black ${item.corTexto} shadow-sm`}>
-                  <span>{item.emoji}</span> {item.badge}
+              <div className="flex items-center justify-between gap-2 mb-4">
+                <span
+                  className={`inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r ${item.corBg} px-3.5 py-1 text-xs font-black ${item.corTexto} shadow-sm`}
+                >
+                  <span aria-hidden="true">{item.emoji}</span> {item.badge}
                 </span>
-                <span className="text-xs font-bold text-[#6C7A89] bg-slate-100 px-2.5 py-0.5 rounded-full">
+                <span className="text-xs font-bold text-[#6C7A89] bg-slate-100 px-2.5 py-0.5 rounded-full shrink-0">
                   {item.idade}
                 </span>
               </div>
@@ -177,11 +233,9 @@ export default function Segmentos() {
                 </span>
               </div>
 
-              {/* Título e Descrição Oficial */}
-              <h3 className="font-quicksand text-xl font-black text-[#2C3E50]">
-                {item.titulo}
-              </h3>
-              <p className="mt-2.5 font-nunito text-xs text-[#5b403f] leading-relaxed">
+              {/* Título e Descrição */}
+              <h3 className="font-quicksand text-xl font-black text-[#2C3E50]">{item.titulo}</h3>
+              <p className="mt-2.5 font-nunito text-xs sm:text-sm text-[#5b403f] leading-relaxed">
                 {item.desc}
               </p>
 
@@ -199,7 +253,7 @@ export default function Segmentos() {
               <div className="mt-6 pt-3 border-t border-slate-100 flex items-center justify-between">
                 <a
                   href="#visita"
-                  className="rounded-full bg-[#edf4ff] hover:bg-[#2B90D9] text-[#1E5A87] hover:text-white px-3.5 py-1.5 text-xs font-extrabold transition-colors shadow-sm"
+                  className="rounded-full bg-[#edf4ff] hover:bg-[#2B90D9] text-[#1E5A87] hover:text-white px-4 py-1.5 text-xs font-extrabold transition-colors shadow-sm"
                 >
                   Conhecer Turma →
                 </a>
@@ -208,31 +262,31 @@ export default function Segmentos() {
           ))}
         </div>
 
-        {/* Bloco: Compromissos e Práticas Pedagógicas Oficiais no estilo Pills Flutuantes */}
+        {/* Compromissos e Práticas Pedagógicas Oficiais */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.6 }}
-          className="mt-16 rounded-[2.5rem] bg-white p-7 sm:p-12 shadow-md border border-slate-100 max-w-5xl mx-auto"
+          className="mt-16 rounded-[2.5rem] bg-white p-7 sm:p-11 shadow-md border border-slate-100 max-w-5xl mx-auto"
         >
-          <div className="text-center mb-7 sm:mb-9">
+          <div className="text-center mb-7">
             <span className="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#E63946]">
               ✨ COMPROMISSOS E PRÁTICAS PEDAGÓGICAS OFICIAIS
             </span>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3.5">
+          <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
             {condicoesEducacionais.map((item, index) => (
-              <motion.div
+              <div
                 key={index}
-                whileHover={{ scale: 1.04, y: -2 }}
-                transition={{ duration: 0.2 }}
-                className="inline-flex items-center gap-2 rounded-full bg-[#f0f6ff] hover:bg-[#e2edff] px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-[13px] font-bold text-[#1E5A87] shadow-xs transition-colors cursor-default border border-[#e2ecf9]/60"
+                className="inline-flex items-center gap-2 rounded-full bg-[#f0f6ff] hover:bg-[#e2edff] px-4 py-2 text-xs sm:text-[13px] font-bold text-[#1E5A87] transition-colors border border-[#e2ecf9]/60"
               >
-                <span className="text-base shrink-0">{item.icon}</span>
+                <span className="text-base shrink-0" aria-hidden="true">
+                  {item.icon}
+                </span>
                 <span>{item.texto}</span>
-              </motion.div>
+              </div>
             ))}
           </div>
         </motion.div>

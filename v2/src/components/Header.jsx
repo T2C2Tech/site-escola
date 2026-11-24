@@ -1,15 +1,25 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Sparkles } from 'lucide-react';
+import { Menu, X, Sparkles, Calendar } from 'lucide-react';
 
-export default function Header() {
+const navLinks = [
+  { href: '#sobre', label: 'A Escola', hover: 'hover:text-[#1E5A87]' },
+  { href: '#metodologia', label: 'Metodologia', hover: 'hover:text-[#E63946]' },
+  { href: '#segmentos', label: 'Segmentos', hover: 'hover:text-[#2E9A68]' },
+  { href: '#diferenciais', label: 'Diferenciais', hover: 'hover:text-[#2B90D9]' },
+  { href: '#espaco', label: 'Infraestrutura', hover: 'hover:text-[#1E5A87]' },
+  { href: '#depoimentos', label: 'Depoimentos', hover: 'hover:text-[#E63946]' },
+  { href: '#localizacao', label: 'Localização', hover: 'hover:text-[#2E9A68]' },
+];
+
+export default function Header({ onOpenAgendamento }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <>
       {/* Top Banner Institucional */}
       <div className="bg-gradient-to-r from-[#1E5A87] via-[#2B90D9] to-[#2E9A68] px-4 py-2 text-center text-xs sm:text-sm font-bold text-white flex items-center justify-center gap-2">
-        <Sparkles className="h-4 w-4 animate-spin text-[#F6C343]" />
+        <Sparkles className="h-4 w-4 text-[#F6C343] shrink-0" />
         <span>Matrículas Abertas 2027 • Do Maternal 1 ao 5º Ano</span>
         <span className="hidden sm:inline bg-white text-[#1E5A87] px-2.5 py-0.5 rounded-full font-extrabold ml-2 shadow-sm text-xs">
           Turmas Reduzidas • Robótica • Horário Flexível
@@ -17,46 +27,63 @@ export default function Header() {
       </div>
 
       <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md transition-all shadow-sm border-b border-slate-100">
-        <div className="mx-auto flex h-24 max-w-7xl items-center justify-between gap-4 px-5">
+        <div className="mx-auto flex h-20 sm:h-24 max-w-7xl items-center justify-between gap-4 px-5">
           {/* Logotipo Oficial da Instituição */}
-          <a href="#inicio" className="flex items-center gap-3.5 group" aria-label="Escola Borboletinha Encantada e Colégio Estrutura">
-            <div className="relative">
+          <a
+            href="#inicio"
+            className="flex items-center gap-3.5 group rounded-2xl"
+            aria-label="Escola Borboletinha Encantada e Colégio Estrutura"
+          >
+            <div className="relative shrink-0">
               <img
                 src="./logo.png"
                 alt="Escola Borboletinha Encantada e Colégio Estrutura"
-                className="h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-sm"
+                className="h-14 sm:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-sm"
               />
-              <span className="absolute -top-1 -right-1 text-sm animate-bounce">🦋</span>
+              <span className="absolute -top-1 -right-1 text-sm select-none" aria-hidden="true">
+                🦋
+              </span>
             </div>
-            <div>
-              <div className="leading-tight">
-                <span className="block font-quicksand text-xl sm:text-2xl font-black tracking-tight text-[#1E5A87] group-hover:text-[#E63946] transition-colors">
-                  Borboletinha Encantada
-                </span>
-                <span className="hidden sm:block text-[20px] font-bold text-[#6C7A89]">
-                  Colégio Estrutura
-                </span>
-              </div>
+            <div className="leading-tight">
+              <span className="block font-quicksand text-lg sm:text-2xl font-black tracking-tight text-[#1E5A87] group-hover:text-[#E63946] transition-colors">
+                Borboletinha Encantada
+              </span>
+              <span className="block text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#6C7A89]">
+                &amp; Colégio Estrutura
+              </span>
             </div>
           </a>
 
-          {/* Menu Desktop */}
-          <nav className="hidden items-center gap-6 lg:flex font-quicksand" aria-label="Navegação Principal">
-            <a href="#inicio" className="text-sm font-bold text-[#2C3E50] hover:text-[#2B90D9] transition-colors">Início</a>
-            <a href="#sobre" className="text-sm font-bold text-[#2C3E50] hover:text-[#1E5A87] transition-colors">Quem Somos</a>
-            <a href="#metodologia" className="text-sm font-bold text-[#2C3E50] hover:text-[#E63946] transition-colors">Metodologia</a>
-            <a href="#segmentos" className="text-sm font-bold text-[#2C3E50] hover:text-[#2E9A68] transition-colors">Turmas</a>
-            <a href="#diferenciais" className="text-sm font-bold text-[#2C3E50] hover:text-[#5E50A1] transition-colors">Diferenciais</a>
-            <a href="#espaco" className="text-sm font-bold text-[#2C3E50] hover:text-[#F6C343] transition-colors">Nosso Espaço</a>
-            <a href="#projetos" className="text-sm font-bold text-[#2C3E50] hover:text-[#2B90D9] transition-colors">Momentos & Projetos</a>
-            <a href="#localizacao" className="text-sm font-bold text-[#2C3E50] hover:text-[#1E5A87] transition-colors">Localização</a>
-          </nav>
+          {/* Menu Desktop + CTA */}
+          <div className="hidden items-center gap-6 xl:gap-7 lg:flex">
+            <nav className="flex items-center gap-5 xl:gap-6 font-quicksand" aria-label="Navegação Principal">
+              {navLinks.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className={`text-sm font-bold text-[#2C3E50] ${item.hover} transition-colors`}
+                >
+                  {item.label}
+                </a>
+              ))}
+            </nav>
+
+            <button
+              type="button"
+              onClick={onOpenAgendamento}
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#F6C343] to-[#f2b21d] px-5 py-3 font-quicksand text-sm font-black text-[#2C3E50] shadow-md shadow-[#F6C343]/30 hover:scale-105 active:scale-95 transition-transform"
+            >
+              <Calendar className="h-4 w-4" />
+              Agendar Visita 2027
+            </button>
+          </div>
 
           {/* Menu Mobile Toggle */}
           <button
+            type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="rounded-2xl p-2.5 text-[#2C3E50] bg-[#edf4ff] hover:bg-[#2B90D9] hover:text-white transition-colors lg:hidden"
-            aria-label="Abrir menu"
+            aria-label={mobileMenuOpen ? 'Fechar menu' : 'Abrir menu'}
             aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -70,17 +97,31 @@ export default function Header() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="bg-white px-5 py-6 shadow-lg lg:hidden border-t border-slate-100"
+              transition={{ duration: 0.22 }}
+              className="overflow-hidden bg-white px-5 py-6 shadow-lg lg:hidden border-t border-slate-100"
             >
-              <nav className="flex flex-col gap-3.5 font-quicksand font-bold">
-                <a onClick={() => setMobileMenuOpen(false)} href="#inicio" className="text-base text-[#2C3E50] hover:text-[#2B90D9]">Início</a>
-                <a onClick={() => setMobileMenuOpen(false)} href="#sobre" className="text-base text-[#2C3E50] hover:text-[#1E5A87]">Quem Somos</a>
-                <a onClick={() => setMobileMenuOpen(false)} href="#metodologia" className="text-base text-[#2C3E50] hover:text-[#E63946]">Metodologia (Vygotsky, Freire & Cury)</a>
-                <a onClick={() => setMobileMenuOpen(false)} href="#segmentos" className="text-base text-[#2C3E50] hover:text-[#2E9A68]">Turmas (Maternal 1 ao 5º Ano)</a>
-                <a onClick={() => setMobileMenuOpen(false)} href="#diferenciais" className="text-base text-[#2C3E50] hover:text-[#5E50A1]">Diferenciais & Robótica</a>
-                <a onClick={() => setMobileMenuOpen(false)} href="#espaco" className="text-base text-[#2C3E50] hover:text-[#F6C343]">Nosso Espaço & Hortinha</a>
-                <a onClick={() => setMobileMenuOpen(false)} href="#projetos" className="text-base text-[#2C3E50] hover:text-[#2B90D9]">Momentos & Balé/Capoeira</a>
-                <a onClick={() => setMobileMenuOpen(false)} href="#localizacao" className="text-base text-[#2C3E50]">Localização</a>
+              <nav className="flex flex-col gap-3.5 font-quicksand font-bold" aria-label="Navegação Mobile">
+                {navLinks.map((item) => (
+                  <a
+                    key={item.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    href={item.href}
+                    className={`text-base text-[#2C3E50] ${item.hover}`}
+                  >
+                    {item.label}
+                  </a>
+                ))}
+                <button
+                  type="button"
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    if (onOpenAgendamento) onOpenAgendamento();
+                  }}
+                  className="mt-2 flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#F6C343] to-[#f2b21d] px-6 py-4 font-quicksand text-base font-black text-[#2C3E50] shadow-md"
+                >
+                  <Calendar className="h-5 w-5" />
+                  Agendar Visita 2027
+                </button>
               </nav>
             </motion.div>
           )}
