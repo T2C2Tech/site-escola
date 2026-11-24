@@ -27,41 +27,41 @@ export default function Header({ onOpenAgendamento }) {
       </div>
 
       <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md transition-all shadow-sm border-b border-slate-100">
-        <div className="mx-auto flex h-20 sm:h-24 max-w-7xl items-center justify-between gap-4 px-5">
+        <div className="mx-auto flex h-20 sm:h-24 max-w-7xl items-center justify-between gap-3 xl:gap-4 px-4 xl:px-5">
           {/* Logotipo Oficial da Instituição */}
           <a
             href="#inicio"
-            className="flex items-center gap-3.5 group rounded-2xl"
+            className="flex shrink-0 items-center gap-2.5 xl:gap-3.5 group rounded-2xl"
             aria-label="Escola Borboletinha Encantada e Colégio Estrutura"
           >
             <div className="relative shrink-0">
               <img
                 src="./logo.png"
                 alt="Escola Borboletinha Encantada e Colégio Estrutura"
-                className="h-14 sm:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-sm"
+                className="h-12 sm:h-14 xl:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-sm"
               />
               <span className="absolute -top-1 -right-1 text-sm select-none" aria-hidden="true">
                 🦋
               </span>
             </div>
-            <div className="leading-tight">
-              <span className="block font-quicksand text-lg sm:text-2xl font-black tracking-tight text-[#1E5A87] group-hover:text-[#E63946] transition-colors">
+            <div className="leading-tight whitespace-nowrap">
+              <span className="block font-quicksand text-base sm:text-lg xl:text-xl font-black tracking-tight text-[#1E5A87] group-hover:text-[#E63946] transition-colors">
                 Borboletinha Encantada
               </span>
-              <span className="block text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#6C7A89]">
+              <span className="block text-[11px] xl:text-xs font-extrabold uppercase tracking-wider text-[#6C7A89]">
                 &amp; Colégio Estrutura
               </span>
             </div>
           </a>
 
           {/* Menu Desktop + CTA */}
-          <div className="hidden items-center gap-6 xl:gap-7 lg:flex">
-            <nav className="flex items-center gap-5 xl:gap-6 font-quicksand" aria-label="Navegação Principal">
+          <div className="hidden items-center gap-4 xl:gap-6 lg:flex shrink-0">
+            <nav className="flex items-center gap-3 xl:gap-5 font-quicksand" aria-label="Navegação Principal">
               {navLinks.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
-                  className={`text-sm font-bold text-[#2C3E50] ${item.hover} transition-colors`}
+                  className={`whitespace-nowrap text-xs xl:text-sm font-bold text-[#2C3E50] ${item.hover} transition-colors`}
                 >
                   {item.label}
                 </a>
@@ -71,10 +71,10 @@ export default function Header({ onOpenAgendamento }) {
             <button
               type="button"
               onClick={onOpenAgendamento}
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#F6C343] to-[#f2b21d] px-5 py-3 font-quicksand text-sm font-black text-[#2C3E50] shadow-md shadow-[#F6C343]/30 hover:scale-105 active:scale-95 transition-transform"
+              className="inline-flex shrink-0 whitespace-nowrap items-center gap-2 rounded-full bg-gradient-to-r from-[#F6C343] to-[#f2b21d] px-4 py-2.5 xl:px-5 xl:py-3 font-quicksand text-xs xl:text-sm font-black text-[#2C3E50] shadow-md shadow-[#F6C343]/30 hover:scale-105 active:scale-95 transition-transform"
             >
-              <Calendar className="h-4 w-4" />
-              Agendar Visita 2027
+              <Calendar className="h-4 w-4 shrink-0" />
+              <span>Agendar Visita 2027</span>
             </button>
           </div>
 
