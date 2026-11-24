@@ -123,7 +123,7 @@ export default function GaleriaEspaco() {
             </div>
           </motion.div>
 
-          {/* Card 4: Cantinho da Leitura e Biblioteca Viva */}
+          {/* Card 4: Cantinho da Leitura Viva */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -142,7 +142,7 @@ export default function GaleriaEspaco() {
                 <span className="rounded-full bg-[#F6C343] px-2.5 py-0.5 text-[10px] font-black text-[#2C3E50] uppercase tracking-wider mb-1 inline-block shadow-sm">
                   Literatura Infantil & Fantasia 📚
                 </span>
-                <p className="text-white font-quicksand font-black text-lg">Cantinho da Leitura & Biblioteca</p>
+                <p className="text-white font-quicksand font-black text-lg">Cantinho da Leitura</p>
                 <p className="text-white/80 text-xs font-medium mt-0.5 hidden sm:block">
                   Livros ao alcance das mãos, almofadas e fantoches que estimulam a imaginação desde o Maternal ao 5º Ano.
                 </p>
